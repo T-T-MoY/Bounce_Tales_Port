@@ -5,13 +5,12 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.PixmapIO;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.bouncetales.asset.LevelCatalog;
 import com.bouncetales.asset.LevelLoader;
 import com.bouncetales.asset.ResourceIndex;
 import com.bouncetales.asset.SpriteBank;
@@ -24,6 +23,7 @@ import com.bouncetales.render.LevelRenderer;
 import com.bouncetales.render.ScreenTransform;
 import com.bouncetales.render.SpriteDrawer;
 import com.bouncetales.ui.Hud;
+import com.bouncetales.util.ScreenshotCapture;
 import com.bouncetales.world.Entity;
 import com.bouncetales.world.Level;
 import com.bouncetales.world.entity.Collectible;
@@ -42,6 +42,8 @@ import com.bouncetales.world.script.TriggerVM;
  * <p>Propiedades de JVM utiles:
  * <ul>
  *   <li>{@code -Dbounce.level=bf}: nivel inicial.</li>
+ *   <li>{@code -Dbounce.menu=false}: arranca directamente sin pasar por el menu.</li>
+ *   <li>{@code -Dbounce.autocomplete=true}: completa el nivel al primer paso (pruebas).</li>
  *   <li>{@code -Dbounce.teleport=x,y}: posicion inicial de prueba para la bola.</li>
  *   <li>{@code -Dbounce.debug=true}: dibuja las aristas de colision en rojo (F1 lo alterna).</li>
  *   <li>{@code -Dbounce.trace=true}: traza posicion/velocidad cada 15 pasos.</li>
@@ -64,7 +66,13 @@ public final class GameScreen implements Screen {
     private static final String SPRITE_BANK = "sprites/sprites.json";
     private static final String RESOURCE_INDEX = "index/a";
 
+    /** Tiempo que se muestra el mensaje de nivel completado antes de avanzar. */
+    private static final float VICTORY_DELAY = 2.2f;
+
+    private final BounceTalesGame game;
     private final String levelName;
+    private final int levelIndex;
+    private final String levelLabel;
 
     private Viewport viewport;
     private OrthographicCamera camera;
@@ -91,6 +99,8 @@ public final class GameScreen implements Screen {
     private int physicsSteps;
     private int lastContacts;
     private boolean victory;
+    private float victoryTimer;
+    private boolean advanceRequested;
     private boolean dying;
     private float deathTimer;
 
@@ -107,7 +117,16 @@ public final class GameScreen implements Screen {
     private int frame;
 
     public GameScreen(String levelName) {
+        this(null, levelName);
+    }
+
+    public GameScreen(BounceTalesGame game, String levelName) {
+        this.game = game;
         this.levelName = levelName;
+        this.levelIndex = LevelCatalog.indexOf(levelName);
+        this.levelLabel = levelIndex < 0
+                ? "NIVEL " + levelName.toUpperCase()
+                : "NIVEL " + (levelIndex + 1) + "  " + levelName.toUpperCase();
     }
 
     @Override
@@ -132,6 +151,7 @@ public final class GameScreen implements Screen {
         loadResourceIndex();
 
         soundBank = new SoundBank();
+        soundBank.playMusic(LevelCatalog.musicId(levelIndex));
         levelEntities = new LevelEntities(level);
 
         transform = new ScreenTransform(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -167,15 +187,14 @@ public final class GameScreen implements Screen {
         debug = Boolean.getBoolean("bounce.debug");
         trace = Boolean.getBoolean("bounce.trace");
         auto = System.getProperty("bounce.auto");
+        if (Boolean.getBoolean("bounce.autocomplete")) {
+            vars[0] = 2;
+            Gdx.app.log("Bounce", "autocomplete activo: el nivel se completara al primer paso");
+        }
         Gdx.app.log("Bounce", "debug=" + debug + " trace=" + trace + " auto=" + auto);
 
-        screenshotPath = System.getProperty("bounce.screenshot");
-        String framesProperty = System.getProperty("bounce.frames");
-        if (framesProperty != null) {
-            screenshotFrame = Math.max(1, Integer.parseInt(framesProperty));
-        } else if (screenshotPath != null) {
-            screenshotFrame = 20;
-        }
+        screenshotPath = ScreenshotCapture.path();
+        screenshotFrame = ScreenshotCapture.frameLimit();
         if (screenshotFrame > 0) {
             Gdx.app.log("Bounce", "salida en el frame " + screenshotFrame
                     + (screenshotPath != null ? " -> " + screenshotPath : ""));
@@ -198,12 +217,26 @@ public final class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) && game != null) {
+            game.openMenu();
+            return;
+        }
+
         ScreenUtils.clear(0f, 0f, 0f, 1f);
         viewport.apply();
         camera.update();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.F1)) {
             debug = !debug;
+        }
+
+        if (victory) {
+            victoryTimer += Math.min(delta, MAX_FRAME_DELTA);
+            if (!advanceRequested && game != null && victoryTimer >= VICTORY_DELAY) {
+                advanceRequested = true;
+                game.levelCompleted(levelName);
+                return;
+            }
         }
 
         stepPhysics(Math.min(delta, MAX_FRAME_DELTA));
@@ -232,12 +265,13 @@ public final class GameScreen implements Screen {
             drawDebug();
         }
         drawDeathEffect();
-        hud.render(batch, levelEntities.collected(), levelEntities.total(), victory);
+        hud.render(batch, spriteDrawer, levelLabel,
+                levelEntities.collected(), levelEntities.total(), victory);
 
         frame++;
         if (screenshotFrame > 0 && frame >= screenshotFrame) {
             if (screenshotPath != null) {
-                captureScreenshot();
+                ScreenshotCapture.capture(screenshotPath);
             }
             screenshotFrame = -1;
             Gdx.app.exit();
@@ -321,7 +355,7 @@ public final class GameScreen implements Screen {
             physicsSteps++;
 
             if (vars[0] == 2 || levelEntities.allCollected()) {
-                victory = true;
+                triggerVictory();
             } else if (ball.y < Math.min(-500f, collisionWorld.minY() - 300f)
                     || vars[0] == 1) {
                 dying = true;
@@ -347,6 +381,20 @@ public final class GameScreen implements Screen {
         if (steps == MAX_STEPS_PER_FRAME) {
             accumulator = 0f;
         }
+    }
+
+    /** Se completa el nivel: jingle, mensaje y avance automatico tras {@link #VICTORY_DELAY}. */
+    private void triggerVictory() {
+        if (victory) {
+            return;
+        }
+        victory = true;
+        victoryTimer = 0f;
+        advanceRequested = false;
+        soundBank.stopMusic();
+        soundBank.playSound(LevelCatalog.levelCompleteJingleId());
+        Gdx.app.log("Bounce", "nivel completado: " + levelName
+                + " (" + levelEntities.collected() + "/" + levelEntities.total() + ")");
     }
 
     private void updateCamera() {
@@ -435,6 +483,8 @@ public final class GameScreen implements Screen {
         levelRenderer.setBallPosition(ball.x, ball.y);
         accumulator = 0f;
         victory = false;
+        victoryTimer = 0f;
+        advanceRequested = false;
         dying = false;
         deathTimer = 0f;
         Gdx.app.log("Bounce", "nivel reiniciado");
@@ -460,25 +510,6 @@ public final class GameScreen implements Screen {
         shapes.line(sx, sy,
                 sx + ball.normalX * radius, sy + ball.normalY * radius);
         shapes.end();
-    }
-
-    private void captureScreenshot() {
-        int w = Gdx.graphics.getBackBufferWidth();
-        int h = Gdx.graphics.getBackBufferHeight();
-        byte[] pixels = ScreenUtils.getFrameBufferPixels(0, 0, w, h, true);
-        // El juego es opaco: forzamos alfa 255 para que el PNG no se vea translucido.
-        for (int i = 3; i < pixels.length; i += 4) {
-            pixels[i] = (byte) 0xFF;
-        }
-        Pixmap pixmap = new Pixmap(w, h, Pixmap.Format.RGBA8888);
-        pixmap.getPixels().clear();
-        pixmap.getPixels().put(pixels);
-        try {
-            PixmapIO.writePNG(Gdx.files.absolute(screenshotPath), pixmap);
-            Gdx.app.log("Bounce", "captura escrita: " + screenshotPath);
-        } finally {
-            pixmap.dispose();
-        }
     }
 
     @Override

@@ -23,6 +23,12 @@ tasks.named('run') {
     if (System.getProperty('bounce.level') != null) {
         systemProperty 'bounce.level', System.getProperty('bounce.level')
     }
+    if (System.getProperty('bounce.menu') != null) {
+        systemProperty 'bounce.menu', System.getProperty('bounce.menu')
+    }
+    if (System.getProperty('bounce.autocomplete') != null) {
+        systemProperty 'bounce.autocomplete', System.getProperty('bounce.autocomplete')
+    }
     if (System.getProperty('bounce.screenshot') != null) {
         systemProperty 'bounce.screenshot', System.getProperty('bounce.screenshot')
     }

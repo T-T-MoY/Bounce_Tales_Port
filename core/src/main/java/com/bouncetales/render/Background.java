@@ -2,6 +2,9 @@ package com.bouncetales.render;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.bouncetales.asset.LevelCatalog;
+
+import java.util.List;
 
 /**
  * Fondo del nivel. El original ({@code n.a(int, int)}, rama {@code j == 4}) pinta un
@@ -16,12 +19,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
  * y hay una paleta alternativa ({@code n.c(nivel)}) de #B400BD -&gt; #FD8C13.
  */
 public final class Background {
-
-    /** Orden real de ficheros de nivel ({@code n.v}). */
-    private static final String[] LEVEL_FILES = {
-            "bf", "bg", "bh", "bi", "br", "bj", "bk", "bl", "bm", "bs",
-            "bn", "bo", "bp", "bq", "bt", "bu"
-    };
 
     private static final int[] TOP = {0x529AE6, 0x6ED5C9, 0x7610F4};
     private static final int[] BOTTOM = {0x71D5FF, 0x9FFFFF, 0x02021A};
@@ -44,9 +41,12 @@ public final class Background {
     }
 
     public static int themeForLevel(String levelName) {
-        for (int i = 0; i < LEVEL_FILES.length; i++) {
-            if (LEVEL_FILES[i].equalsIgnoreCase(levelName)) {
-                return i <= 4 ? 0 : (i <= 9 ? 1 : 2);
+        if (levelName != null) {
+            List<String> levels = LevelCatalog.levels();
+            for (int i = 0; i < levels.size(); i++) {
+                if (levels.get(i).equalsIgnoreCase(levelName)) {
+                    return i <= 4 ? 0 : (i <= 9 ? 1 : 2);
+                }
             }
         }
         return 0;
