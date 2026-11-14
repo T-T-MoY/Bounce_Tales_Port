@@ -233,6 +233,11 @@ public final class TriggerVM {
                 Entity e = level.find(s16(c, 1));
                 if (e != null) {
                     e.animationTime = 0f;
+                    if (e.decorations != null) {
+                        e.decorations.startAnimation();
+                        Gdx.app.log("Animation", "trigger " + t.entity.index
+                                + " inicia animacion de entidad " + e.index);
+                    }
                 }
                 return true;
             }
@@ -583,7 +588,11 @@ public final class TriggerVM {
             e.depth = (value & 31) - 16;
         }
         if ((mask & 32) != 0) {
-            e.solid = (value & 32) != 0;
+            boolean solid = (value & 32) != 0;
+            if (e.solid != solid) {
+                e.solid = solid;
+                level.geometryDirty = true;
+            }
         }
         if ((mask & 128) != 0) {
             e.skipBranch = (value & 128) != 0;

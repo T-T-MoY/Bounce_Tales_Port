@@ -3,12 +3,13 @@ package com.bouncetales.asset;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
-import com.bouncetales.world.BeamData;
 import com.bouncetales.world.DecorationList;
 import com.bouncetales.world.Entity;
 import com.bouncetales.world.Level;
 import com.bouncetales.world.PolygonShape;
 import com.bouncetales.world.TriggerData;
+import com.bouncetales.world.TubeData;
+import com.bouncetales.world.WaterData;
 
 /**
  * Carga un nivel desde el JSON que genera {@code tools/bounce_levels.py}.
@@ -101,9 +102,19 @@ public final class LevelLoader {
             e.triggerData = parseTrigger(trigger);
         }
 
-        JsonValue beam = v.get("beam");
-        if (beam != null) {
-            e.beamData = parseBeam(beam);
+        JsonValue water = v.get("beam");
+        if (water != null) {
+            // El exportador llama "beam" al tag 10, pero la clase original es `i`: agua.
+            e.waterData = parseWater(water);
+        }
+
+        JsonValue tube = v.get("tube");
+        if (tube == null) {
+            // Admite los niveles exportados antes de corregir el nombre del tag 11.
+            tube = v.get("checkpoint");
+        }
+        if (e.tag == Entity.TAG_TUBE && tube != null) {
+            e.tubeData = parseTube(tube);
         }
 
         e.ball = e.tag == Entity.TAG_BALL;
@@ -111,6 +122,13 @@ public final class LevelLoader {
             e.ballType = 0;
         }
         return e;
+    }
+
+    private static TubeData parseTube(JsonValue t) {
+        TubeData d = new TubeData();
+        d.targetObject = t.getInt("target_object", -1);
+        d.power = t.getInt("power", 0);
+        return d;
     }
 
     /** {@code g.a(byte[], int)}. */
@@ -144,27 +162,31 @@ public final class LevelLoader {
 
     /**
      * {@code i.a(byte[], int)}. El exportador guarda los campos en orden de lectura, asi que
-     * el segundo (x1 en el JSON) es en realidad la altura y el cuarto (y) la linea superior.
+     * el segundo (x1 en el JSON) es el fondo, el cuarto (y) la superficie y los p0..p3 son
+     * las corrientes que el original interpola dentro de la caja.
      */
-    private static BeamData parseBeam(JsonValue b) {
-        BeamData d = new BeamData();
+    private static WaterData parseWater(JsonValue b) {
+        WaterData d = new WaterData();
         d.x0 = b.getFloat("x0", 0f);
-        d.y0 = b.getFloat("x1", 0f);
+        d.bottom = b.getFloat("x1", 0f);
         d.x1 = b.getFloat("x2", 0f);
-        d.y1 = b.getFloat("y", 0f);
-        d.p0 = b.getFloat("p0", 0f);
-        d.p1 = b.getFloat("p1", 0f);
-        d.p2 = b.getFloat("p2", 0f);
-        d.p3 = b.getFloat("p3", 0f);
+        d.surface = b.getFloat("y", 0f);
+        d.currentSurfaceY = b.getFloat("p0", 0f);
+        d.currentRightX = b.getFloat("p1", 0f);
+        d.currentBottomY = b.getFloat("p2", 0f);
+        d.currentLeftX = b.getFloat("p3", 0f);
+
         JsonValue color = b.get("color");
+        int rgb = 0;
         if (color != null && color.size >= 3) {
-            d.color = 0xFF000000
-                    | ((color.get(0).asInt() & 0xFF) << 16)
+            rgb = ((color.get(0).asInt() & 0xFF) << 16)
                     | ((color.get(1).asInt() & 0xFF) << 8)
                     | (color.get(2).asInt() & 0xFF);
-        } else {
-            d.color = 0xFF00CCFF;
         }
+        // i.a(...): si el color no es negro se fuerza 0x441111EE; si es negro queda invisible.
+        d.colorArgb = rgb == 0 ? 0x44000000 : 0x441111EE;
+        // i.g == 1 cuando el canal azul del fichero vale 16: agua plana sin ondas.
+        d.solid = color != null && color.size >= 3 && (color.get(2).asInt() & 0xFF) == 16;
         return d;
     }
 

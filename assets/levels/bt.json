@@ -683,8 +683,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 60
    },
@@ -705,8 +705,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 35
    },
@@ -727,8 +727,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 45
    },
@@ -749,8 +749,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 35
    },
@@ -771,8 +771,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 35
    },
@@ -793,8 +793,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 70
    },
@@ -815,8 +815,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 111,
     "power": 40
    },

@@ -138,7 +138,7 @@ def chunk_data(files, idx):
 # ----------------------------------------------------------------------------
 TAG_NAMES = {
     4: "polygon", 5: "object", 6: "trigger", 7: "object", 8: "ball",
-    9: "decoration", 10: "beam", 11: "checkpoint", 12: "pad", 13: "goal",
+    9: "decoration", 10: "beam", 11: "tube", 12: "pad", 13: "goal",
     14: "ball_decoration", 15: "enemy",
 }
 # type ids reales (k.f98c) por clase
@@ -260,9 +260,9 @@ def read_trigger(r, e):
     return e
 
 
-def read_checkpoint(r, e):
+def read_tube(r, e):
     start = r.p
-    e["checkpoint"] = {"target_object": r.s16(), "power": r.s8()}
+    e["tube"] = {"target_object": r.s16(), "power": r.s8()}
     e["_consumed"] += r.p - start
     return e
 
@@ -289,7 +289,7 @@ DECODERS = {
     6: read_trigger,
     9: read_sprite_list,
     10: read_beam,
-    11: read_checkpoint,
+    11: read_tube,
     12: read_pad,
     15: read_enemy,
 }

@@ -48,8 +48,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 156,
     "power": 30
    },
@@ -70,8 +70,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 156,
     "power": 50
    },
@@ -98,8 +98,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 156,
     "power": 100
    },

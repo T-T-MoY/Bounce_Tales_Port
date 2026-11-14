@@ -30,12 +30,20 @@ public final class MenuScreen implements Screen {
     private static final int SCREEN_WIDTH = GameScreen.SCREEN_WIDTH;
     private static final int SCREEN_HEIGHT = GameScreen.SCREEN_HEIGHT;
 
-    private static final int VISIBLE_ROWS = 12;
+    private static final int VISIBLE_ROWS = 11;
     private static final int ROW_HEIGHT = 16;
     private static final int LIST_TOP = 78;
 
     private static final float TITLE_Y = 40f;
     private static final float SUBTITLE_Y = 60f;
+
+    /** Teclas que atiende el menu; todas pasan por {@link #handleKey(int)}. */
+    private static final int[] MENU_KEYS = {
+            Input.Keys.UP, Input.Keys.W, Input.Keys.DOWN, Input.Keys.S,
+            Input.Keys.PAGE_UP, Input.Keys.PAGE_DOWN,
+            Input.Keys.ENTER, Input.Keys.SPACE, Input.Keys.NUMPAD_ENTER,
+            Input.Keys.ESCAPE, Input.Keys.M, Input.Keys.F
+    };
 
     private final BounceTalesGame game;
     private final List<String> levels = LevelCatalog.levels();
@@ -50,6 +58,9 @@ public final class MenuScreen implements Screen {
     private boolean starting;
     /** Evita que un evento de raton/tecla del arranque de la ventana active el menu. */
     private float inputArmDelay = 0.25f;
+    /** {@code -Dbounce.menuKeys=M,F}: despacha esas teclas una vez, para pruebas. */
+    private final String scriptedKeys = System.getProperty("bounce.menuKeys");
+    private boolean scriptedDone;
 
     private Viewport viewport;
     private OrthographicCamera camera;
@@ -100,6 +111,9 @@ public final class MenuScreen implements Screen {
                 return;
             }
         }
+        if (!scriptedDone && scriptedKeys != null && inputArmDelay <= 0f) {
+            dispatchScriptedKeys();
+        }
 
         ScreenUtils.clear(0f, 0f, 0f, 1f);
         viewport.apply();
@@ -112,7 +126,7 @@ public final class MenuScreen implements Screen {
         // Banda superior e inferior para separar el menu del fondo.
         shapes.setColor(0f, 0f, 0f, 0.28f);
         shapes.rect(0, SCREEN_HEIGHT - 72, SCREEN_WIDTH, 72);
-        shapes.rect(0, 0, SCREEN_WIDTH, 40);
+        shapes.rect(0, 0, SCREEN_WIDTH, 54);
         shapes.setColor(1f, 0.83f, 0.25f, 0.85f);
         shapes.rect(20, SCREEN_HEIGHT - 73, SCREEN_WIDTH - 40, 1);
         shapes.end();
@@ -148,11 +162,12 @@ public final class MenuScreen implements Screen {
             }
         }
 
-        // Ayuda.
+        // Ayuda y opciones de audio.
         font.getData().setScale(0.4f);
         font.setColor(0.75f, 0.85f, 0.9f, 1f);
-        drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 292f);
-        drawCentered("ESC: salir", 306f);
+        drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 270f);
+        drawAudioOptions(286f);
+        drawCentered("ESC: salir", 302f);
         batch.end();
 
         frame++;
@@ -165,26 +180,10 @@ public final class MenuScreen implements Screen {
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W)) {
-            move(-1);
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)
-                || Gdx.input.isKeyJustPressed(Input.Keys.S)) {
-            move(1);
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.PAGE_UP)) {
-            move(-VISIBLE_ROWS);
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.PAGE_DOWN)) {
-            move(VISIBLE_ROWS);
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)
-                || Gdx.input.isKeyJustPressed(Input.Keys.SPACE)
-                || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_ENTER)) {
-            startSelected("teclado");
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            Gdx.app.exit();
+        for (int key : MENU_KEYS) {
+            if (Gdx.input.isKeyJustPressed(key)) {
+                handleKey(key);
+            }
         }
         if (Gdx.input.justTouched() && viewport != null) {
             pointer.set(Gdx.input.getX(), Gdx.input.getY());
@@ -202,6 +201,64 @@ public final class MenuScreen implements Screen {
                     }
                 }
             }
+        }
+    }
+
+    /** Reparte una tecla ya pulsada: navegacion, arranque y opciones de audio. */
+    private void handleKey(int keycode) {
+        switch (keycode) {
+            case Input.Keys.UP:
+            case Input.Keys.W:
+                move(-1);
+                break;
+            case Input.Keys.DOWN:
+            case Input.Keys.S:
+                move(1);
+                break;
+            case Input.Keys.PAGE_UP:
+                move(-VISIBLE_ROWS);
+                break;
+            case Input.Keys.PAGE_DOWN:
+                move(VISIBLE_ROWS);
+                break;
+            case Input.Keys.ENTER:
+            case Input.Keys.SPACE:
+            case Input.Keys.NUMPAD_ENTER:
+                startSelected("teclado");
+                break;
+            case Input.Keys.ESCAPE:
+                Gdx.app.exit();
+                break;
+            case Input.Keys.M:
+                soundBank.toggleMusicMuted();
+                break;
+            case Input.Keys.F:
+                soundBank.toggleFxMuted();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Envia una vez las teclas del sistema {@code bounce.menuKeys} (por ejemplo {@code MF} o
+     * {@code M,F}) por el mismo despachador que usa el teclado real. Sirve para verificar el
+     * muteo en entornos donde no se puede inyectar entrada al sistema operativo.
+     */
+    private void dispatchScriptedKeys() {
+        scriptedDone = true;
+        for (int i = 0; i < scriptedKeys.length(); i++) {
+            char c = Character.toUpperCase(scriptedKeys.charAt(i));
+            if (c == ',' || c == ' ') {
+                continue;
+            }
+            int key = Input.Keys.valueOf(String.valueOf(c));
+            if (key < 0) {
+                Gdx.app.log("Menu", "tecla simulada desconocida: " + c);
+                continue;
+            }
+            Gdx.app.log("Menu", "tecla simulada: " + c);
+            handleKey(key);
         }
     }
 
@@ -245,6 +302,17 @@ public final class MenuScreen implements Screen {
         layout.setText(font, text);
         font.draw(batch, layout, (SCREEN_WIDTH - layout.width) * 0.5f,
                 SCREEN_HEIGHT - topY);
+    }
+
+    /** Linea de opciones de audio; en rojo si alguna esta silenciada. */
+    private void drawAudioOptions(float topY) {
+        String music = SoundBank.isMusicMuted() ? "OFF" : "ON";
+        String fx = SoundBank.isFxMuted() ? "OFF" : "ON";
+        boolean muted = SoundBank.isMusicMuted() || SoundBank.isFxMuted();
+        font.setColor(muted ? 0.98f : 0.6f,
+                muted ? 0.55f : 0.92f,
+                muted ? 0.45f : 0.65f, 1f);
+        drawCentered("M: musica " + music + "    F: efectos " + fx, topY);
     }
 
     @Override

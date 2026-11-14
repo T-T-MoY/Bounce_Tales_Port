@@ -5,9 +5,8 @@ import com.badlogic.gdx.utils.Array;
 import com.bouncetales.physics.BallBody;
 import com.bouncetales.world.Entity;
 import com.bouncetales.world.Level;
-
 /**
- * Contenedor de las entidades interactivas de un nivel (tags 10, 12, 13 y 15).
+ * Contenedor de las entidades interactivas de un nivel (tags 10-15).
  *
  * <p>Reproduce el orden del original: primero se actualizan las entidades
  * ({@code k.d()}), despues los triggers y la colision, y por ultimo la interaccion con la
@@ -24,7 +23,8 @@ public final class LevelEntities {
     public final Array<Collectible> collectibles = new Array<>();
     public final Array<Pad> pads = new Array<>();
     public final Array<Enemy> enemies = new Array<>();
-    public final Array<Beam> beams = new Array<>();
+    public final Array<Water> waters = new Array<>();
+    public final Array<Tube> tubes = new Array<>();
 
     private final Level level;
     private final Vector2 prev = new Vector2();
@@ -48,10 +48,16 @@ public final class LevelEntities {
                     e.enemy = new Enemy(e, level);
                     enemies.add(e.enemy);
                     break;
-                case Entity.TAG_BEAM:
-                    if (e.beamData != null) {
-                        e.beam = new Beam(e);
-                        beams.add(e.beam);
+                case Entity.TAG_WATER:
+                    if (e.waterData != null) {
+                        e.water = new Water(e);
+                        waters.add(e.water);
+                    }
+                    break;
+                case Entity.TAG_TUBE:
+                    if (e.tubeData != null) {
+                        e.tube = new Tube(e);
+                        tubes.add(e.tube);
                     }
                     break;
                 default:
@@ -74,17 +80,37 @@ public final class LevelEntities {
 
     /** {@code k.d()} de cada entidad interactiva. */
     public void update(float dt, BallBody ball) {
+        for (Water water : waters) {
+            water.update(dt);
+        }
         for (Pad pad : pads) {
             pad.update(dt, ball);
         }
         for (Enemy enemy : enemies) {
             enemy.update(dt, ball);
         }
+        for (Tube tube : tubes) {
+            tube.update(dt, ball);
+        }
+    }
+
+    public void controlTube(float dt, boolean rotateLeft, boolean rotateRight, boolean fire) {
+        for (Tube tube : tubes) {
+            if (tube.isHoldingBall()) {
+                tube.control(dt, rotateLeft, rotateRight, fire);
+                return;
+            }
+        }
     }
 
     public boolean isBallHeld() {
         for (Pad pad : pads) {
             if (pad.isHoldingBall()) {
+                return true;
+            }
+        }
+        for (Tube tube : tubes) {
+            if (tube.isHoldingBall()) {
                 return true;
             }
         }
@@ -139,12 +165,22 @@ public final class LevelEntities {
             }
         }
 
-        for (Beam b : beams) {
-            if (b.entity.detached) {
+        for (Water w : waters) {
+            if (w.entity.detached) {
                 continue;
             }
-            b.entity.worldToLocal(ball.x, ball.y, cur);
-            b.apply(ball, cur.x, cur.y, dt);
+            // n.f152a: el original solo deja que un cuerpo de agua actuue por frame.
+            if (w.apply(ball, dt)) {
+                break;
+            }
+        }
+
+        if (level.ball != null) {
+            for (Tube tube : tubes) {
+                if (tube.tryCapture(ball, level.ball.index)) {
+                    break;
+                }
+            }
         }
 
         return events;
@@ -160,6 +196,9 @@ public final class LevelEntities {
         }
         for (Enemy e : enemies) {
             e.reset();
+        }
+        for (Tube tube : tubes) {
+            tube.reset();
         }
     }
 

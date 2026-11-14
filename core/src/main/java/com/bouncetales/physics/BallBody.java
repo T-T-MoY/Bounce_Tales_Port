@@ -7,6 +7,10 @@ package com.bouncetales.physics;
  * El mundo tiene <b>Y hacia arriba</b> (la gravedad es {@code -400}), al contrario que la
  * pantalla J2ME; el volteo de Y lo hace la matriz de render.
  *
+ * <p>Formas ({@code c.f34d}): 0 normal, 1 piedra ({@code c.java} la llama marmol) y 2 balon
+ * (rayada). El original cambia de forma al recoger el objeto 20 con {@code c.f()}, que avanza
+ * el indice y vuelve a 0 al pasar de 2; {@link #cycleType()} replica ese ciclo.
+ *
  * <p>El original separa tres acumuladores que aqui se conservan:
  * <ul>
  *   <li>{@link #forceX}/{@link #forceY}: fuerzas (px/s^2 * masa). Se integran como
@@ -16,26 +20,33 @@ package com.bouncetales.physics;
  *   <li>{@link #vx}/{@link #vy}: velocidad resultante, limitada a 999 px/s.</li>
  * </ul>
  *
- * <p>Constantes exactas de {@code c.java} (lineas 86-99 y 92-99):
+ * <p>Constantes exactas de {@code c.java} (lineas 87-99):
  * <pre>
  *   gravedad   = -400
- *   masa       = {1.0, 1.4, 0.5}
+ *   masa       = {1.0, 1.4, 0.5}   // normal, piedra (mas pesada), balon (mas ligero)
  *   radio      = {20, 20, 20}
- *   rebote (b) = {0.6, 0.3, 0.6}   // en realidad resistencia de rodadura (ver SegmentSolver)
+ *   rebote (b) = {0.6, 0.3, 0.6}   // resistencia de rodadura (ver SegmentSolver)
  *   friccion(c)= {0.1, 0.1, 0.1}
  *   aceleracion= {500, 350, 312.5}
- *   vel. max   = {280, 350, 150}
+ *   vel. max   = {280, 350, 150}   // el balon acelera poco: menos masa, mas control
  *   divisor aire = {1.5, 2.5, 1.2}
- *   salto (h)  = {288, 255, 162.5}
+ *   salto (h)  = {288, 255, 162.5} // la piedra salta menos; el balon aun menos
  *   cos(55)    = 0.573576...       // d[t]
  * </pre>
  */
 public final class BallBody {
 
+    /** {@code c.f34d == 0}: bola normal. */
+    public static final int TYPE_NORMAL = 0;
+    /** {@code c.f34d == 1}: piedra/marmol, mas masa y menos salto. */
+    public static final int TYPE_STONE = 1;
+    /** {@code c.f34d == 2}: balon, menos masa y menos salto pero mas control. */
+    public static final int TYPE_BEACH = 2;
+
     /** {@code c.m}. */
     public static final float GRAVITY = -400f;
 
-    /** {@code c.f4a}: masa por tipo de bola (normal / marmol / rayada). */
+    /** {@code c.f4a}: masa por tipo de bola (normal / piedra / balon). */
     public static final float[] MASS = {1.0f, 1.4f, 0.5f};
 
     /** {@code c.f3a}: radio por tipo de bola. */
@@ -68,8 +79,31 @@ public final class BallBody {
     /** {@code c.f33o}: suavizado de la velocidad usada para el balanceo visual. */
     public static final float VISUAL_SMOOTHING = 0.5f;
 
-    /** Tipo de bola: 0 normal, 1 marmol, 2 rayada ({@code c.f34d}). */
+    /** {@code c.f6b}: tiempo quieto (ms) antes de que la bola parpadee. */
+    public static final float FACE_IDLE_DELAY = 3f;
+
+    /** Umbral de velocidad de {@code c.d()}: por debajo se considera quieta. */
+    public static final float FACE_IDLE_SPEED = 40f;
+
+    /** Duracion del parpadeo / animacion corta ({@code s = 600} ms). */
+    public static final float FACE_BLINK_TIME = 0.6f;
+
+    /** Duracion de las caras aleatorias ({@code s = 1500} ms). */
+    public static final float FACE_EXPRESSION_TIME = 1.5f;
+
+    /** Tipo de bola: 0 normal, 1 piedra, 2 balon ({@code c.f34d}). */
     public int type;
+
+    /** {@code c.f7c}: cara de reposo (0 ninguna, 2 parpadeo, 3..8 expresiones). */
+    public int faceState;
+
+    /** {@code c.s}: tiempo restante de la cara actual, en segundos. */
+    public float faceTimer;
+
+    /** {@code c.f6b}: cuenta atras hasta el siguiente parpadeo, en segundos. */
+    public float idleTimer = FACE_IDLE_DELAY;
+
+    private final java.util.Random faceRandom = new java.util.Random();
 
     /** Posicion actual del centro en mundo. */
     public float x;
@@ -96,6 +130,12 @@ public final class BallBody {
     /** {@code c.f37d}: hubo contacto en el ultimo frame. */
     public boolean onGround;
 
+    /** La bola esta dentro de un cuerpo de agua visible. */
+    public boolean inWater;
+
+    /** La bola ha tocado agua o una corriente, incluso si es invisible. */
+    public boolean touchedWater;
+
     /** {@code c.f35p}: tiempo sin contacto; a los 0.25 s se pierde {@link #onGround}. */
     public float contactTimer = 1f;
 
@@ -115,7 +155,17 @@ public final class BallBody {
     }
 
     public BallBody(int type) {
-        this.type = Math.max(0, Math.min(MASS.length - 1, type));
+        setType(type);
+    }
+
+    /** Cambia de forma conservando posicion y velocidad, como {@code c.f()}. */
+    public void setType(int type) {
+        this.type = Math.max(TYPE_NORMAL, Math.min(MASS.length - 1, type));
+    }
+
+    /** {@code c.f()}: normal -&gt; piedra -&gt; balon -&gt; normal. */
+    public void cycleType() {
+        setType(type >= TYPE_BEACH ? TYPE_NORMAL : type + 1);
     }
 
     public float mass() {
@@ -150,9 +200,14 @@ public final class BallBody {
         this.visualVy = 0f;
         this.angle = 0f;
         this.onGround = false;
+        this.inWater = false;
+        this.touchedWater = false;
         this.contactTimer = 1f;
         this.normalX = 0f;
         this.normalY = 1f;
+        this.faceState = 0;
+        this.faceTimer = 0f;
+        this.idleTimer = FACE_IDLE_DELAY;
     }
 
     /**
@@ -162,6 +217,8 @@ public final class BallBody {
     public void beginStep() {
         prevX = x;
         prevY = y;
+        inWater = false;
+        touchedWater = false;
         forceX += 0f * mass();
         forceY += GRAVITY * mass();
     }
@@ -260,6 +317,46 @@ public final class BallBody {
         contactTimer += dt;
         if (contactTimer > 0.25f) {
             onGround = false;
+        }
+    }
+
+    /**
+     * Animacion de reposo de {@code c.d()} (lineas 335-368).
+     *
+     * <p>Si no hay entrada y la velocidad es menor que 40, {@code f6b} cuenta los 3 s de
+     * espera. Al agotarse se activa {@code f7c = 2} (parpadeo de 600 ms); cuando termina se
+     * elige una expresion aleatoria 3..8, con 600 ms para la 3 y 1500 ms para el resto.
+     * Cualquier movimiento o tecla vuelve a {@code f7c = 0} y reinicia la espera.
+     */
+    public void updateFace(float dt, boolean inputActive) {
+        boolean moving = Math.abs(vx) >= FACE_IDLE_SPEED
+                || Math.abs(vy) >= FACE_IDLE_SPEED;
+        if (inputActive || moving) {
+            faceState = 0;
+            faceTimer = 0f;
+            idleTimer = FACE_IDLE_DELAY;
+            return;
+        }
+        if (faceTimer > 0f) {
+            faceTimer -= dt;
+            if (faceTimer <= 0f) {
+                if (faceState < 2 || faceState > 8) {
+                    faceState = 0;
+                    faceTimer = 0f;
+                    idleTimer = FACE_IDLE_DELAY;
+                } else {
+                    int next = faceRandom.nextInt(3) == 0 ? 3 : 3 + faceRandom.nextInt(6);
+                    faceState = next;
+                    faceTimer = next == 3 ? FACE_BLINK_TIME : FACE_EXPRESSION_TIME;
+                }
+            }
+            return;
+        }
+        idleTimer -= dt;
+        if (idleTimer <= 0f) {
+            faceState = 2;
+            faceTimer = FACE_BLINK_TIME;
+            idleTimer = FACE_IDLE_DELAY;
         }
     }
 

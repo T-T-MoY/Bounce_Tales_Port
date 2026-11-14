@@ -118,8 +118,13 @@ public final class LevelCatalog {
         return 28;
     }
 
-    /** Jingle de nivel completado (cargador 33, {@code bb.mid}). */
+    /** Jingle de nivel completado (cargador 34, {@code bc.mid}; {@code n.java} linea 1377). */
     public static int levelCompleteJingleId() {
+        return 34;
+    }
+
+    /** Sonido de muerte (cargador 33, {@code bb.mid}; {@code n.java} linea 1372). */
+    public static int deathSoundId() {
         return 33;
     }
 

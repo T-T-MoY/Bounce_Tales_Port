@@ -3,7 +3,6 @@ package com.bouncetales;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -69,6 +68,18 @@ public final class GameScreen implements Screen {
     /** Tiempo que se muestra el mensaje de nivel completado antes de avanzar. */
     private static final float VICTORY_DELAY = 2.2f;
 
+    /** {@code n.f129c = 3000}: duracion total de la animacion de muerte. */
+    private static final float DEATH_TOTAL_TIME = 3f;
+
+    /** Primer segundo de muerte: la bola oscila con la tabla {@code n.f151b}. */
+    private static final float DEATH_BOUNCE_TIME = 1f;
+
+    /** Caida posterior: {@code 22500 / 65536} px por ms (343 px/s). */
+    private static final float DEATH_FALL_PER_MS = 22500f / 65536f;
+
+    /** Tabla senoidal de {@code n.m30a()} ({@code f151b}); se usa como {@code valor/4} px. */
+    private static final short[] DEATH_SINE = buildDeathSine();
+
     private final BounceTalesGame game;
     private final String levelName;
     private final int levelIndex;
@@ -103,6 +114,9 @@ public final class GameScreen implements Screen {
     private boolean advanceRequested;
     private boolean dying;
     private float deathTimer;
+    private float deathBaseY;
+    private int lastFaceState;
+    private boolean faceForced;
 
     private boolean debug;
     private boolean trace;
@@ -172,6 +186,7 @@ public final class GameScreen implements Screen {
             float drop = Float.parseFloat(System.getProperty("bounce.drop", "0"));
             ball.setPosition(level.ball.worldX(), level.ball.worldY() + drop);
             applyTeleport(ball);
+            applyInitialShape();
             levelRenderer.setBallPosition(ball.x, ball.y);
         }
         collisionWorld = new CollisionWorld(level);
@@ -201,6 +216,10 @@ public final class GameScreen implements Screen {
         }
 
         viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+
+        if (Boolean.getBoolean("bounce.die") && ball != null) {
+            beginDeath();
+        }
     }
 
     /** Se carga solo como comprobacion del parser binario (no se usa aun para renderizar). */
@@ -230,6 +249,11 @@ public final class GameScreen implements Screen {
             debug = !debug;
         }
 
+        if (!dying && !victory) {
+            handleShapeInput();
+        }
+        updateBallFace(delta);
+
         if (victory) {
             victoryTimer += Math.min(delta, MAX_FRAME_DELTA);
             if (!advanceRequested && game != null && victoryTimer >= VICTORY_DELAY) {
@@ -243,12 +267,15 @@ public final class GameScreen implements Screen {
         levelRenderer.addTime(Math.min(delta, MAX_FRAME_DELTA));
         if (dying) {
             deathTimer += Math.min(delta, MAX_FRAME_DELTA);
-            if (deathTimer >= 1f) {
+            if (deathTimer >= DEATH_TOTAL_TIME) {
                 resetLevel();
             }
         }
         if (ball != null) {
-            levelRenderer.setBallPosition(ball.x, ball.y);
+            levelRenderer.setBallPosition(ball.x, dying ? deathBallY() : ball.y);
+            levelRenderer.setBallInWater(ball.inWater);
+            levelRenderer.setBallState(ball.type, ball.angle, ball.faceState,
+                    ball.faceTimer, dying);
         }
 
         batch.setProjectionMatrix(camera.combined);
@@ -264,7 +291,6 @@ public final class GameScreen implements Screen {
         if (debug) {
             drawDebug();
         }
-        drawDeathEffect();
         hud.render(batch, spriteDrawer, levelLabel,
                 levelEntities.collected(), levelEntities.total(), victory);
 
@@ -297,9 +323,8 @@ public final class GameScreen implements Screen {
         accumulator += frameDelta;
         int steps = 0;
         while (accumulator >= FIXED_STEP && steps < MAX_STEPS_PER_FRAME) {
-            levelEntities.update(FIXED_STEP, ball);
-            boolean ballHeld = levelEntities.isBallHeld();
-
+            boolean wasInWater = ball.inWater;
+            boolean wasTouchedWater = ball.touchedWater;
             boolean stepLeft = left;
             boolean stepRight = right;
             boolean stepJump = jump;
@@ -318,6 +343,10 @@ public final class GameScreen implements Screen {
                 }
             }
 
+            levelEntities.update(FIXED_STEP, ball);
+            levelEntities.controlTube(FIXED_STEP, stepLeft, stepRight, stepJump);
+            boolean ballHeld = levelEntities.isBallHeld();
+
             ball.beginStep();
             if (!ballHeld) {
                 if (stepLeft) {
@@ -334,8 +363,10 @@ public final class GameScreen implements Screen {
 
             triggerVM.detect();
             triggerVM.run(FIXED_STEP);
-            lastContacts = collisionWorld.resolve(ball, FIXED_STEP);
-            int events = levelEntities.interact(ball, FIXED_STEP, vars);
+            lastContacts = ballHeld ? 0 : collisionWorld.resolve(ball, FIXED_STEP);
+            ball.inWater = false;
+            ball.touchedWater = false;
+            int events = ballHeld ? 0 : levelEntities.interact(ball, FIXED_STEP, vars);
             if ((events & LevelEntities.EVENT_COLLECTED) != 0) {
                 soundBank.playSound(Collectible.SOUND);
             }
@@ -346,6 +377,24 @@ public final class GameScreen implements Screen {
             ball.updateVisual(FIXED_STEP);
             for (Entity entity : level.entities) {
                 entity.animationTime += FIXED_STEP;
+                if (entity.decorations != null) {
+                    entity.decorations.update(FIXED_STEP);
+                }
+            }
+            vars[3] = ball.type;
+            vars[4] = (int) ball.speed();
+            vars[5] = (int) ball.vx;
+            vars[6] = (int) ball.vy;
+
+            if (wasTouchedWater != ball.touchedWater) {
+                String transition = ball.touchedWater ? "entrada" : "salida";
+                boolean visibleWater = ball.touchedWater ? ball.inWater : wasInWater;
+                float netForceX = ball.forceX;
+                float netForceY = ball.forceY + BallBody.GRAVITY * ball.mass();
+                Gdx.app.log("Water", transition + " del agua"
+                        + (visibleWater ? " visible" : " / corriente invisible")
+                        + ", fuerza neta=(" + String.format("%.1f", netForceX) + ", "
+                        + String.format("%.1f", netForceY) + ")");
             }
 
             updateCamera();
@@ -358,8 +407,7 @@ public final class GameScreen implements Screen {
                 triggerVictory();
             } else if (ball.y < Math.min(-500f, collisionWorld.minY() - 300f)
                     || vars[0] == 1) {
-                dying = true;
-                deathTimer = 0f;
+                beginDeath();
             }
 
             if (trace && physicsSteps % 15 == 0) {
@@ -368,6 +416,9 @@ public final class GameScreen implements Screen {
                         + String.format("%.2f", ball.y) + ")"
                         + " v=(" + String.format("%.2f", ball.vx) + ", "
                         + String.format("%.2f", ball.vy) + ")"
+                        + " force=(" + String.format("%.1f", ball.forceX) + ", "
+                        + String.format("%.1f", ball.forceY + BallBody.GRAVITY * ball.mass())
+                        + ") water=" + ball.touchedWater
                         + " ground=" + ball.onGround
                         + " n=(" + String.format("%.2f", ball.normalX) + ", "
                         + String.format("%.2f", ball.normalY) + ")"
@@ -395,6 +446,128 @@ public final class GameScreen implements Screen {
         soundBank.playSound(LevelCatalog.levelCompleteJingleId());
         Gdx.app.log("Bounce", "nivel completado: " + levelName
                 + " (" + levelEntities.collected() + "/" + levelEntities.total() + ")");
+    }
+
+    /**
+     * Muerte de {@code n.java} (estados 1 y 3): suena el id 33, se congelan la fisica y la
+     * bola rebota durante 1 s con {@code f151b} y despues cae durante 2 s ({@code f129c}).
+     */
+    private void beginDeath() {
+        if (dying || ball == null) {
+            return;
+        }
+        dying = true;
+        deathTimer = 0f;
+        deathBaseY = ball.y;
+        ball.vx = 0f;
+        ball.vy = 0f;
+        ball.faceState = 0;
+        ball.faceTimer = 0f;
+        soundBank.playSound(LevelCatalog.deathSoundId());
+        Gdx.app.log("Bounce", "muerte: rebote y caida (" + DEATH_TOTAL_TIME + " s)");
+    }
+
+    /** {@code c.e()}: posicion Y de la bola durante la animacion de muerte. */
+    private float deathBallY() {
+        float ms = deathTimer * 1000f;
+        if (ms <= DEATH_BOUNCE_TIME * 1000f) {
+            int index = ((int) (ms / 5f)) % DEATH_SINE.length;
+            return deathBaseY + DEATH_SINE[index] / 4f;
+        }
+        int index = 200;
+        return deathBaseY + DEATH_SINE[index] / 4f
+                - (ms - DEATH_BOUNCE_TIME * 1000f) * DEATH_FALL_PER_MS;
+    }
+
+    /** {@code n.m30a()}: tabla senoidal de 360 valores usada por la muerte. */
+    private static short[] buildDeathSine() {
+        short[] table = new short[360];
+        int velocity = 20520;
+        int position = 0;
+        for (int i = 0; i < table.length; i++) {
+            int sample = position / 57;
+            velocity -= sample;
+            position += velocity / 57;
+            table[i] = (short) sample;
+        }
+        return table;
+    }
+
+    /** Teclas 1/2/3 para elegir forma y TAB para ciclar, como {@code c.f()}. */
+    private void handleShapeInput() {
+        if (ball == null) {
+            return;
+        }
+        int wanted = -1;
+        if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_1)
+                || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_1)) {
+            wanted = BallBody.TYPE_NORMAL;
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_2)
+                || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_2)) {
+            wanted = BallBody.TYPE_STONE;
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_3)
+                || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_3)) {
+            wanted = BallBody.TYPE_BEACH;
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.TAB)) {
+            ball.cycleType();
+            logShape();
+        } else if (wanted >= 0 && ball.type != wanted) {
+            ball.setType(wanted);
+            logShape();
+        }
+        if (wanted >= 0 || Gdx.input.isKeyJustPressed(Input.Keys.TAB)) {
+            ball.faceState = 0;
+            ball.faceTimer = 0f;
+            ball.idleTimer = BallBody.FACE_IDLE_DELAY;
+        }
+    }
+
+    private void logShape() {
+        String name = ball.type == BallBody.TYPE_STONE ? "piedra"
+                : ball.type == BallBody.TYPE_BEACH ? "balon" : "normal";
+        Gdx.app.log("Bounce", "forma de la bola: " + ball.type + " (" + name
+                + ", masa=" + ball.mass()
+                + ", salto=" + (BallBody.JUMP[ball.type] / ball.mass())
+                + ", aceleracion=" + (BallBody.ACCEL[ball.type] / ball.mass()) + ")");
+    }
+
+    /** Reposo ({@code f7c}) y aviso de cambio para poder verificar la animacion en el log. */
+    private void updateBallFace(float delta) {
+        if (ball == null || dying || victory || faceForced) {
+            return;
+        }
+        boolean input = Gdx.input.isKeyPressed(Input.Keys.LEFT)
+                || Gdx.input.isKeyPressed(Input.Keys.A)
+                || Gdx.input.isKeyPressed(Input.Keys.RIGHT)
+                || Gdx.input.isKeyPressed(Input.Keys.D)
+                || Gdx.input.isKeyPressed(Input.Keys.SPACE)
+                || Gdx.input.isKeyPressed(Input.Keys.UP);
+        ball.updateFace(Math.min(delta, MAX_FRAME_DELTA), input);
+        if (ball.faceState != lastFaceState) {
+            lastFaceState = ball.faceState;
+            if (ball.faceState != 0) {
+                Gdx.app.log("Bounce", "AFK: cara " + ball.faceState
+                        + " (" + String.format("%.2f", ball.faceTimer) + " s)");
+            }
+        }
+    }
+
+    /** {@code -Dbounce.shape=N} y {@code -Dbounce.face=N} para capturas de verificacion. */
+    private void applyInitialShape() {
+        String shape = System.getProperty("bounce.shape");
+        if (shape != null) {
+            int type = Integer.parseInt(shape);
+            ball.setType(type);
+            logShape();
+        }
+        String face = System.getProperty("bounce.face");
+        if (face != null) {
+            ball.faceState = Integer.parseInt(face);
+            ball.faceTimer = 0.45f;
+            faceForced = true;
+            Gdx.app.log("Bounce", "cara forzada: " + ball.faceState);
+        }
     }
 
     private void updateCamera() {
@@ -428,22 +601,6 @@ public final class GameScreen implements Screen {
         }
     }
 
-    private void drawDeathEffect() {
-        if (!dying || deathTimer >= 0.5f) {
-            return;
-        }
-        float progress = deathTimer / 0.5f;
-        float pulse = 0.5f + 0.5f * (float) Math.sin(deathTimer * Math.PI * 16f);
-        float alpha = (0.18f + 0.32f * pulse) * (1f - progress);
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-        shapes.begin(ShapeRenderer.ShapeType.Filled);
-        shapes.setColor(0.8f, 0f, 0f, alpha);
-        shapes.rect(0f, 0f, SCREEN_WIDTH, SCREEN_HEIGHT);
-        shapes.end();
-        Gdx.gl.glDisable(GL20.GL_BLEND);
-    }
-
     private void applyTeleport(BallBody body) {
         String teleport = System.getProperty("bounce.teleport");
         if (teleport == null) {
@@ -467,6 +624,9 @@ public final class GameScreen implements Screen {
         }
         for (Entity entity : level.entities) {
             entity.animationTime = 0f;
+            if (entity.decorations != null) {
+                entity.decorations.reset();
+            }
         }
         for (int i = 0; i < vars.length; i++) {
             vars[i] = 0;
@@ -477,6 +637,9 @@ public final class GameScreen implements Screen {
         triggerVM.snapCamera = false;
         triggerVM.resetCameraSpring = false;
         ball.setPosition(level.ball.worldX(), level.ball.worldY());
+        ball.faceState = 0;
+        ball.faceTimer = 0f;
+        ball.idleTimer = BallBody.FACE_IDLE_DELAY;
         collisionWorld.rebuild();
         level.geometryDirty = false;
         cameraSpring.snap(ball);
@@ -487,6 +650,8 @@ public final class GameScreen implements Screen {
         advanceRequested = false;
         dying = false;
         deathTimer = 0f;
+        deathBaseY = 0f;
+        lastFaceState = 0;
         Gdx.app.log("Bounce", "nivel reiniciado");
     }
 

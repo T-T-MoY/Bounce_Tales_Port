@@ -22,6 +22,13 @@ public final class SoundBank implements Disposable, TriggerVM.SoundSink {
 
     private static final float MUSIC_VOLUME = 0.55f;
 
+    /**
+     * Ajustes globales de audio. Son estaticos para que el mute elegido en el menu se
+     * conserve al entrar en un nivel (cada pantalla crea su propio {@code SoundBank}).
+     */
+    private static boolean musicMuted = Boolean.getBoolean("bounce.muteMusic");
+    private static boolean fxMuted = Boolean.getBoolean("bounce.muteFx");
+
     private final Map<Integer, Sound> sounds = new HashMap<>();
     private final Set<Integer> missingSounds = new HashSet<>();
 
@@ -32,6 +39,9 @@ public final class SoundBank implements Disposable, TriggerVM.SoundSink {
 
     @Override
     public void playSound(int id) {
+        if (fxMuted) {
+            return;
+        }
         if (missingSounds.contains(id)) {
             return;
         }
@@ -89,9 +99,10 @@ public final class SoundBank implements Disposable, TriggerVM.SoundSink {
         currentMusic = music;
         currentMusicId = id;
         music.setLooping(true);
-        music.setVolume(MUSIC_VOLUME);
+        music.setVolume(musicMuted ? 0f : MUSIC_VOLUME);
         music.play();
-        log("musica " + id + " -> sounds/" + id + ".ogg");
+        log("musica " + id + " -> sounds/" + id + ".ogg"
+                + (musicMuted ? " (silenciada)" : ""));
     }
 
     private Music loadMusic(int id) {
@@ -119,6 +130,39 @@ public final class SoundBank implements Disposable, TriggerVM.SoundSink {
 
     public boolean isMusicPlaying() {
         return currentMusic != null && currentMusic.isPlaying();
+    }
+
+    /** Silencia o recupera la musica sin detener la pista actual. */
+    public void setMusicMuted(boolean muted) {
+        musicMuted = muted;
+        if (currentMusic != null) {
+            currentMusic.setVolume(muted ? 0f : MUSIC_VOLUME);
+        }
+        log("musica " + (muted ? "silenciada" : "activada"));
+    }
+
+    public boolean toggleMusicMuted() {
+        setMusicMuted(!musicMuted);
+        return musicMuted;
+    }
+
+    /** Silencia o recupera los efectos (los ids sin fichero siguen siendo no-op). */
+    public void setFxMuted(boolean muted) {
+        fxMuted = muted;
+        log("efectos " + (muted ? "silenciados" : "activados"));
+    }
+
+    public boolean toggleFxMuted() {
+        setFxMuted(!fxMuted);
+        return fxMuted;
+    }
+
+    public static boolean isMusicMuted() {
+        return musicMuted;
+    }
+
+    public static boolean isFxMuted() {
+        return fxMuted;
     }
 
     private static void log(String message) {

@@ -50,4 +50,22 @@ tasks.named('run') {
     if (System.getProperty('bounce.teleport') != null) {
         systemProperty 'bounce.teleport', System.getProperty('bounce.teleport')
     }
+    if (System.getProperty('bounce.shape') != null) {
+        systemProperty 'bounce.shape', System.getProperty('bounce.shape')
+    }
+    if (System.getProperty('bounce.face') != null) {
+        systemProperty 'bounce.face', System.getProperty('bounce.face')
+    }
+    if (System.getProperty('bounce.die') != null) {
+        systemProperty 'bounce.die', System.getProperty('bounce.die')
+    }
+    if (System.getProperty('bounce.muteMusic') != null) {
+        systemProperty 'bounce.muteMusic', System.getProperty('bounce.muteMusic')
+    }
+    if (System.getProperty('bounce.muteFx') != null) {
+        systemProperty 'bounce.muteFx', System.getProperty('bounce.muteFx')
+    }
+    if (System.getProperty('bounce.menuKeys') != null) {
+        systemProperty 'bounce.menuKeys', System.getProperty('bounce.menuKeys')
+    }
 }

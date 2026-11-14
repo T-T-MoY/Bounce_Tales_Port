@@ -142,8 +142,8 @@
    "flag256": false,
    "tag": 11,
    "class": "l",
-   "kind": "checkpoint",
-   "checkpoint": {
+   "kind": "tube",
+   "tube": {
     "target_object": 188,
     "power": 50
    },

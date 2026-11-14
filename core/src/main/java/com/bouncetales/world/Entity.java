@@ -3,10 +3,11 @@ package com.bouncetales.world;
 import com.badlogic.gdx.math.Affine2;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.bouncetales.world.entity.Beam;
 import com.bouncetales.world.entity.Collectible;
 import com.bouncetales.world.entity.Enemy;
 import com.bouncetales.world.entity.Pad;
+import com.bouncetales.world.entity.Tube;
+import com.bouncetales.world.entity.Water;
 import com.bouncetales.world.script.Trigger;
 
 /**
@@ -26,7 +27,7 @@ public final class Entity {
     public static final int TAG_TRIGGER = 6;
     public static final int TAG_BALL = 8;
     public static final int TAG_DECORATION = 9;
-    public static final int TAG_BEAM = 10;
+    public static final int TAG_WATER = 10;
     public static final int TAG_TUBE = 11;
     public static final int TAG_PAD = 12;
     public static final int TAG_COLLECTIBLE = 13;
@@ -81,7 +82,8 @@ public final class Entity {
     public float[] enemyPath;
 
     public TriggerData triggerData;
-    public BeamData beamData;
+    public WaterData waterData;
+    public TubeData tubeData;
 
     /** Opcode 1 (animar decoracion): reinicia la animacion de la lista de sprites. */
     public float animationTime;
@@ -94,7 +96,8 @@ public final class Entity {
     public Collectible collectible;
     public Pad pad;
     public Enemy enemy;
-    public Beam beam;
+    public Water water;
+    public Tube tube;
     public Trigger trigger;
 
     public float worldX() {
