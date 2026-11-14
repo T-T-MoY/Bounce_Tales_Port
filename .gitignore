@@ -1,0 +1,9 @@
+.gradle/
+build/
+*/build/
+out/
+*.png
+!assets/images/*.png
+.idea/
+*.iml
+.DS_Store

@@ -1,0 +1,4 @@
+rootProject.name = 'bounce-tales'
+
+include 'core'
+include 'desktop'

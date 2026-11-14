@@ -1,0 +1,33 @@
+// Proyecto raiz: solo configura repositorios y Java para los subproyectos.
+//   core    -> logica del juego (independiente del backend)
+//   desktop -> lanzador LWJGL3
+plugins {
+    id 'base'
+}
+
+ext {
+    // Version de libGDX. Probado con 1.13.1 (JDK 17+).
+    gdxVersion = '1.13.1'
+}
+
+allprojects {
+    group = 'com.bouncetales'
+    version = '0.1.0'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+}

@@ -1,0 +1,8766 @@
+{
+ "source": "br",
+ "header": {
+  "raw_0_8": [
+   82,
+   76,
+   69,
+   70,
+   0,
+   1,
+   0,
+   0
+  ],
+  "object_count": 109,
+  "trigger_count": 12
+ },
+ "objects": [
+  {
+   "link_parent": -1,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 0
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 0,
+   "class": "k",
+   "kind": "desconocido",
+   "index": 0
+  },
+  {
+   "link_parent": 0,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 1037,
+    "y": 1053
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 177,
+     "max_x": 260,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      17,
+      0,
+      6,
+      0,
+      15,
+      181,
+      61,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      21,
+      1
+     ]
+    ]
+   },
+   "index": 1
+  },
+  {
+   "link_parent": 0,
+   "link_child": 1,
+   "transform": {
+    "flags": 1,
+    "x": 1010,
+    "y": 1320
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 140,
+     "max_x": 227,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      17,
+      0,
+      12,
+      0,
+      15,
+      181,
+      61,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      21,
+      1
+     ]
+    ]
+   },
+   "index": 2
+  },
+  {
+   "link_parent": 0,
+   "link_child": 2,
+   "transform": {
+    "flags": 1,
+    "x": 1003,
+    "y": 1600
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 117,
+     "max_x": 220,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      17,
+      0,
+      19,
+      0,
+      15,
+      181,
+      61,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      58,
+      152,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      21,
+      1
+     ]
+    ]
+   },
+   "index": 3
+  },
+  {
+   "link_parent": 0,
+   "link_child": 3,
+   "transform": {
+    "flags": 1,
+    "x": 27,
+    "y": 1085
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      722.0,
+      2.0
+     ],
+     [
+      495.0,
+      2.0
+     ],
+     [
+      490.0,
+      217.0
+     ],
+     [
+      483.0,
+      490.0
+     ],
+     [
+      476.0,
+      558.0
+     ],
+     [
+      466.0,
+      603.0
+     ],
+     [
+      450.0,
+      637.0
+     ],
+     [
+      426.0,
+      663.0
+     ],
+     [
+      399.0,
+      681.0
+     ],
+     [
+      332.0,
+      716.0
+     ],
+     [
+      315.0,
+      731.0
+     ],
+     [
+      314.0,
+      756.0
+     ],
+     [
+      314.0,
+      948.0
+     ],
+     [
+      273.0,
+      947.0
+     ],
+     [
+      278.0,
+      789.0
+     ],
+     [
+      257.0,
+      787.0
+     ],
+     [
+      230.0,
+      791.0
+     ],
+     [
+      49.0,
+      843.0
+     ],
+     [
+      -7.0,
+      850.0
+     ],
+     [
+      -92.0,
+      846.0
+     ],
+     [
+      -169.0,
+      836.0
+     ],
+     [
+      -243.0,
+      818.0
+     ],
+     [
+      -301.0,
+      796.0
+     ],
+     [
+      -361.0,
+      763.0
+     ],
+     [
+      -411.0,
+      723.0
+     ],
+     [
+      -456.0,
+      675.0
+     ],
+     [
+      -488.0,
+      627.0
+     ],
+     [
+      -510.0,
+      577.0
+     ],
+     [
+      -523.0,
+      525.0
+     ],
+     [
+      -533.0,
+      460.0
+     ],
+     [
+      -541.0,
+      364.0
+     ],
+     [
+      -538.0,
+      23.0
+     ],
+     [
+      -802.0,
+      24.0
+     ],
+     [
+      -802.0,
+      1264.0
+     ],
+     [
+      723.0,
+      1254.0
+     ],
+     [
+      722.0,
+      2.0
+     ]
+    ],
+    "triangles": [
+     [
+      32,
+      31,
+      30
+     ],
+     [
+      30,
+      29,
+      32
+     ],
+     [
+      32,
+      29,
+      28
+     ],
+     [
+      32,
+      28,
+      33
+     ],
+     [
+      26,
+      25,
+      33
+     ],
+     [
+      33,
+      28,
+      27
+     ],
+     [
+      33,
+      27,
+      26
+     ],
+     [
+      24,
+      23,
+      33
+     ],
+     [
+      33,
+      22,
+      21
+     ],
+     [
+      22,
+      33,
+      23
+     ],
+     [
+      24,
+      33,
+      25
+     ],
+     [
+      21,
+      20,
+      33
+     ],
+     [
+      13,
+      19,
+      18
+     ],
+     [
+      33,
+      19,
+      13
+     ],
+     [
+      20,
+      19,
+      33
+     ],
+     [
+      13,
+      18,
+      17
+     ],
+     [
+      6,
+      5,
+      34
+     ],
+     [
+      8,
+      7,
+      12
+     ],
+     [
+      6,
+      34,
+      7
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      3,
+      2,
+      0
+     ],
+     [
+      4,
+      3,
+      0
+     ],
+     [
+      4,
+      34,
+      5
+     ],
+     [
+      34,
+      4,
+      0
+     ],
+     [
+      15,
+      14,
+      13
+     ],
+     [
+      16,
+      13,
+      17
+     ],
+     [
+      13,
+      16,
+      15
+     ],
+     [
+      10,
+      9,
+      11
+     ],
+     [
+      8,
+      11,
+      9
+     ],
+     [
+      8,
+      12,
+      11
+     ],
+     [
+      12,
+      34,
+      13
+     ],
+     [
+      7,
+      34,
+      12
+     ],
+     [
+      13,
+      34,
+      33
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 4
+  },
+  {
+   "link_parent": 4,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 291,
+    "y": 993
+   },
+   "flags_m": 29,
+   "depth": 13,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      5.0,
+      2.0
+     ],
+     [
+      5.0,
+      -169.0
+     ],
+     [
+      0.0,
+      -168.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 5
+  },
+  {
+   "link_parent": 4,
+   "link_child": 5,
+   "transform": {
+    "flags": 1,
+    "x": -253,
+    "y": 563
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.0,
+      81.0
+     ],
+     [
+      22.0,
+      81.0
+     ],
+     [
+      22.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      1.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 6
+  },
+  {
+   "link_parent": 6,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 95,
+    "y": 68
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 7
+  },
+  {
+   "link_parent": 6,
+   "link_child": 7,
+   "transform": {
+    "flags": 1,
+    "x": -73,
+    "y": -89
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 8
+  },
+  {
+   "link_parent": 6,
+   "link_child": 8,
+   "transform": {
+    "flags": 1,
+    "x": 93,
+    "y": -87
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 9
+  },
+  {
+   "link_parent": 6,
+   "link_child": 9,
+   "transform": {
+    "flags": 1,
+    "x": -67,
+    "y": 58
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 10
+  },
+  {
+   "link_parent": 6,
+   "link_child": 10,
+   "transform": {
+    "flags": 1,
+    "x": -2,
+    "y": -3
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      5.0,
+      1.0
+     ],
+     [
+      5.0,
+      81.0
+     ],
+     [
+      21.0,
+      81.0
+     ],
+     [
+      21.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      1.0
+     ],
+     [
+      5.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 11
+  },
+  {
+   "link_parent": 4,
+   "link_child": 6,
+   "transform": {
+    "flags": 1,
+    "x": -111,
+    "y": 315
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.0,
+      81.0
+     ],
+     [
+      22.0,
+      81.0
+     ],
+     [
+      22.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      1.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 12
+  },
+  {
+   "link_parent": 12,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -76,
+    "y": 72
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 13
+  },
+  {
+   "link_parent": 12,
+   "link_child": 13,
+   "transform": {
+    "flags": 1,
+    "x": 101,
+    "y": -95
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 14
+  },
+  {
+   "link_parent": 12,
+   "link_child": 14,
+   "transform": {
+    "flags": 1,
+    "x": 102,
+    "y": 63
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 15
+  },
+  {
+   "link_parent": 12,
+   "link_child": 15,
+   "transform": {
+    "flags": 1,
+    "x": -71,
+    "y": -100
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 16
+  },
+  {
+   "link_parent": 12,
+   "link_child": 16,
+   "transform": {
+    "flags": 1,
+    "x": -2,
+    "y": -3
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      5.0,
+      1.0
+     ],
+     [
+      5.0,
+      81.0
+     ],
+     [
+      21.0,
+      81.0
+     ],
+     [
+      21.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      1.0
+     ],
+     [
+      5.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 17
+  },
+  {
+   "link_parent": 4,
+   "link_child": 12,
+   "transform": {
+    "flags": 1,
+    "x": -507,
+    "y": 271
+   },
+   "flags_m": 63,
+   "depth": 15,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      40.0,
+      106.0
+     ],
+     [
+      57.0,
+      123.0
+     ],
+     [
+      75.0,
+      147.0
+     ],
+     [
+      124.0,
+      224.0
+     ],
+     [
+      395.0,
+      704.0
+     ],
+     [
+      444.0,
+      778.0
+     ],
+     [
+      546.0,
+      756.0
+     ],
+     [
+      93.0,
+      -38.0
+     ],
+     [
+      19.0,
+      -247.0
+     ],
+     [
+      -104.0,
+      -247.0
+     ],
+     [
+      -56.0,
+      -144.0
+     ],
+     [
+      33.0,
+      434.0
+     ],
+     [
+      56.0,
+      561.0
+     ],
+     [
+      73.0,
+      621.0
+     ],
+     [
+      81.0,
+      635.0
+     ],
+     [
+      88.0,
+      640.0
+     ],
+     [
+      95.0,
+      635.0
+     ],
+     [
+      99.0,
+      620.0
+     ],
+     [
+      102.0,
+      572.0
+     ],
+     [
+      42.0,
+      265.0
+     ],
+     [
+      28.0,
+      177.0
+     ],
+     [
+      24.0,
+      134.0
+     ],
+     [
+      26.0,
+      114.0
+     ],
+     [
+      33.0,
+      104.0
+     ],
+     [
+      40.0,
+      106.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      10
+     ],
+     [
+      7,
+      23,
+      10
+     ],
+     [
+      11,
+      10,
+      20
+     ],
+     [
+      23,
+      22,
+      10
+     ],
+     [
+      7,
+      0,
+      23
+     ],
+     [
+      0,
+      7,
+      1
+     ],
+     [
+      21,
+      10,
+      22
+     ],
+     [
+      11,
+      20,
+      19
+     ],
+     [
+      20,
+      10,
+      21
+     ],
+     [
+      11,
+      18,
+      12
+     ],
+     [
+      7,
+      10,
+      8
+     ],
+     [
+      13,
+      12,
+      18
+     ],
+     [
+      7,
+      2,
+      1
+     ],
+     [
+      3,
+      2,
+      7
+     ],
+     [
+      18,
+      17,
+      13
+     ],
+     [
+      11,
+      19,
+      18
+     ],
+     [
+      7,
+      6,
+      3
+     ],
+     [
+      13,
+      17,
+      14
+     ],
+     [
+      14,
+      16,
+      15
+     ],
+     [
+      16,
+      14,
+      17
+     ],
+     [
+      4,
+      6,
+      5
+     ],
+     [
+      6,
+      4,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     49,
+     67
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 18
+  },
+  {
+   "link_parent": 4,
+   "link_child": 18,
+   "transform": {
+    "flags": 1,
+    "x": 39,
+    "y": 554
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.0,
+      81.0
+     ],
+     [
+      22.0,
+      81.0
+     ],
+     [
+      22.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -23.0
+     ],
+     [
+      22.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -102.0
+     ],
+     [
+      0.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      -23.0
+     ],
+     [
+      -75.0,
+      1.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 19
+  },
+  {
+   "link_parent": 19,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -76,
+    "y": -91
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 20
+  },
+  {
+   "link_parent": 19,
+   "link_child": 20,
+   "transform": {
+    "flags": 1,
+    "x": 93,
+    "y": -96
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 21
+  },
+  {
+   "link_parent": 19,
+   "link_child": 21,
+   "transform": {
+    "flags": 1,
+    "x": 91,
+    "y": 71
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 22
+  },
+  {
+   "link_parent": 19,
+   "link_child": 22,
+   "transform": {
+    "flags": 1,
+    "x": -71,
+    "y": 63
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 23
+  },
+  {
+   "link_parent": 19,
+   "link_child": 23,
+   "transform": {
+    "flags": 1,
+    "x": -2,
+    "y": -3
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      5.0,
+      1.0
+     ],
+     [
+      5.0,
+      81.0
+     ],
+     [
+      21.0,
+      81.0
+     ],
+     [
+      21.0,
+      1.0
+     ],
+     [
+      104.0,
+      1.0
+     ],
+     [
+      104.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -17.0
+     ],
+     [
+      21.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -96.0
+     ],
+     [
+      5.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      -17.0
+     ],
+     [
+      -70.0,
+      1.0
+     ],
+     [
+      5.0,
+      1.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      0
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      9,
+      6,
+      0
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      6,
+      3,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 24
+  },
+  {
+   "link_parent": 4,
+   "link_child": 19,
+   "transform": {
+    "flags": 1,
+    "x": -241,
+    "y": 856
+   },
+   "flags_m": 62,
+   "depth": 14,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -8.0,
+      120.0
+     ],
+     [
+      41.0,
+      -239.0
+     ],
+     [
+      53.0,
+      -297.0
+     ],
+     [
+      59.0,
+      -310.0
+     ],
+     [
+      63.0,
+      -312.0
+     ],
+     [
+      70.0,
+      -301.0
+     ],
+     [
+      76.0,
+      -282.0
+     ],
+     [
+      88.0,
+      -216.0
+     ],
+     [
+      140.0,
+      163.0
+     ],
+     [
+      167.0,
+      153.0
+     ],
+     [
+      77.0,
+      -378.0
+     ],
+     [
+      60.0,
+      -849.0
+     ],
+     [
+      21.0,
+      -855.0
+     ],
+     [
+      15.0,
+      -736.0
+     ],
+     [
+      1.0,
+      -698.0
+     ],
+     [
+      -14.0,
+      -671.0
+     ],
+     [
+      -30.0,
+      -652.0
+     ],
+     [
+      -46.0,
+      -643.0
+     ],
+     [
+      -63.0,
+      -641.0
+     ],
+     [
+      -83.0,
+      -644.0
+     ],
+     [
+      -173.0,
+      -671.0
+     ],
+     [
+      -186.0,
+      -667.0
+     ],
+     [
+      -191.0,
+      -659.0
+     ],
+     [
+      -188.0,
+      -649.0
+     ],
+     [
+      -178.0,
+      -642.0
+     ],
+     [
+      -52.0,
+      -625.0
+     ],
+     [
+      -40.0,
+      -625.0
+     ],
+     [
+      -27.0,
+      -629.0
+     ],
+     [
+      -27.0,
+      -611.0
+     ],
+     [
+      -70.0,
+      -422.0
+     ],
+     [
+      -66.0,
+      -413.0
+     ],
+     [
+      -57.0,
+      -419.0
+     ],
+     [
+      -43.0,
+      -440.0
+     ],
+     [
+      -32.0,
+      -464.0
+     ],
+     [
+      8.0,
+      -627.0
+     ],
+     [
+      19.0,
+      -654.0
+     ],
+     [
+      31.0,
+      -474.0
+     ],
+     [
+      38.0,
+      -383.0
+     ],
+     [
+      -32.0,
+      72.0
+     ],
+     [
+      -8.0,
+      120.0
+     ]
+    ],
+    "triangles": [
+     [
+      22,
+      21,
+      23
+     ],
+     [
+      20,
+      24,
+      23
+     ],
+     [
+      23,
+      21,
+      20
+     ],
+     [
+      18,
+      17,
+      25
+     ],
+     [
+      24,
+      19,
+      25
+     ],
+     [
+      16,
+      27,
+      17
+     ],
+     [
+      20,
+      19,
+      24
+     ],
+     [
+      25,
+      19,
+      18
+     ],
+     [
+      29,
+      33,
+      32
+     ],
+     [
+      29,
+      31,
+      30
+     ],
+     [
+      31,
+      29,
+      32
+     ],
+     [
+      26,
+      25,
+      17
+     ],
+     [
+      28,
+      33,
+      29
+     ],
+     [
+      33,
+      28,
+      34
+     ],
+     [
+      27,
+      34,
+      28
+     ],
+     [
+      17,
+      27,
+      26
+     ],
+     [
+      16,
+      34,
+      27
+     ],
+     [
+      14,
+      13,
+      35
+     ],
+     [
+      15,
+      35,
+      34
+     ],
+     [
+      35,
+      15,
+      14
+     ],
+     [
+      13,
+      11,
+      35
+     ],
+     [
+      10,
+      35,
+      11
+     ],
+     [
+      36,
+      10,
+      37
+     ],
+     [
+      36,
+      35,
+      10
+     ],
+     [
+      37,
+      10,
+      4
+     ],
+     [
+      11,
+      13,
+      12
+     ],
+     [
+      1,
+      37,
+      2
+     ],
+     [
+      4,
+      3,
+      37
+     ],
+     [
+      37,
+      1,
+      38
+     ],
+     [
+      8,
+      7,
+      9
+     ],
+     [
+      3,
+      2,
+      37
+     ],
+     [
+      6,
+      5,
+      10
+     ],
+     [
+      1,
+      0,
+      38
+     ],
+     [
+      7,
+      6,
+      10
+     ],
+     [
+      10,
+      9,
+      7
+     ],
+     [
+      4,
+      10,
+      5
+     ],
+     [
+      34,
+      16,
+      15
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     79,
+     97
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 25
+  },
+  {
+   "link_parent": 4,
+   "link_child": 25,
+   "transform": {
+    "flags": 1,
+    "x": 357,
+    "y": 598
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 382
+    }
+   ],
+   "index": 26
+  },
+  {
+   "link_parent": 4,
+   "link_child": 26,
+   "transform": {
+    "flags": 1,
+    "x": 277,
+    "y": 835
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      30.0,
+      -4.0
+     ],
+     [
+      36.0,
+      -201.0
+     ],
+     [
+      -6.0,
+      -201.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     55,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 27
+  },
+  {
+   "link_parent": 27,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 19,
+    "y": -204
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 345
+    }
+   ],
+   "index": 28
+  },
+  {
+   "link_parent": 4,
+   "link_child": 27,
+   "transform": {
+    "flags": 5,
+    "x": 20,
+    "y": 748,
+    "scale_x": 1.44085693359375,
+    "scale_y": 1.5692291259765625
+   },
+   "flags_m": 61,
+   "depth": 13,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -10.0,
+      71.0
+     ],
+     [
+      52.0,
+      -147.0
+     ],
+     [
+      69.0,
+      -182.0
+     ],
+     [
+      77.0,
+      -187.0
+     ],
+     [
+      82.0,
+      -186.0
+     ],
+     [
+      91.0,
+      -175.0
+     ],
+     [
+      99.0,
+      -158.0
+     ],
+     [
+      117.0,
+      -105.0
+     ],
+     [
+      191.0,
+      185.0
+     ],
+     [
+      226.0,
+      179.0
+     ],
+     [
+      100.0,
+      -225.0
+     ],
+     [
+      80.0,
+      -477.0
+     ],
+     [
+      9.0,
+      -475.0
+     ],
+     [
+      49.0,
+      -228.0
+     ],
+     [
+      -52.0,
+      73.0
+     ],
+     [
+      -10.0,
+      71.0
+     ]
+    ],
+    "triangles": [
+     [
+      13,
+      10,
+      3
+     ],
+     [
+      11,
+      13,
+      12
+     ],
+     [
+      13,
+      3,
+      2
+     ],
+     [
+      0,
+      14,
+      1
+     ],
+     [
+      2,
+      1,
+      13
+     ],
+     [
+      14,
+      13,
+      1
+     ],
+     [
+      10,
+      13,
+      11
+     ],
+     [
+      3,
+      10,
+      4
+     ],
+     [
+      5,
+      10,
+      6
+     ],
+     [
+      10,
+      5,
+      4
+     ],
+     [
+      6,
+      10,
+      7
+     ],
+     [
+      9,
+      8,
+      7
+     ],
+     [
+      10,
+      9,
+      7
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     101,
+     98
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 29
+  },
+  {
+   "link_parent": 4,
+   "link_child": 29,
+   "transform": {
+    "flags": 1,
+    "x": -180,
+    "y": 1072
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      31.0,
+      -277.0
+     ],
+     [
+      30.0,
+      -165.0
+     ],
+     [
+      66.0,
+      -170.0
+     ],
+     [
+      65.0,
+      -277.0
+     ],
+     [
+      58.0,
+      -287.0
+     ],
+     [
+      47.0,
+      -291.0
+     ],
+     [
+      37.0,
+      -287.0
+     ],
+     [
+      31.0,
+      -277.0
+     ]
+    ],
+    "triangles": [
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      4,
+      0,
+      6
+     ],
+     [
+      4,
+      3,
+      0
+     ],
+     [
+      2,
+      0,
+      3
+     ],
+     [
+      6,
+      5,
+      4
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 30
+  },
+  {
+   "link_parent": 4,
+   "link_child": 30,
+   "transform": {
+    "flags": 1,
+    "x": -307,
+    "y": 753
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 31
+  },
+  {
+   "link_parent": 4,
+   "link_child": 31,
+   "transform": {
+    "flags": 1,
+    "x": -13,
+    "y": 817
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 32
+  },
+  {
+   "link_parent": 4,
+   "link_child": 32,
+   "transform": {
+    "flags": 1,
+    "x": 443,
+    "y": 525
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 33
+  },
+  {
+   "link_parent": 0,
+   "link_child": 4,
+   "transform": {
+    "flags": 1,
+    "x": 27,
+    "y": 1085
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      722.0,
+      -1250.0
+     ],
+     [
+      494.0,
+      -1254.0
+     ],
+     [
+      495.0,
+      2.0
+     ],
+     [
+      722.0,
+      2.0
+     ],
+     [
+      722.0,
+      -1250.0
+     ]
+    ],
+    "triangles": [
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      0,
+      3,
+      2
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 34
+  },
+  {
+   "link_parent": 34,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -155,
+    "y": 40
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 253
+    },
+    {
+     "x": 27,
+     "y": 1,
+     "sprite": 256
+    },
+    {
+     "x": 33,
+     "y": 1,
+     "sprite": 266
+    }
+   ],
+   "index": 35
+  },
+  {
+   "link_parent": 34,
+   "link_child": 35,
+   "transform": {
+    "flags": 1,
+    "x": -141,
+    "y": 74
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 36
+  },
+  {
+   "link_parent": 34,
+   "link_child": 36,
+   "transform": {
+    "flags": 1,
+    "x": -135,
+    "y": 37
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 61
+    }
+   ],
+   "index": 37
+  },
+  {
+   "link_parent": 34,
+   "link_child": 37,
+   "transform": {
+    "flags": 1,
+    "x": 276,
+    "y": 106
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -154.0,
+      -44.0
+     ],
+     [
+      15.0,
+      6.0
+     ],
+     [
+      17.0,
+      -19.0
+     ],
+     [
+      -146.0,
+      -71.0
+     ],
+     [
+      -154.0,
+      -44.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 38
+  },
+  {
+   "link_parent": 38,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -19,
+    "y": -10
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -131.0,
+      -36.0
+     ],
+     [
+      15.0,
+      6.0
+     ],
+     [
+      15.0,
+      -11.0
+     ],
+     [
+      -125.0,
+      -56.0
+     ],
+     [
+      -131.0,
+      -36.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 39
+  },
+  {
+   "link_parent": 34,
+   "link_child": 38,
+   "transform": {
+    "flags": 1,
+    "x": -382,
+    "y": 49
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -11.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -222.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 40
+  },
+  {
+   "link_parent": 34,
+   "link_child": 40,
+   "transform": {
+    "flags": 1,
+    "x": -560,
+    "y": 134
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -3.0,
+      13.0
+     ],
+     [
+      169.0,
+      -64.0
+     ],
+     [
+      157.0,
+      -89.0
+     ],
+     [
+      -19.0,
+      -10.0
+     ],
+     [
+      -3.0,
+      13.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 41
+  },
+  {
+   "link_parent": 41,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 24,
+    "y": -16
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -11.0,
+      17.0
+     ],
+     [
+      140.0,
+      -50.0
+     ],
+     [
+      131.0,
+      -67.0
+     ],
+     [
+      -11.0,
+      -2.0
+     ],
+     [
+      -11.0,
+      17.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 42
+  },
+  {
+   "link_parent": 34,
+   "link_child": 41,
+   "transform": {
+    "flags": 1,
+    "x": 558,
+    "y": 355
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 10,
+   "class": "i",
+   "kind": "beam",
+   "beam": {
+    "x0": -156,
+    "x1": -883,
+    "x2": -53,
+    "y": -94,
+    "p0": 20,
+    "p1": 0,
+    "p2": 20,
+    "p3": 0,
+    "_skip": 255,
+    "color": [
+     0,
+     0,
+     0
+    ]
+   },
+   "index": 43
+  },
+  {
+   "link_parent": 34,
+   "link_child": 43,
+   "transform": {
+    "flags": 1,
+    "x": -360,
+    "y": -622
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 44
+  },
+  {
+   "link_parent": 34,
+   "link_child": 44,
+   "transform": {
+    "flags": 1,
+    "x": -503,
+    "y": -591
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 45
+  },
+  {
+   "link_parent": 34,
+   "link_child": 45,
+   "transform": {
+    "flags": 1,
+    "x": 238,
+    "y": -552
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 46
+  },
+  {
+   "link_parent": 34,
+   "link_child": 46,
+   "transform": {
+    "flags": 1,
+    "x": 124,
+    "y": -605
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 47
+  },
+  {
+   "link_parent": 34,
+   "link_child": 47,
+   "transform": {
+    "flags": 1,
+    "x": -114,
+    "y": -628
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 48
+  },
+  {
+   "link_parent": 34,
+   "link_child": 48,
+   "transform": {
+    "flags": 1,
+    "x": 446,
+    "y": -502
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 49
+  },
+  {
+   "link_parent": 34,
+   "link_child": 49,
+   "transform": {
+    "flags": 1,
+    "x": 424,
+    "y": -962
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -14.0,
+      2.0
+     ],
+     [
+      69.0,
+      2.0
+     ],
+     [
+      69.0,
+      -454.0
+     ],
+     [
+      -14.0,
+      -453.0
+     ],
+     [
+      -14.0,
+      2.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 50
+  },
+  {
+   "link_parent": 50,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -5,
+    "y": -5
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -2.0,
+      2.0
+     ],
+     [
+      68.0,
+      2.0
+     ],
+     [
+      68.0,
+      -454.0
+     ],
+     [
+      -2.0,
+      -455.0
+     ],
+     [
+      -2.0,
+      2.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 51
+  },
+  {
+   "link_parent": 50,
+   "link_child": 51,
+   "transform": {
+    "flags": 1,
+    "x": 23,
+    "y": 1
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 384
+    }
+   ],
+   "index": 52
+  },
+  {
+   "link_parent": 34,
+   "link_child": 50,
+   "transform": {
+    "flags": 1,
+    "x": 92,
+    "y": -541
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -88.0,
+      -33.0
+     ],
+     [
+      -65.0,
+      -13.0
+     ],
+     [
+      -20.0,
+      17.0
+     ],
+     [
+      27.0,
+      43.0
+     ],
+     [
+      49.0,
+      51.0
+     ],
+     [
+      52.0,
+      46.0
+     ],
+     [
+      50.0,
+      37.0
+     ],
+     [
+      36.0,
+      5.0
+     ],
+     [
+      13.0,
+      -30.0
+     ],
+     [
+      -4.0,
+      -47.0
+     ],
+     [
+      -28.0,
+      -53.0
+     ],
+     [
+      -59.0,
+      -51.0
+     ],
+     [
+      -84.0,
+      -43.0
+     ],
+     [
+      -88.0,
+      -38.0
+     ],
+     [
+      -88.0,
+      -33.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      12,
+      11
+     ],
+     [
+      1,
+      11,
+      10
+     ],
+     [
+      13,
+      12,
+      0
+     ],
+     [
+      0,
+      12,
+      1
+     ],
+     [
+      10,
+      2,
+      1
+     ],
+     [
+      10,
+      9,
+      2
+     ],
+     [
+      8,
+      7,
+      2
+     ],
+     [
+      2,
+      7,
+      3
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      6,
+      5,
+      4
+     ],
+     [
+      3,
+      7,
+      6
+     ],
+     [
+      8,
+      2,
+      9
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 53
+  },
+  {
+   "link_parent": 34,
+   "link_child": 53,
+   "transform": {
+    "flags": 1,
+    "x": -345,
+    "y": -503
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -43.0,
+      30.0
+     ],
+     [
+      -17.0,
+      19.0
+     ],
+     [
+      26.0,
+      -9.0
+     ],
+     [
+      69.0,
+      -42.0
+     ],
+     [
+      85.0,
+      -60.0
+     ],
+     [
+      83.0,
+      -66.0
+     ],
+     [
+      76.0,
+      -72.0
+     ],
+     [
+      47.0,
+      -79.0
+     ],
+     [
+      13.0,
+      -80.0
+     ],
+     [
+      -8.0,
+      -74.0
+     ],
+     [
+      -25.0,
+      -52.0
+     ],
+     [
+      -40.0,
+      -16.0
+     ],
+     [
+      -47.0,
+      18.0
+     ],
+     [
+      -46.0,
+      27.0
+     ],
+     [
+      -43.0,
+      30.0
+     ]
+    ],
+    "triangles": [
+     [
+      2,
+      1,
+      11
+     ],
+     [
+      10,
+      2,
+      11
+     ],
+     [
+      13,
+      12,
+      0
+     ],
+     [
+      1,
+      0,
+      12
+     ],
+     [
+      12,
+      11,
+      1
+     ],
+     [
+      10,
+      9,
+      2
+     ],
+     [
+      2,
+      8,
+      7
+     ],
+     [
+      3,
+      7,
+      6
+     ],
+     [
+      2,
+      7,
+      3
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      5,
+      4,
+      6
+     ],
+     [
+      8,
+      2,
+      9
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 54
+  },
+  {
+   "link_parent": 34,
+   "link_child": 54,
+   "transform": {
+    "flags": 1,
+    "x": -38,
+    "y": -739
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      105.0,
+      33.0
+     ],
+     [
+      140.0,
+      43.0
+     ],
+     [
+      179.0,
+      61.0
+     ],
+     [
+      198.0,
+      75.0
+     ],
+     [
+      207.0,
+      89.0
+     ],
+     [
+      211.0,
+      126.0
+     ],
+     [
+      230.0,
+      320.0
+     ],
+     [
+      237.0,
+      337.0
+     ],
+     [
+      246.0,
+      340.0
+     ],
+     [
+      253.0,
+      330.0
+     ],
+     [
+      256.0,
+      311.0
+     ],
+     [
+      252.0,
+      233.0
+     ],
+     [
+      238.0,
+      106.0
+     ],
+     [
+      233.0,
+      68.0
+     ],
+     [
+      224.0,
+      55.0
+     ],
+     [
+      202.0,
+      41.0
+     ],
+     [
+      159.0,
+      24.0
+     ],
+     [
+      112.0,
+      10.0
+     ],
+     [
+      105.0,
+      33.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      17
+     ],
+     [
+      1,
+      17,
+      16
+     ],
+     [
+      2,
+      16,
+      15
+     ],
+     [
+      2,
+      1,
+      16
+     ],
+     [
+      13,
+      4,
+      3
+     ],
+     [
+      12,
+      5,
+      4
+     ],
+     [
+      2,
+      15,
+      3
+     ],
+     [
+      14,
+      3,
+      15
+     ],
+     [
+      13,
+      12,
+      4
+     ],
+     [
+      11,
+      5,
+      12
+     ],
+     [
+      5,
+      11,
+      6
+     ],
+     [
+      7,
+      6,
+      9
+     ],
+     [
+      7,
+      9,
+      8
+     ],
+     [
+      9,
+      6,
+      10
+     ],
+     [
+      6,
+      11,
+      10
+     ],
+     [
+      3,
+      14,
+      13
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 55
+  },
+  {
+   "link_parent": 34,
+   "link_child": 55,
+   "transform": {
+    "flags": 1,
+    "x": -446,
+    "y": -667
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      3.0
+     ],
+     [
+      -10.0,
+      23.0
+     ],
+     [
+      -18.0,
+      64.0
+     ],
+     [
+      -36.0,
+      183.0
+     ],
+     [
+      -41.0,
+      244.0
+     ],
+     [
+      -37.0,
+      260.0
+     ],
+     [
+      -28.0,
+      266.0
+     ],
+     [
+      -18.0,
+      259.0
+     ],
+     [
+      -10.0,
+      243.0
+     ],
+     [
+      -2.0,
+      200.0
+     ],
+     [
+      14.0,
+      71.0
+     ],
+     [
+      21.0,
+      35.0
+     ],
+     [
+      30.0,
+      21.0
+     ],
+     [
+      44.0,
+      11.0
+     ],
+     [
+      79.0,
+      -3.0
+     ],
+     [
+      154.0,
+      -35.0
+     ],
+     [
+      154.0,
+      -65.0
+     ],
+     [
+      50.0,
+      -26.0
+     ],
+     [
+      15.0,
+      -10.0
+     ],
+     [
+      0.0,
+      3.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      3,
+      10
+     ],
+     [
+      3,
+      2,
+      10
+     ],
+     [
+      11,
+      2,
+      1
+     ],
+     [
+      3,
+      9,
+      4
+     ],
+     [
+      5,
+      4,
+      7
+     ],
+     [
+      5,
+      7,
+      6
+     ],
+     [
+      7,
+      4,
+      8
+     ],
+     [
+      4,
+      9,
+      8
+     ],
+     [
+      13,
+      18,
+      17
+     ],
+     [
+      14,
+      16,
+      15
+     ],
+     [
+      16,
+      14,
+      17
+     ],
+     [
+      13,
+      17,
+      14
+     ],
+     [
+      11,
+      1,
+      0
+     ],
+     [
+      2,
+      11,
+      10
+     ],
+     [
+      12,
+      11,
+      0
+     ],
+     [
+      12,
+      0,
+      18
+     ],
+     [
+      18,
+      13,
+      12
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 56
+  },
+  {
+   "link_parent": 34,
+   "link_child": 56,
+   "transform": {
+    "flags": 1,
+    "x": 312,
+    "y": -875
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      91.0,
+      472.0
+     ],
+     [
+      88.0,
+      281.0
+     ],
+     [
+      83.0,
+      212.0
+     ],
+     [
+      70.0,
+      147.0
+     ],
+     [
+      51.0,
+      103.0
+     ],
+     [
+      33.0,
+      81.0
+     ],
+     [
+      13.0,
+      64.0
+     ],
+     [
+      -37.0,
+      37.0
+     ],
+     [
+      -100.0,
+      17.0
+     ],
+     [
+      -211.0,
+      -8.0
+     ],
+     [
+      -251.0,
+      -16.0
+     ],
+     [
+      -290.0,
+      -18.0
+     ],
+     [
+      -332.0,
+      -14.0
+     ],
+     [
+      -362.0,
+      -7.0
+     ],
+     [
+      -371.0,
+      -2.0
+     ],
+     [
+      -369.0,
+      3.0
+     ],
+     [
+      -321.0,
+      36.0
+     ],
+     [
+      -297.0,
+      47.0
+     ],
+     [
+      -175.0,
+      83.0
+     ],
+     [
+      -119.0,
+      110.0
+     ],
+     [
+      -89.0,
+      132.0
+     ],
+     [
+      -68.0,
+      154.0
+     ],
+     [
+      -50.0,
+      181.0
+     ],
+     [
+      -40.0,
+      205.0
+     ],
+     [
+      -25.0,
+      874.0
+     ],
+     [
+      94.0,
+      878.0
+     ],
+     [
+      91.0,
+      472.0
+     ]
+    ],
+    "triangles": [
+     [
+      15,
+      14,
+      13
+     ],
+     [
+      12,
+      16,
+      13
+     ],
+     [
+      17,
+      11,
+      10
+     ],
+     [
+      12,
+      11,
+      16
+     ],
+     [
+      17,
+      10,
+      9
+     ],
+     [
+      11,
+      17,
+      16
+     ],
+     [
+      16,
+      15,
+      13
+     ],
+     [
+      18,
+      8,
+      19
+     ],
+     [
+      18,
+      17,
+      9
+     ],
+     [
+      7,
+      20,
+      19
+     ],
+     [
+      19,
+      8,
+      7
+     ],
+     [
+      18,
+      9,
+      8
+     ],
+     [
+      20,
+      6,
+      21
+     ],
+     [
+      6,
+      20,
+      7
+     ],
+     [
+      21,
+      6,
+      5
+     ],
+     [
+      21,
+      4,
+      22
+     ],
+     [
+      4,
+      21,
+      5
+     ],
+     [
+      22,
+      4,
+      3
+     ],
+     [
+      22,
+      3,
+      23
+     ],
+     [
+      24,
+      23,
+      0
+     ],
+     [
+      1,
+      0,
+      23
+     ],
+     [
+      25,
+      24,
+      0
+     ],
+     [
+      23,
+      2,
+      1
+     ],
+     [
+      3,
+      2,
+      23
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 57
+  },
+  {
+   "link_parent": 34,
+   "link_child": 57,
+   "transform": {
+    "flags": 1,
+    "x": 70,
+    "y": -708
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -134.0,
+      -35.0
+     ],
+     [
+      15.0,
+      6.0
+     ],
+     [
+      22.0,
+      -16.0
+     ],
+     [
+      -127.0,
+      -57.0
+     ],
+     [
+      -134.0,
+      -35.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 58
+  },
+  {
+   "link_parent": 58,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -16,
+    "y": -8
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -114.0,
+      -29.0
+     ],
+     [
+      13.0,
+      6.0
+     ],
+     [
+      17.0,
+      -10.0
+     ],
+     [
+      -109.0,
+      -45.0
+     ],
+     [
+      -114.0,
+      -29.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 59
+  },
+  {
+   "link_parent": 58,
+   "link_child": 59,
+   "transform": {
+    "flags": 3,
+    "x": -116,
+    "y": -28,
+    "rotation": 0.2617950439453125
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -19,
+     "max_y": 6,
+     "max_x": 63,
+     "min_y": -7
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      17,
+      0,
+      58,
+      255,
+      255,
+      166,
+      164,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      17,
+      0,
+      58,
+      0,
+      0,
+      89,
+      92,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 60
+  },
+  {
+   "link_parent": 34,
+   "link_child": 58,
+   "transform": {
+    "flags": 1,
+    "x": -299,
+    "y": -700
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -10.0,
+      5.0
+     ],
+     [
+      141.0,
+      -52.0
+     ],
+     [
+      133.0,
+      -77.0
+     ],
+     [
+      -22.0,
+      -22.0
+     ],
+     [
+      -10.0,
+      5.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 61
+  },
+  {
+   "link_parent": 61,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 24,
+    "y": -13
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -10.0,
+      5.0
+     ],
+     [
+      112.0,
+      -41.0
+     ],
+     [
+      107.0,
+      -59.0
+     ],
+     [
+      -13.0,
+      -17.0
+     ],
+     [
+      -10.0,
+      5.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      1
+     ],
+     [
+      2,
+      1,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     102,
+     51,
+     0
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 62
+  },
+  {
+   "link_parent": 61,
+   "link_child": 62,
+   "transform": {
+    "flags": 3,
+    "x": 84,
+    "y": -24,
+    "rotation": -0.38397216796875
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -29,
+     "max_y": 2,
+     "max_x": 62,
+     "min_y": -20
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      17,
+      0,
+      61,
+      0,
+      0,
+      89,
+      92,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      17,
+      0,
+      61,
+      255,
+      255,
+      166,
+      164,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 63
+  },
+  {
+   "link_parent": 34,
+   "link_child": 61,
+   "transform": {
+    "flags": 1,
+    "x": -392,
+    "y": -107
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 253
+    },
+    {
+     "x": 27,
+     "y": 0,
+     "sprite": 256
+    },
+    {
+     "x": 33,
+     "y": 0,
+     "sprite": 266
+    }
+   ],
+   "index": 64
+  },
+  {
+   "link_parent": 34,
+   "link_child": 64,
+   "transform": {
+    "flags": 1,
+    "x": -267,
+    "y": -49
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 253
+    },
+    {
+     "x": 27,
+     "y": 0,
+     "sprite": 256
+    },
+    {
+     "x": 33,
+     "y": 0,
+     "sprite": 266
+    }
+   ],
+   "index": 65
+  },
+  {
+   "link_parent": 34,
+   "link_child": 65,
+   "transform": {
+    "flags": 1,
+    "x": 101,
+    "y": -114
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 253
+    },
+    {
+     "x": 27,
+     "y": 1,
+     "sprite": 256
+    },
+    {
+     "x": 33,
+     "y": 1,
+     "sprite": 266
+    }
+   ],
+   "index": 66
+  },
+  {
+   "link_parent": 34,
+   "link_child": 66,
+   "transform": {
+    "flags": 1,
+    "x": -166,
+    "y": -938
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 260
+    },
+    {
+     "x": 11,
+     "y": -5,
+     "sprite": 260
+    },
+    {
+     "x": 22,
+     "y": -11,
+     "sprite": 260
+    },
+    {
+     "x": 34,
+     "y": -15,
+     "sprite": 260
+    },
+    {
+     "x": 46,
+     "y": -21,
+     "sprite": 253
+    },
+    {
+     "x": 73,
+     "y": -19,
+     "sprite": 256
+    },
+    {
+     "x": 79,
+     "y": -19,
+     "sprite": 256
+    },
+    {
+     "x": 85,
+     "y": -19,
+     "sprite": 255
+    },
+    {
+     "x": 154,
+     "y": -20,
+     "sprite": 256
+    },
+    {
+     "x": 160,
+     "y": -20,
+     "sprite": 256
+    },
+    {
+     "x": 166,
+     "y": -21,
+     "sprite": 254
+    },
+    {
+     "x": 235,
+     "y": -21,
+     "sprite": 254
+    },
+    {
+     "x": 304,
+     "y": -21,
+     "sprite": 256
+    },
+    {
+     "x": 310,
+     "y": -22,
+     "sprite": 255
+    },
+    {
+     "x": 379,
+     "y": -22,
+     "sprite": 255
+    },
+    {
+     "x": 448,
+     "y": -22,
+     "sprite": 254
+    },
+    {
+     "x": 517,
+     "y": -22,
+     "sprite": 253
+    },
+    {
+     "x": 544,
+     "y": -22,
+     "sprite": 253
+    },
+    {
+     "x": 571,
+     "y": -23,
+     "sprite": 266
+    }
+   ],
+   "index": 67
+  },
+  {
+   "link_parent": 34,
+   "link_child": 67,
+   "transform": {
+    "flags": 1,
+    "x": -43,
+    "y": -862
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 259
+    },
+    {
+     "x": 11,
+     "y": 7,
+     "sprite": 259
+    },
+    {
+     "x": 21,
+     "y": 14,
+     "sprite": 259
+    },
+    {
+     "x": 31,
+     "y": 20,
+     "sprite": 259
+    },
+    {
+     "x": 43,
+     "y": 25,
+     "sprite": 259
+    },
+    {
+     "x": 54,
+     "y": 30,
+     "sprite": 259
+    },
+    {
+     "x": 66,
+     "y": 35,
+     "sprite": 258
+    },
+    {
+     "x": 83,
+     "y": 42,
+     "sprite": 258
+    },
+    {
+     "x": 101,
+     "y": 48,
+     "sprite": 258
+    },
+    {
+     "x": 119,
+     "y": 54,
+     "sprite": 258
+    },
+    {
+     "x": 137,
+     "y": 60,
+     "sprite": 259
+    },
+    {
+     "x": 149,
+     "y": 66,
+     "sprite": 258
+    },
+    {
+     "x": 167,
+     "y": 71,
+     "sprite": 258
+    },
+    {
+     "x": 184,
+     "y": 78,
+     "sprite": 258
+    },
+    {
+     "x": 202,
+     "y": 84,
+     "sprite": 259
+    },
+    {
+     "x": 213,
+     "y": 90,
+     "sprite": 259
+    },
+    {
+     "x": 225,
+     "y": 97,
+     "sprite": 259
+    },
+    {
+     "x": 236,
+     "y": 103,
+     "sprite": 259
+    },
+    {
+     "x": 246,
+     "y": 109,
+     "sprite": 266
+    }
+   ],
+   "index": 68
+  },
+  {
+   "link_parent": 34,
+   "link_child": 68,
+   "transform": {
+    "flags": 1,
+    "x": -504,
+    "y": -704
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 260
+    },
+    {
+     "x": 11,
+     "y": -6,
+     "sprite": 260
+    },
+    {
+     "x": 21,
+     "y": -13,
+     "sprite": 260
+    },
+    {
+     "x": 31,
+     "y": -20,
+     "sprite": 260
+    },
+    {
+     "x": 42,
+     "y": -26,
+     "sprite": 260
+    },
+    {
+     "x": 52,
+     "y": -33,
+     "sprite": 260
+    },
+    {
+     "x": 63,
+     "y": -41,
+     "sprite": 260
+    },
+    {
+     "x": 74,
+     "y": -47,
+     "sprite": 260
+    },
+    {
+     "x": 86,
+     "y": -55,
+     "sprite": 260
+    },
+    {
+     "x": 97,
+     "y": -60,
+     "sprite": 260
+    },
+    {
+     "x": 108,
+     "y": -65,
+     "sprite": 260
+    },
+    {
+     "x": 120,
+     "y": -72,
+     "sprite": 261
+    },
+    {
+     "x": 137,
+     "y": -78,
+     "sprite": 261
+    },
+    {
+     "x": 154,
+     "y": -85,
+     "sprite": 261
+    },
+    {
+     "x": 172,
+     "y": -90,
+     "sprite": 261
+    },
+    {
+     "x": 190,
+     "y": -97,
+     "sprite": 261
+    },
+    {
+     "x": 207,
+     "y": -103,
+     "sprite": 261
+    },
+    {
+     "x": 225,
+     "y": -110,
+     "sprite": 261
+    },
+    {
+     "x": 243,
+     "y": -114,
+     "sprite": 261
+    },
+    {
+     "x": 261,
+     "y": -120,
+     "sprite": 260
+    },
+    {
+     "x": 272,
+     "y": -125,
+     "sprite": 260
+    },
+    {
+     "x": 282,
+     "y": -131,
+     "sprite": 260
+    },
+    {
+     "x": 293,
+     "y": -138,
+     "sprite": 260
+    },
+    {
+     "x": 305,
+     "y": -144,
+     "sprite": 266
+    }
+   ],
+   "index": 69
+  },
+  {
+   "link_parent": 34,
+   "link_child": 69,
+   "transform": {
+    "flags": 1,
+    "x": -72,
+    "y": -923
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 10,
+   "class": "i",
+   "kind": "beam",
+   "beam": {
+    "x0": -106,
+    "x1": -53,
+    "x2": 496,
+    "y": 34,
+    "p0": 0,
+    "p1": 15,
+    "p2": 0,
+    "p3": 15,
+    "_skip": 255,
+    "color": [
+     0,
+     0,
+     0
+    ]
+   },
+   "index": 70
+  },
+  {
+   "link_parent": 34,
+   "link_child": 70,
+   "transform": {
+    "flags": 1,
+    "x": -53,
+    "y": -94
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -6.0,
+      -31.0
+     ],
+     [
+      -6.0,
+      32.0
+     ],
+     [
+      30.0,
+      32.0
+     ],
+     [
+      30.0,
+      -31.0
+     ],
+     [
+      -6.0,
+      -31.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 71
+  },
+  {
+   "link_parent": 34,
+   "link_child": 71,
+   "transform": {
+    "flags": 1,
+    "x": -146,
+    "y": 196
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -11.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -222.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 72
+  },
+  {
+   "link_parent": 34,
+   "link_child": 72,
+   "transform": {
+    "flags": 1,
+    "x": 111,
+    "y": 43
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -11.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -222.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 73
+  },
+  {
+   "link_parent": 34,
+   "link_child": 73,
+   "transform": {
+    "flags": 1,
+    "x": -257,
+    "y": 109
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -11.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -159.0
+     ],
+     [
+      25.0,
+      -222.0
+     ],
+     [
+      -11.0,
+      -222.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 74
+  },
+  {
+   "link_parent": 34,
+   "link_child": 74,
+   "transform": {
+    "flags": 1,
+    "x": -57,
+    "y": -59
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 253
+    },
+    {
+     "x": 27,
+     "y": 0,
+     "sprite": 256
+    },
+    {
+     "x": 33,
+     "y": 0,
+     "sprite": 266
+    }
+   ],
+   "index": 75
+  },
+  {
+   "link_parent": 34,
+   "link_child": 75,
+   "transform": {
+    "flags": 1,
+    "x": -416,
+    "y": -647
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 265
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 260
+    },
+    {
+     "x": 11,
+     "y": -4,
+     "sprite": 260
+    },
+    {
+     "x": 22,
+     "y": -9,
+     "sprite": 260
+    },
+    {
+     "x": 33,
+     "y": -14,
+     "sprite": 260
+    },
+    {
+     "x": 44,
+     "y": -19,
+     "sprite": 260
+    },
+    {
+     "x": 55,
+     "y": -23,
+     "sprite": 260
+    },
+    {
+     "x": 66,
+     "y": -28,
+     "sprite": 260
+    },
+    {
+     "x": 77,
+     "y": -33,
+     "sprite": 260
+    },
+    {
+     "x": 88,
+     "y": -38,
+     "sprite": 260
+    },
+    {
+     "x": 99,
+     "y": -43,
+     "sprite": 260
+    },
+    {
+     "x": 110,
+     "y": -48,
+     "sprite": 266
+    }
+   ],
+   "index": 76
+  },
+  {
+   "link_parent": 34,
+   "link_child": 76,
+   "transform": {
+    "flags": 1,
+    "x": 77,
+    "y": -705
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -2,
+     "y": 3,
+     "sprite": 265
+    },
+    {
+     "x": -2,
+     "y": 3,
+     "sprite": 259
+    },
+    {
+     "x": 10,
+     "y": 8,
+     "sprite": 259
+    },
+    {
+     "x": 21,
+     "y": 13,
+     "sprite": 259
+    },
+    {
+     "x": 32,
+     "y": 18,
+     "sprite": 259
+    },
+    {
+     "x": 43,
+     "y": 23,
+     "sprite": 259
+    },
+    {
+     "x": 54,
+     "y": 27,
+     "sprite": 259
+    },
+    {
+     "x": 65,
+     "y": 32,
+     "sprite": 259
+    },
+    {
+     "x": 76,
+     "y": 37,
+     "sprite": 266
+    }
+   ],
+   "index": 77
+  },
+  {
+   "link_parent": 34,
+   "link_child": 77,
+   "transform": {
+    "flags": 1,
+    "x": -147,
+    "y": -165
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 78
+  },
+  {
+   "link_parent": 34,
+   "link_child": 78,
+   "transform": {
+    "flags": 1,
+    "x": 118,
+    "y": -91
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 79
+  },
+  {
+   "link_parent": 34,
+   "link_child": 79,
+   "transform": {
+    "flags": 1,
+    "x": -374,
+    "y": -85
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 80
+  },
+  {
+   "link_parent": 34,
+   "link_child": 80,
+   "transform": {
+    "flags": 1,
+    "x": -48,
+    "y": -34
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 81
+  },
+  {
+   "link_parent": 34,
+   "link_child": 81,
+   "transform": {
+    "flags": 1,
+    "x": -251,
+    "y": -28
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 82
+  },
+  {
+   "link_parent": 34,
+   "link_child": 82,
+   "transform": {
+    "flags": 1,
+    "x": -109,
+    "y": -920
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 83
+  },
+  {
+   "link_parent": 34,
+   "link_child": 83,
+   "transform": {
+    "flags": 1,
+    "x": 225,
+    "y": -920
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 84
+  },
+  {
+   "link_parent": 34,
+   "link_child": 84,
+   "transform": {
+    "flags": 1,
+    "x": -383,
+    "y": -474
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": -3,
+     "sprite": 386
+    }
+   ],
+   "index": 85
+  },
+  {
+   "link_parent": 34,
+   "link_child": 85,
+   "transform": {
+    "flags": 1,
+    "x": 134,
+    "y": -486
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 2,
+     "y": -7,
+     "sprite": 385
+    }
+   ],
+   "index": 86
+  },
+  {
+   "link_parent": 34,
+   "link_child": 86,
+   "transform": {
+    "flags": 1,
+    "x": -131,
+    "y": -955
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 383
+    }
+   ],
+   "index": 87
+  },
+  {
+   "link_parent": 34,
+   "link_child": 87,
+   "transform": {
+    "flags": 1,
+    "x": 380,
+    "y": -961
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 61
+    }
+   ],
+   "index": 88
+  },
+  {
+   "link_parent": 34,
+   "link_child": 88,
+   "transform": {
+    "flags": 1,
+    "x": -474,
+    "y": -404
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 61
+    }
+   ],
+   "index": 89
+  },
+  {
+   "link_parent": 34,
+   "link_child": 89,
+   "transform": {
+    "flags": 1,
+    "x": 203,
+    "y": -409
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 61
+    }
+   ],
+   "index": 90
+  },
+  {
+   "link_parent": 34,
+   "link_child": 90,
+   "transform": {
+    "flags": 1,
+    "x": 105,
+    "y": -969
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 313
+    }
+   ],
+   "index": 91
+  },
+  {
+   "link_parent": 34,
+   "link_child": 91,
+   "transform": {
+    "flags": 1,
+    "x": -340,
+    "y": -513
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -36.0,
+      22.0
+     ],
+     [
+      -15.0,
+      13.0
+     ],
+     [
+      20.0,
+      -9.0
+     ],
+     [
+      54.0,
+      -35.0
+     ],
+     [
+      67.0,
+      -49.0
+     ],
+     [
+      65.0,
+      -54.0
+     ],
+     [
+      59.0,
+      -57.0
+     ],
+     [
+      36.0,
+      -61.0
+     ],
+     [
+      7.0,
+      -60.0
+     ],
+     [
+      -10.0,
+      -55.0
+     ],
+     [
+      -23.0,
+      -38.0
+     ],
+     [
+      -35.0,
+      -11.0
+     ],
+     [
+      -40.0,
+      13.0
+     ],
+     [
+      -36.0,
+      22.0
+     ]
+    ],
+    "triangles": [
+     [
+      2,
+      1,
+      11
+     ],
+     [
+      10,
+      2,
+      11
+     ],
+     [
+      12,
+      1,
+      0
+     ],
+     [
+      1,
+      12,
+      11
+     ],
+     [
+      10,
+      9,
+      2
+     ],
+     [
+      2,
+      8,
+      7
+     ],
+     [
+      3,
+      7,
+      6
+     ],
+     [
+      2,
+      7,
+      3
+     ],
+     [
+      4,
+      3,
+      6
+     ],
+     [
+      5,
+      4,
+      6
+     ],
+     [
+      8,
+      2,
+      9
+     ]
+    ],
+    "color_argb": [
+     255,
+     255,
+     102,
+     0
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 92
+  },
+  {
+   "link_parent": 34,
+   "link_child": 92,
+   "transform": {
+    "flags": 1,
+    "x": 86,
+    "y": -551
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -68.0,
+      -22.0
+     ],
+     [
+      -9.0,
+      20.0
+     ],
+     [
+      48.0,
+      50.0
+     ],
+     [
+      47.0,
+      39.0
+     ],
+     [
+      33.0,
+      13.0
+     ],
+     [
+      12.0,
+      -15.0
+     ],
+     [
+      -3.0,
+      -29.0
+     ],
+     [
+      -23.0,
+      -35.0
+     ],
+     [
+      -47.0,
+      -35.0
+     ],
+     [
+      -66.0,
+      -30.0
+     ],
+     [
+      -68.0,
+      -22.0
+     ]
+    ],
+    "triangles": [
+     [
+      8,
+      7,
+      1
+     ],
+     [
+      9,
+      8,
+      0
+     ],
+     [
+      0,
+      8,
+      1
+     ],
+     [
+      7,
+      6,
+      1
+     ],
+     [
+      4,
+      1,
+      5
+     ],
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      4,
+      3
+     ],
+     [
+      5,
+      1,
+      6
+     ]
+    ],
+    "color_argb": [
+     255,
+     204,
+     102,
+     0
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 93
+  },
+  {
+   "link_parent": 34,
+   "link_child": 93,
+   "transform": {
+    "flags": 1,
+    "x": -136,
+    "y": -294
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 94
+  },
+  {
+   "link_parent": 34,
+   "link_child": 94,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 0
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -545.0,
+      -624.0
+     ],
+     [
+      -534.0,
+      -661.0
+     ],
+     [
+      -522.0,
+      -685.0
+     ],
+     [
+      -504.0,
+      -709.0
+     ],
+     [
+      -488.0,
+      -724.0
+     ],
+     [
+      -446.0,
+      -750.0
+     ],
+     [
+      -351.0,
+      -791.0
+     ],
+     [
+      -313.0,
+      -809.0
+     ],
+     [
+      -229.0,
+      -831.0
+     ],
+     [
+      -206.0,
+      -843.0
+     ],
+     [
+      -198.0,
+      -852.0
+     ],
+     [
+      -191.0,
+      -865.0
+     ],
+     [
+      -183.0,
+      -915.0
+     ],
+     [
+      -173.0,
+      -933.0
+     ],
+     [
+      -150.0,
+      -951.0
+     ],
+     [
+      -117.0,
+      -961.0
+     ],
+     [
+      410.0,
+      -962.0
+     ],
+     [
+      409.0,
+      -1225.0
+     ],
+     [
+      -802.0,
+      -1216.0
+     ],
+     [
+      -802.0,
+      24.0
+     ],
+     [
+      -538.0,
+      23.0
+     ],
+     [
+      -545.0,
+      -624.0
+     ]
+    ],
+    "triangles": [
+     [
+      18,
+      3,
+      2
+     ],
+     [
+      3,
+      18,
+      4
+     ],
+     [
+      5,
+      4,
+      18
+     ],
+     [
+      6,
+      5,
+      18
+     ],
+     [
+      18,
+      7,
+      6
+     ],
+     [
+      19,
+      0,
+      20
+     ],
+     [
+      19,
+      18,
+      0
+     ],
+     [
+      2,
+      1,
+      18
+     ],
+     [
+      18,
+      1,
+      0
+     ],
+     [
+      14,
+      13,
+      18
+     ],
+     [
+      15,
+      17,
+      16
+     ],
+     [
+      15,
+      14,
+      18
+     ],
+     [
+      18,
+      17,
+      15
+     ],
+     [
+      8,
+      10,
+      9
+     ],
+     [
+      12,
+      8,
+      7
+     ],
+     [
+      8,
+      11,
+      10
+     ],
+     [
+      11,
+      8,
+      12
+     ],
+     [
+      7,
+      13,
+      12
+     ],
+     [
+      13,
+      7,
+      18
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 95
+  },
+  {
+   "link_parent": 34,
+   "link_child": 95,
+   "transform": {
+    "flags": 1,
+    "x": 312,
+    "y": -875
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -41.0,
+      1506.0
+     ],
+     [
+      3.0,
+      1505.0
+     ],
+     [
+      32.0,
+      1484.0
+     ],
+     [
+      59.0,
+      1455.0
+     ],
+     [
+      78.0,
+      1425.0
+     ],
+     [
+      88.0,
+      1394.0
+     ],
+     [
+      95.0,
+      1293.0
+     ],
+     [
+      94.0,
+      878.0
+     ],
+     [
+      -25.0,
+      874.0
+     ],
+     [
+      -41.0,
+      1506.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      6,
+      0,
+      8
+     ],
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      5,
+      0,
+      6
+     ],
+     [
+      3,
+      5,
+      4
+     ],
+     [
+      3,
+      0,
+      5
+     ],
+     [
+      6,
+      8,
+      7
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 96
+  },
+  {
+   "link_parent": 34,
+   "link_child": 96,
+   "transform": {
+    "flags": 1,
+    "x": -241,
+    "y": 856
+   },
+   "flags_m": 62,
+   "depth": 14,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      114.0,
+      -1474.0
+     ],
+     [
+      119.0,
+      -1513.0
+     ],
+     [
+      166.0,
+      -1768.0
+     ],
+     [
+      170.0,
+      -1819.0
+     ],
+     [
+      168.0,
+      -1846.0
+     ],
+     [
+      158.0,
+      -1865.0
+     ],
+     [
+      143.0,
+      -1877.0
+     ],
+     [
+      121.0,
+      -1883.0
+     ],
+     [
+      99.0,
+      -1882.0
+     ],
+     [
+      72.0,
+      -1874.0
+     ],
+     [
+      53.0,
+      -1862.0
+     ],
+     [
+      37.0,
+      -1845.0
+     ],
+     [
+      28.0,
+      -1828.0
+     ],
+     [
+      24.0,
+      -1806.0
+     ],
+     [
+      23.0,
+      -1781.0
+     ],
+     [
+      40.0,
+      -1618.0
+     ],
+     [
+      43.0,
+      -1561.0
+     ],
+     [
+      40.0,
+      -1511.0
+     ],
+     [
+      32.0,
+      -1475.0
+     ],
+     [
+      8.0,
+      -1418.0
+     ],
+     [
+      -25.0,
+      -1362.0
+     ],
+     [
+      -176.0,
+      -1148.0
+     ],
+     [
+      -187.0,
+      -1122.0
+     ],
+     [
+      -184.0,
+      -1110.0
+     ],
+     [
+      -169.0,
+      -1112.0
+     ],
+     [
+      -149.0,
+      -1126.0
+     ],
+     [
+      -84.0,
+      -1236.0
+     ],
+     [
+      -72.0,
+      -1251.0
+     ],
+     [
+      -66.0,
+      -1253.0
+     ],
+     [
+      -61.0,
+      -1240.0
+     ],
+     [
+      -60.0,
+      -1216.0
+     ],
+     [
+      -66.0,
+      -1081.0
+     ],
+     [
+      -63.0,
+      -1068.0
+     ],
+     [
+      -59.0,
+      -1067.0
+     ],
+     [
+      -51.0,
+      -1097.0
+     ],
+     [
+      -47.0,
+      -1224.0
+     ],
+     [
+      -38.0,
+      -1275.0
+     ],
+     [
+      41.0,
+      -1373.0
+     ],
+     [
+      39.0,
+      -1184.0
+     ],
+     [
+      110.0,
+      -1191.0
+     ],
+     [
+      114.0,
+      -1474.0
+     ]
+    ],
+    "triangles": [
+     [
+      28,
+      27,
+      36
+     ],
+     [
+      36,
+      35,
+      29
+     ],
+     [
+      30,
+      29,
+      35
+     ],
+     [
+      29,
+      28,
+      36
+     ],
+     [
+      27,
+      26,
+      20
+     ],
+     [
+      14,
+      13,
+      2
+     ],
+     [
+      37,
+      36,
+      20
+     ],
+     [
+      36,
+      27,
+      20
+     ],
+     [
+      21,
+      20,
+      26
+     ],
+     [
+      21,
+      25,
+      24
+     ],
+     [
+      21,
+      26,
+      25
+     ],
+     [
+      22,
+      24,
+      23
+     ],
+     [
+      24,
+      22,
+      21
+     ],
+     [
+      34,
+      30,
+      35
+     ],
+     [
+      31,
+      33,
+      32
+     ],
+     [
+      33,
+      31,
+      34
+     ],
+     [
+      31,
+      30,
+      34
+     ],
+     [
+      37,
+      20,
+      19
+     ],
+     [
+      3,
+      10,
+      9
+     ],
+     [
+      13,
+      11,
+      3
+     ],
+     [
+      10,
+      3,
+      11
+     ],
+     [
+      9,
+      8,
+      3
+     ],
+     [
+      7,
+      6,
+      4
+     ],
+     [
+      4,
+      3,
+      7
+     ],
+     [
+      4,
+      6,
+      5
+     ],
+     [
+      7,
+      3,
+      8
+     ],
+     [
+      3,
+      2,
+      13
+     ],
+     [
+      0,
+      18,
+      17
+     ],
+     [
+      0,
+      37,
+      18
+     ],
+     [
+      38,
+      37,
+      39
+     ],
+     [
+      37,
+      19,
+      18
+     ],
+     [
+      15,
+      1,
+      16
+     ],
+     [
+      1,
+      15,
+      2
+     ],
+     [
+      39,
+      37,
+      0
+     ],
+     [
+      0,
+      17,
+      1
+     ],
+     [
+      17,
+      16,
+      1
+     ],
+     [
+      14,
+      2,
+      15
+     ],
+     [
+      11,
+      13,
+      12
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     79,
+     97
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 97
+  },
+  {
+   "link_parent": 34,
+   "link_child": 97,
+   "transform": {
+    "flags": 1,
+    "x": -241,
+    "y": 856
+   },
+   "flags_m": 62,
+   "depth": 14,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      81.0,
+      -1015.0
+     ],
+     [
+      266.0,
+      -800.0
+     ],
+     [
+      288.0,
+      -781.0
+     ],
+     [
+      301.0,
+      -777.0
+     ],
+     [
+      303.0,
+      -787.0
+     ],
+     [
+      293.0,
+      -806.0
+     ],
+     [
+      174.0,
+      -946.0
+     ],
+     [
+      134.0,
+      -1006.0
+     ],
+     [
+      110.0,
+      -1191.0
+     ],
+     [
+      39.0,
+      -1184.0
+     ],
+     [
+      21.0,
+      -855.0
+     ],
+     [
+      60.0,
+      -849.0
+     ],
+     [
+      81.0,
+      -1015.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      8,
+      0
+     ],
+     [
+      0,
+      8,
+      7
+     ],
+     [
+      9,
+      0,
+      10
+     ],
+     [
+      0,
+      11,
+      10
+     ],
+     [
+      1,
+      0,
+      6
+     ],
+     [
+      6,
+      0,
+      7
+     ],
+     [
+      6,
+      5,
+      1
+     ],
+     [
+      1,
+      5,
+      2
+     ],
+     [
+      2,
+      4,
+      3
+     ],
+     [
+      4,
+      2,
+      5
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     79,
+     97
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 98
+  },
+  {
+   "link_parent": 34,
+   "link_child": 98,
+   "transform": {
+    "flags": 5,
+    "x": 20,
+    "y": 748,
+    "scale_x": 1.44085693359375,
+    "scale_y": 1.5692291259765625
+   },
+   "flags_m": 61,
+   "depth": 13,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      106.0,
+      -604.0
+     ],
+     [
+      125.0,
+      -563.0
+     ],
+     [
+      142.0,
+      -560.0
+     ],
+     [
+      161.0,
+      -567.0
+     ],
+     [
+      174.0,
+      -579.0
+     ],
+     [
+      175.0,
+      -599.0
+     ],
+     [
+      150.0,
+      -674.0
+     ],
+     [
+      143.0,
+      -709.0
+     ],
+     [
+      139.0,
+      -800.0
+     ],
+     [
+      148.0,
+      -877.0
+     ],
+     [
+      154.0,
+      -900.0
+     ],
+     [
+      216.0,
+      -1052.0
+     ],
+     [
+      222.0,
+      -1083.0
+     ],
+     [
+      219.0,
+      -1099.0
+     ],
+     [
+      207.0,
+      -1111.0
+     ],
+     [
+      188.0,
+      -1117.0
+     ],
+     [
+      160.0,
+      -1121.0
+     ],
+     [
+      132.0,
+      -1121.0
+     ],
+     [
+      98.0,
+      -1116.0
+     ],
+     [
+      72.0,
+      -1109.0
+     ],
+     [
+      50.0,
+      -1098.0
+     ],
+     [
+      37.0,
+      -1088.0
+     ],
+     [
+      23.0,
+      -1064.0
+     ],
+     [
+      16.0,
+      -1033.0
+     ],
+     [
+      2.0,
+      -872.0
+     ],
+     [
+      -12.0,
+      -833.0
+     ],
+     [
+      -48.0,
+      -766.0
+     ],
+     [
+      -47.0,
+      -754.0
+     ],
+     [
+      -42.0,
+      -747.0
+     ],
+     [
+      -31.0,
+      -745.0
+     ],
+     [
+      -21.0,
+      -748.0
+     ],
+     [
+      23.0,
+      -808.0
+     ],
+     [
+      40.0,
+      -640.0
+     ],
+     [
+      9.0,
+      -475.0
+     ],
+     [
+      80.0,
+      -477.0
+     ],
+     [
+      106.0,
+      -604.0
+     ]
+    ],
+    "triangles": [
+     [
+      10,
+      24,
+      23
+     ],
+     [
+      31,
+      25,
+      24
+     ],
+     [
+      23,
+      22,
+      19
+     ],
+     [
+      18,
+      23,
+      19
+     ],
+     [
+      20,
+      19,
+      22
+     ],
+     [
+      21,
+      20,
+      22
+     ],
+     [
+      9,
+      31,
+      24
+     ],
+     [
+      27,
+      26,
+      29
+     ],
+     [
+      29,
+      28,
+      27
+     ],
+     [
+      26,
+      30,
+      29
+     ],
+     [
+      31,
+      30,
+      26
+     ],
+     [
+      34,
+      33,
+      0
+     ],
+     [
+      7,
+      32,
+      31
+     ],
+     [
+      33,
+      32,
+      0
+     ],
+     [
+      26,
+      25,
+      31
+     ],
+     [
+      23,
+      18,
+      11
+     ],
+     [
+      23,
+      11,
+      10
+     ],
+     [
+      9,
+      24,
+      10
+     ],
+     [
+      17,
+      16,
+      11
+     ],
+     [
+      9,
+      8,
+      31
+     ],
+     [
+      15,
+      14,
+      12
+     ],
+     [
+      15,
+      12,
+      11
+     ],
+     [
+      12,
+      14,
+      13
+     ],
+     [
+      15,
+      11,
+      16
+     ],
+     [
+      2,
+      0,
+      3
+     ],
+     [
+      31,
+      8,
+      7
+     ],
+     [
+      2,
+      1,
+      0
+     ],
+     [
+      7,
+      6,
+      32
+     ],
+     [
+      5,
+      0,
+      6
+     ],
+     [
+      3,
+      5,
+      4
+     ],
+     [
+      3,
+      0,
+      5
+     ],
+     [
+      0,
+      32,
+      6
+     ],
+     [
+      11,
+      18,
+      17
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     101,
+     98
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 99
+  },
+  {
+   "link_parent": 34,
+   "link_child": 99,
+   "transform": {
+    "flags": 1,
+    "x": -507,
+    "y": 271
+   },
+   "flags_m": 63,
+   "depth": 15,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -118.0,
+      -570.0
+     ],
+     [
+      -132.0,
+      -629.0
+     ],
+     [
+      -136.0,
+      -673.0
+     ],
+     [
+      -131.0,
+      -705.0
+     ],
+     [
+      -118.0,
+      -721.0
+     ],
+     [
+      -104.0,
+      -724.0
+     ],
+     [
+      -88.0,
+      -723.0
+     ],
+     [
+      -44.0,
+      -708.0
+     ],
+     [
+      2.0,
+      -683.0
+     ],
+     [
+      34.0,
+      -655.0
+     ],
+     [
+      48.0,
+      -635.0
+     ],
+     [
+      60.0,
+      -612.0
+     ],
+     [
+      108.0,
+      -484.0
+     ],
+     [
+      124.0,
+      -455.0
+     ],
+     [
+      156.0,
+      -411.0
+     ],
+     [
+      194.0,
+      -365.0
+     ],
+     [
+      269.0,
+      -290.0
+     ],
+     [
+      295.0,
+      -276.0
+     ],
+     [
+      316.0,
+      -274.0
+     ],
+     [
+      323.0,
+      -278.0
+     ],
+     [
+      325.0,
+      -284.0
+     ],
+     [
+      319.0,
+      -301.0
+     ],
+     [
+      293.0,
+      -331.0
+     ],
+     [
+      168.0,
+      -455.0
+     ],
+     [
+      137.0,
+      -491.0
+     ],
+     [
+      126.0,
+      -576.0
+     ],
+     [
+      491.0,
+      -320.0
+     ],
+     [
+      528.0,
+      -305.0
+     ],
+     [
+      541.0,
+      -305.0
+     ],
+     [
+      548.0,
+      -308.0
+     ],
+     [
+      551.0,
+      -317.0
+     ],
+     [
+      548.0,
+      -328.0
+     ],
+     [
+      529.0,
+      -354.0
+     ],
+     [
+      513.0,
+      -367.0
+     ],
+     [
+      320.0,
+      -485.0
+     ],
+     [
+      283.0,
+      -516.0
+     ],
+     [
+      269.0,
+      -538.0
+     ],
+     [
+      270.0,
+      -551.0
+     ],
+     [
+      276.0,
+      -562.0
+     ],
+     [
+      304.0,
+      -584.0
+     ],
+     [
+      347.0,
+      -606.0
+     ],
+     [
+      460.0,
+      -657.0
+     ],
+     [
+      472.0,
+      -672.0
+     ],
+     [
+      471.0,
+      -680.0
+     ],
+     [
+      455.0,
+      -683.0
+     ],
+     [
+      430.0,
+      -679.0
+     ],
+     [
+      321.0,
+      -627.0
+     ],
+     [
+      281.0,
+      -611.0
+     ],
+     [
+      240.0,
+      -601.0
+     ],
+     [
+      211.0,
+      -602.0
+     ],
+     [
+      165.0,
+      -620.0
+     ],
+     [
+      116.0,
+      -653.0
+     ],
+     [
+      60.0,
+      -705.0
+     ],
+     [
+      11.0,
+      -761.0
+     ],
+     [
+      -2.0,
+      -789.0
+     ],
+     [
+      -9.0,
+      -825.0
+     ],
+     [
+      -14.0,
+      -907.0
+     ],
+     [
+      -18.0,
+      -923.0
+     ],
+     [
+      -23.0,
+      -932.0
+     ],
+     [
+      -28.0,
+      -934.0
+     ],
+     [
+      -42.0,
+      -930.0
+     ],
+     [
+      -296.0,
+      -578.0
+     ],
+     [
+      -104.0,
+      -247.0
+     ],
+     [
+      19.0,
+      -247.0
+     ],
+     [
+      -118.0,
+      -570.0
+     ]
+    ],
+    "triangles": [
+     [
+      55,
+      6,
+      5
+     ],
+     [
+      7,
+      6,
+      54
+     ],
+     [
+      5,
+      4,
+      60
+     ],
+     [
+      5,
+      60,
+      55
+     ],
+     [
+      3,
+      2,
+      61
+     ],
+     [
+      3,
+      60,
+      4
+     ],
+     [
+      60,
+      59,
+      57
+     ],
+     [
+      60,
+      3,
+      61
+     ],
+     [
+      57,
+      56,
+      60
+     ],
+     [
+      55,
+      60,
+      56
+     ],
+     [
+      54,
+      6,
+      55
+     ],
+     [
+      7,
+      54,
+      53
+     ],
+     [
+      7,
+      53,
+      8
+     ],
+     [
+      53,
+      52,
+      8
+     ],
+     [
+      8,
+      52,
+      9
+     ],
+     [
+      58,
+      57,
+      59
+     ],
+     [
+      11,
+      10,
+      51
+     ],
+     [
+      52,
+      10,
+      9
+     ],
+     [
+      61,
+      0,
+      62
+     ],
+     [
+      0,
+      61,
+      1
+     ],
+     [
+      63,
+      62,
+      0
+     ],
+     [
+      1,
+      61,
+      2
+     ],
+     [
+      11,
+      25,
+      12
+     ],
+     [
+      25,
+      51,
+      50
+     ],
+     [
+      49,
+      36,
+      25
+     ],
+     [
+      12,
+      25,
+      24
+     ],
+     [
+      12,
+      24,
+      13
+     ],
+     [
+      14,
+      23,
+      15
+     ],
+     [
+      23,
+      14,
+      13
+     ],
+     [
+      24,
+      23,
+      13
+     ],
+     [
+      49,
+      25,
+      50
+     ],
+     [
+      25,
+      11,
+      51
+     ],
+     [
+      52,
+      51,
+      10
+     ],
+     [
+      37,
+      49,
+      48
+     ],
+     [
+      48,
+      47,
+      38
+     ],
+     [
+      39,
+      47,
+      46
+     ],
+     [
+      39,
+      38,
+      47
+     ],
+     [
+      37,
+      36,
+      49
+     ],
+     [
+      37,
+      48,
+      38
+     ],
+     [
+      25,
+      35,
+      34
+     ],
+     [
+      34,
+      26,
+      25
+     ],
+     [
+      41,
+      45,
+      44
+     ],
+     [
+      43,
+      42,
+      44
+     ],
+     [
+      41,
+      44,
+      42
+     ],
+     [
+      40,
+      39,
+      46
+     ],
+     [
+      40,
+      46,
+      45
+     ],
+     [
+      45,
+      41,
+      40
+     ],
+     [
+      16,
+      15,
+      22
+     ],
+     [
+      22,
+      21,
+      16
+     ],
+     [
+      22,
+      15,
+      23
+     ],
+     [
+      16,
+      21,
+      17
+     ],
+     [
+      17,
+      21,
+      18
+     ],
+     [
+      20,
+      19,
+      18
+     ],
+     [
+      21,
+      20,
+      18
+     ],
+     [
+      26,
+      33,
+      32
+     ],
+     [
+      26,
+      32,
+      27
+     ],
+     [
+      27,
+      32,
+      31
+     ],
+     [
+      27,
+      31,
+      28
+     ],
+     [
+      30,
+      29,
+      28
+     ],
+     [
+      31,
+      30,
+      28
+     ],
+     [
+      26,
+      34,
+      33
+     ],
+     [
+      36,
+      35,
+      25
+     ]
+    ],
+    "color_argb": [
+     255,
+     46,
+     49,
+     67
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 100
+  },
+  {
+   "link_parent": 0,
+   "link_child": 34,
+   "transform": {
+    "flags": 1,
+    "x": 376,
+    "y": 1368
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 102,
+     "max_x": 190,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      4,
+      2
+     ],
+     [
+      4,
+      1
+     ],
+     [
+      4,
+      0
+     ]
+    ]
+   },
+   "index": 101
+  },
+  {
+   "link_parent": 0,
+   "link_child": 101,
+   "transform": {
+    "flags": 3,
+    "x": 53,
+    "y": 523,
+    "rotation": 0.575958251953125
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -18,
+     "max_y": 15,
+     "max_x": 121,
+     "min_y": -13
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      26,
+      0,
+      107,
+      255,
+      106,
+      3,
+      232
+     ]
+    ]
+   },
+   "index": 102
+  },
+  {
+   "link_parent": 0,
+   "link_child": 102,
+   "transform": {
+    "flags": 3,
+    "x": -357,
+    "y": 589,
+    "rotation": -0.6457672119140625
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 30,
+     "max_x": 128,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      26,
+      0,
+      107,
+      0,
+      150,
+      3,
+      232
+     ]
+    ]
+   },
+   "index": 103
+  },
+  {
+   "link_parent": 0,
+   "link_child": 103,
+   "transform": {
+    "flags": 3,
+    "x": 154,
+    "y": 1125,
+    "rotation": 0.2617950439453125
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 32,
+     "max_x": 129,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      6,
+      0,
+      100,
+      0,
+      100
+     ],
+     [
+      17,
+      0,
+      38,
+      255,
+      255,
+      99,
+      159,
+      0,
+      0,
+      0,
+      200,
+      0,
+      0,
+      0,
+      200,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      17,
+      0,
+      38,
+      0,
+      0,
+      156,
+      97,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 104
+  },
+  {
+   "link_parent": 0,
+   "link_child": 104,
+   "transform": {
+    "flags": 3,
+    "x": -490,
+    "y": 1180,
+    "rotation": -0.38397216796875
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 5,
+     "max_y": 31,
+     "max_x": 123,
+     "min_y": 5
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      6,
+      0,
+      100,
+      0,
+      100
+     ],
+     [
+      17,
+      0,
+      41,
+      0,
+      0,
+      156,
+      97,
+      0,
+      0,
+      0,
+      200,
+      0,
+      0,
+      0,
+      200,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      17,
+      0,
+      41,
+      255,
+      255,
+      99,
+      159,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 105
+  },
+  {
+   "link_parent": 0,
+   "link_child": 105,
+   "transform": {
+    "flags": 1,
+    "x": 413,
+    "y": 1494
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 126,
+     "max_x": 167,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      16,
+      0,
+      27,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      89,
+      153,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      16,
+      0,
+      27,
+      0,
+      0,
+      0,
+      0,
+      255,
+      254,
+      166,
+      103,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100
+     ]
+    ]
+   },
+   "index": 106
+  },
+  {
+   "link_parent": 0,
+   "link_child": 106,
+   "transform": {
+    "flags": 1,
+    "x": 480,
+    "y": 252
+   },
+   "flags_m": 16,
+   "depth": 0,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 8,
+   "class": "c",
+   "kind": "ball",
+   "index": 107
+  },
+  {
+   "link_parent": 0,
+   "link_child": 107,
+   "transform": {
+    "flags": 1,
+    "x": 445,
+    "y": 131
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 83,
+     "max_x": 77,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 107,
+    "programs": [
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      3
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      16,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      255,
+      255,
+      243,
+      52,
+      0,
+      0,
+      3,
+      232,
+      0,
+      0,
+      3,
+      232
+     ],
+     [
+      16,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100
+     ],
+     [
+      16,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      255,
+      253,
+      0,
+      0,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100
+     ],
+     [
+      16,
+      0,
+      50,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      0,
+      100,
+      0,
+      0,
+      0,
+      100
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 108
+  }
+ ],
+ "errors": [],
+ "trailing_bytes": 0
+}

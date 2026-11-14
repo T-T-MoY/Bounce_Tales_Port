@@ -1,0 +1,47 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'com.bouncetales.desktop.DesktopLauncher'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+
+// libGDX resuelve Gdx.files.internal(...) contra el directorio de trabajo.
+tasks.named('run') {
+    workingDir = rootProject.file('assets')
+    setIgnoreExitValue(true)
+}
+
+// Pasa propiedades de la JVM al juego:  gradlew desktop:run -Dbounce.level=bg
+tasks.named('run') {
+    if (System.getProperty('bounce.level') != null) {
+        systemProperty 'bounce.level', System.getProperty('bounce.level')
+    }
+    if (System.getProperty('bounce.screenshot') != null) {
+        systemProperty 'bounce.screenshot', System.getProperty('bounce.screenshot')
+    }
+    if (System.getProperty('bounce.frames') != null) {
+        systemProperty 'bounce.frames', System.getProperty('bounce.frames')
+    }
+    if (System.getProperty('bounce.debug') != null) {
+        systemProperty 'bounce.debug', System.getProperty('bounce.debug')
+    }
+    if (System.getProperty('bounce.trace') != null) {
+        systemProperty 'bounce.trace', System.getProperty('bounce.trace')
+    }
+    if (System.getProperty('bounce.auto') != null) {
+        systemProperty 'bounce.auto', System.getProperty('bounce.auto')
+    }
+    if (System.getProperty('bounce.drop') != null) {
+        systemProperty 'bounce.drop', System.getProperty('bounce.drop')
+    }
+    if (System.getProperty('bounce.teleport') != null) {
+        systemProperty 'bounce.teleport', System.getProperty('bounce.teleport')
+    }
+}

@@ -1,0 +1,7313 @@
+{
+ "source": "bp",
+ "header": {
+  "raw_0_8": [
+   82,
+   76,
+   69,
+   70,
+   0,
+   1,
+   0,
+   0
+  ],
+  "object_count": 157,
+  "trigger_count": 26
+ },
+ "objects": [
+  {
+   "link_parent": -1,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 0
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 0,
+   "class": "k",
+   "kind": "desconocido",
+   "index": 0
+  },
+  {
+   "link_parent": 0,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -1543,
+    "y": 106
+   },
+   "flags_m": 26,
+   "depth": 10,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 11,
+   "class": "l",
+   "kind": "checkpoint",
+   "checkpoint": {
+    "target_object": 156,
+    "power": 30
+   },
+   "index": 1
+  },
+  {
+   "link_parent": 0,
+   "link_child": 1,
+   "transform": {
+    "flags": 1,
+    "x": -2421,
+    "y": -181
+   },
+   "flags_m": 26,
+   "depth": 10,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 11,
+   "class": "l",
+   "kind": "checkpoint",
+   "checkpoint": {
+    "target_object": 156,
+    "power": 50
+   },
+   "index": 2
+  },
+  {
+   "link_parent": 0,
+   "link_child": 2,
+   "transform": {
+    "flags": 7,
+    "matrix": [
+     -1.0,
+     0.0,
+     861.0,
+     0.0,
+     1.0,
+     168.0
+    ]
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 11,
+   "class": "l",
+   "kind": "checkpoint",
+   "checkpoint": {
+    "target_object": 156,
+    "power": 100
+   },
+   "index": 3
+  },
+  {
+   "link_parent": 0,
+   "link_child": 3,
+   "transform": {
+    "flags": 1,
+    "x": -755,
+    "y": -374
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      14.0
+     ],
+     [
+      0.0,
+      -14.0
+     ],
+     [
+      -91.0,
+      -14.0
+     ],
+     [
+      -91.0,
+      14.0
+     ],
+     [
+      0.0,
+      14.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 4
+  },
+  {
+   "link_parent": 4,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -91,
+    "y": -18
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 36,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 36,
+     "sprite": 123
+    },
+    {
+     "x": 69,
+     "y": 36,
+     "sprite": 121
+    },
+    {
+     "x": 91,
+     "y": 36,
+     "sprite": 126
+    }
+   ],
+   "index": 5
+  },
+  {
+   "link_parent": 0,
+   "link_child": 4,
+   "transform": {
+    "flags": 1,
+    "x": -755,
+    "y": -374
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      92.0,
+      14.0
+     ],
+     [
+      92.0,
+      -14.0
+     ],
+     [
+      0.0,
+      -14.0
+     ],
+     [
+      0.0,
+      14.0
+     ],
+     [
+      92.0,
+      14.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 6
+  },
+  {
+   "link_parent": 6,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 18
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 354
+    },
+    {
+     "x": 69,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 91,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 7
+  },
+  {
+   "link_parent": 0,
+   "link_child": 6,
+   "transform": {
+    "flags": 1,
+    "x": 242,
+    "y": 534
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -340.0,
+      -421.0
+     ],
+     [
+      686.0,
+      -421.0
+     ],
+     [
+      686.0,
+      -205.0
+     ],
+     [
+      512.0,
+      -205.0
+     ],
+     [
+      452.0,
+      -265.0
+     ],
+     [
+      433.0,
+      -265.0
+     ],
+     [
+      433.0,
+      450.0
+     ],
+     [
+      906.0,
+      451.0
+     ],
+     [
+      907.0,
+      -451.0
+     ],
+     [
+      -364.0,
+      -451.0
+     ],
+     [
+      -364.0,
+      -378.0
+     ],
+     [
+      -340.0,
+      -350.0
+     ],
+     [
+      -340.0,
+      -421.0
+     ]
+    ],
+    "triangles": [
+     [
+      9,
+      0,
+      10
+     ],
+     [
+      9,
+      1,
+      0
+     ],
+     [
+      10,
+      0,
+      11
+     ],
+     [
+      6,
+      5,
+      3
+     ],
+     [
+      8,
+      1,
+      9
+     ],
+     [
+      2,
+      1,
+      8
+     ],
+     [
+      2,
+      7,
+      6
+     ],
+     [
+      7,
+      2,
+      8
+     ],
+     [
+      6,
+      3,
+      2
+     ],
+     [
+      3,
+      5,
+      4
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 8
+  },
+  {
+   "link_parent": 8,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -404,
+    "y": -363
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": -94,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 81,
+     "y": -75,
+     "sprite": 132
+    },
+    {
+     "x": 182,
+     "y": -74,
+     "sprite": 132
+    }
+   ],
+   "index": 9
+  },
+  {
+   "link_parent": 8,
+   "link_child": 9,
+   "transform": {
+    "flags": 1,
+    "x": 430,
+    "y": -418
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 334
+    }
+   ],
+   "index": 10
+  },
+  {
+   "link_parent": 8,
+   "link_child": 10,
+   "transform": {
+    "flags": 1,
+    "x": 386,
+    "y": -420
+   },
+   "flags_m": 149,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      41.0,
+      150.0
+     ],
+     [
+      58.0,
+      150.0
+     ],
+     [
+      77.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 11
+  },
+  {
+   "link_parent": 8,
+   "link_child": 11,
+   "transform": {
+    "flags": 1,
+    "x": 257,
+    "y": -384
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 12
+  },
+  {
+   "link_parent": 8,
+   "link_child": 12,
+   "transform": {
+    "flags": 1,
+    "x": 114,
+    "y": -419
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 343
+    }
+   ],
+   "index": 13
+  },
+  {
+   "link_parent": 8,
+   "link_child": 13,
+   "transform": {
+    "flags": 1,
+    "x": -212,
+    "y": -216
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      194.0
+     ],
+     [
+      -55.0,
+      194.0
+     ],
+     [
+      -55.0,
+      0.0
+     ],
+     [
+      -86.0,
+      0.0
+     ],
+     [
+      -86.0,
+      671.0
+     ],
+     [
+      80.0,
+      667.0
+     ],
+     [
+      80.0,
+      52.0
+     ],
+     [
+      29.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      4,
+      3,
+      2
+     ],
+     [
+      5,
+      2,
+      1
+     ],
+     [
+      2,
+      5,
+      4
+     ],
+     [
+      0,
+      8,
+      7
+     ],
+     [
+      1,
+      7,
+      6
+     ],
+     [
+      7,
+      1,
+      0
+     ],
+     [
+      1,
+      6,
+      5
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 14
+  },
+  {
+   "link_parent": 8,
+   "link_child": 14,
+   "transform": {
+    "flags": 1,
+    "x": -868,
+    "y": -420
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 530,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 530,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 739,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 948,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 1157,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 1366,
+     "y": 0,
+     "sprite": 122
+    },
+    {
+     "x": 1435,
+     "y": 0,
+     "sprite": 354
+    },
+    {
+     "x": 1504,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 1526,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 1548,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 15
+  },
+  {
+   "link_parent": 8,
+   "link_child": 15,
+   "transform": {
+    "flags": 1,
+    "x": -202,
+    "y": -437
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": -105,
+     "y": -2,
+     "sprite": 130
+    },
+    {
+     "x": -151,
+     "y": 70,
+     "sprite": 130
+    },
+    {
+     "x": -322,
+     "y": 73,
+     "sprite": 130
+    }
+   ],
+   "index": 16
+  },
+  {
+   "link_parent": 8,
+   "link_child": 16,
+   "transform": {
+    "flags": 1,
+    "x": -261,
+    "y": -420
+   },
+   "flags_m": 154,
+   "depth": 10,
+   "solid": false,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      4.0,
+      201.0
+     ],
+     [
+      39.0,
+      199.0
+     ],
+     [
+      46.0,
+      -1.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      3,
+      2,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 17
+  },
+  {
+   "link_parent": 17,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 20,
+    "y": 414
+   },
+   "flags_m": 58,
+   "depth": 10,
+   "solid": true,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      7.0,
+      -1.0
+     ],
+     [
+      7.0,
+      -221.0
+     ],
+     [
+      0.0,
+      -220.0
+     ],
+     [
+      0.0,
+      0.0
+     ],
+     [
+      7.0,
+      -1.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      0
+     ],
+     [
+      1,
+      0,
+      2
+     ]
+    ],
+    "color_argb": [
+     255,
+     153,
+     112,
+     50
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 18
+  },
+  {
+   "link_parent": 17,
+   "link_child": 18,
+   "transform": {
+    "flags": 1,
+    "x": 23,
+    "y": -4
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 3,
+     "sprite": 345
+    }
+   ],
+   "index": 19
+  },
+  {
+   "link_parent": 8,
+   "link_child": 17,
+   "transform": {
+    "flags": 1,
+    "x": 504,
+    "y": -437
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 95,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": -112,
+     "y": -1,
+     "sprite": 132
+    },
+    {
+     "x": -130,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": -405,
+     "y": -1,
+     "sprite": 132
+    }
+   ],
+   "index": 20
+  },
+  {
+   "link_parent": 8,
+   "link_child": 20,
+   "transform": {
+    "flags": 1,
+    "x": 298,
+    "y": -347
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 117
+    }
+   ],
+   "index": 21
+  },
+  {
+   "link_parent": 8,
+   "link_child": 21,
+   "transform": {
+    "flags": 1,
+    "x": 636,
+    "y": -438
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": -296,
+     "y": -1,
+     "sprite": 131
+    },
+    {
+     "x": -618,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 78,
+     "y": 42,
+     "sprite": 131
+    },
+    {
+     "x": 71,
+     "y": 121,
+     "sprite": 131
+    },
+    {
+     "x": 182,
+     "y": 84,
+     "sprite": 131
+    }
+   ],
+   "index": 22
+  },
+  {
+   "link_parent": 8,
+   "link_child": 22,
+   "transform": {
+    "flags": 1,
+    "x": 114,
+    "y": -419
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 344
+    }
+   ],
+   "index": 23
+  },
+  {
+   "link_parent": 8,
+   "link_child": 23,
+   "transform": {
+    "flags": 1,
+    "x": -107,
+    "y": -161
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 24
+  },
+  {
+   "link_parent": 8,
+   "link_child": 24,
+   "transform": {
+    "flags": 1,
+    "x": -4,
+    "y": -394
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 143
+    }
+   ],
+   "index": 25
+  },
+  {
+   "link_parent": 8,
+   "link_child": 25,
+   "transform": {
+    "flags": 1,
+    "x": -281,
+    "y": -436
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 96,
+     "y": 249,
+     "sprite": 131
+    },
+    {
+     "x": -102,
+     "y": 72,
+     "sprite": 131
+    },
+    {
+     "x": -345,
+     "y": 71,
+     "sprite": 131
+    }
+   ],
+   "index": 26
+  },
+  {
+   "link_parent": 8,
+   "link_child": 26,
+   "transform": {
+    "flags": 1,
+    "x": 663,
+    "y": -438
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": -178,
+     "y": 1,
+     "sprite": 130
+    },
+    {
+     "x": -223,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": -407,
+     "y": 1,
+     "sprite": 130
+    },
+    {
+     "x": -476,
+     "y": 1,
+     "sprite": 130
+    }
+   ],
+   "index": 27
+  },
+  {
+   "link_parent": 8,
+   "link_child": 27,
+   "transform": {
+    "flags": 1,
+    "x": -302,
+    "y": -386
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 28
+  },
+  {
+   "link_parent": 0,
+   "link_child": 8,
+   "transform": {
+    "flags": 1,
+    "x": 242,
+    "y": 534
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -340.0,
+      -350.0
+     ],
+     [
+      -364.0,
+      -378.0
+     ],
+     [
+      -906.0,
+      -378.0
+     ],
+     [
+      -906.0,
+      -350.0
+     ],
+     [
+      -340.0,
+      -350.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 29
+  },
+  {
+   "link_parent": 29,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -885,
+    "y": -348
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -533,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": -533,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": -324,
+     "y": 0,
+     "sprite": 123
+    },
+    {
+     "x": -255,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": -233,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": -211,
+     "y": 0,
+     "sprite": 124
+    },
+    {
+     "x": -201,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 30
+  },
+  {
+   "link_parent": 29,
+   "link_child": 30,
+   "transform": {
+    "flags": 1,
+    "x": -396,
+    "y": -347
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 350
+    }
+   ],
+   "index": 31
+  },
+  {
+   "link_parent": 29,
+   "link_child": 31,
+   "transform": {
+    "flags": 1,
+    "x": -900,
+    "y": -368
+   },
+   "flags_m": 149,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      19.0,
+      0.0
+     ],
+     [
+      20.0,
+      -303.0
+     ],
+     [
+      0.0,
+      -304.0
+     ],
+     [
+      0.0,
+      0.0
+     ],
+     [
+      19.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 32
+  },
+  {
+   "link_parent": 29,
+   "link_child": 32,
+   "transform": {
+    "flags": 1,
+    "x": -906,
+    "y": -348
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 209,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 418,
+     "y": 0,
+     "sprite": 122
+    },
+    {
+     "x": 487,
+     "y": 0,
+     "sprite": 122
+    },
+    {
+     "x": 556,
+     "y": 0,
+     "sprite": 124
+    },
+    {
+     "x": 566,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 33
+  },
+  {
+   "link_parent": 29,
+   "link_child": 33,
+   "transform": {
+    "flags": 1,
+    "x": -998,
+    "y": -364
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      92.0,
+      14.0
+     ],
+     [
+      92.0,
+      -14.0
+     ],
+     [
+      -91.0,
+      -14.0
+     ],
+     [
+      -91.0,
+      14.0
+     ],
+     [
+      92.0,
+      14.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 34
+  },
+  {
+   "link_parent": 34,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -90,
+    "y": -20
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 1,
+     "y": 36,
+     "sprite": 125
+    },
+    {
+     "x": 1,
+     "y": 36,
+     "sprite": 122
+    },
+    {
+     "x": 70,
+     "y": 36,
+     "sprite": 354
+    },
+    {
+     "x": 139,
+     "y": 36,
+     "sprite": 121
+    },
+    {
+     "x": 161,
+     "y": 36,
+     "sprite": 124
+    },
+    {
+     "x": 171,
+     "y": 36,
+     "sprite": 124
+    },
+    {
+     "x": 182,
+     "y": 36,
+     "sprite": 126
+    }
+   ],
+   "index": 35
+  },
+  {
+   "link_parent": 29,
+   "link_child": 34,
+   "transform": {
+    "flags": 1,
+    "x": -526,
+    "y": -318
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 36
+  },
+  {
+   "link_parent": 29,
+   "link_child": 36,
+   "transform": {
+    "flags": 1,
+    "x": -651,
+    "y": -319
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 37
+  },
+  {
+   "link_parent": 29,
+   "link_child": 37,
+   "transform": {
+    "flags": 1,
+    "x": -789,
+    "y": -318
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 38
+  },
+  {
+   "link_parent": 29,
+   "link_child": 38,
+   "transform": {
+    "flags": 1,
+    "x": -682,
+    "y": -287
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 116
+    }
+   ],
+   "index": 39
+  },
+  {
+   "link_parent": 29,
+   "link_child": 39,
+   "transform": {
+    "flags": 1,
+    "x": -859,
+    "y": -274
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 117
+    }
+   ],
+   "index": 40
+  },
+  {
+   "link_parent": 29,
+   "link_child": 40,
+   "transform": {
+    "flags": 1,
+    "x": -859,
+    "y": -314
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 41
+  },
+  {
+   "link_parent": 29,
+   "link_child": 41,
+   "transform": {
+    "flags": 1,
+    "x": -987,
+    "y": -242
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 42
+  },
+  {
+   "link_parent": 29,
+   "link_child": 42,
+   "transform": {
+    "flags": 1,
+    "x": -663,
+    "y": -364
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": -203,
+     "y": -1,
+     "sprite": 130
+    }
+   ],
+   "index": 43
+  },
+  {
+   "link_parent": 29,
+   "link_child": 43,
+   "transform": {
+    "flags": 1,
+    "x": -826,
+    "y": -364
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 116,
+     "y": 0,
+     "sprite": 131
+    }
+   ],
+   "index": 44
+  },
+  {
+   "link_parent": 0,
+   "link_child": 29,
+   "transform": {
+    "flags": 1,
+    "x": -689,
+    "y": -281
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      176.0,
+      55.0
+     ],
+     [
+      176.0,
+      103.0
+     ],
+     [
+      212.0,
+      139.0
+     ],
+     [
+      1037.0,
+      139.0
+     ],
+     [
+      1037.0,
+      -625.0
+     ],
+     [
+      356.0,
+      -625.0
+     ],
+     [
+      354.0,
+      -421.0
+     ],
+     [
+      354.0,
+      -372.0
+     ],
+     [
+      746.0,
+      -372.0
+     ],
+     [
+      746.0,
+      23.0
+     ],
+     [
+      572.0,
+      23.0
+     ],
+     [
+      572.0,
+      -69.0
+     ],
+     [
+      436.0,
+      -69.0
+     ],
+     [
+      436.0,
+      23.0
+     ],
+     [
+      208.0,
+      23.0
+     ],
+     [
+      176.0,
+      55.0
+     ]
+    ],
+    "triangles": [
+     [
+      7,
+      6,
+      8
+     ],
+     [
+      8,
+      6,
+      5
+     ],
+     [
+      1,
+      0,
+      14
+     ],
+     [
+      14,
+      2,
+      1
+     ],
+     [
+      13,
+      2,
+      14
+     ],
+     [
+      12,
+      11,
+      10
+     ],
+     [
+      4,
+      8,
+      5
+     ],
+     [
+      3,
+      8,
+      4
+     ],
+     [
+      10,
+      3,
+      2
+     ],
+     [
+      10,
+      13,
+      12
+     ],
+     [
+      9,
+      3,
+      10
+     ],
+     [
+      3,
+      9,
+      8
+     ],
+     [
+      10,
+      2,
+      13
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 45
+  },
+  {
+   "link_parent": 45,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 356,
+    "y": -94
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 46
+  },
+  {
+   "link_parent": 45,
+   "link_child": 46,
+   "transform": {
+    "flags": 1,
+    "x": 309,
+    "y": -94
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 47
+  },
+  {
+   "link_parent": 45,
+   "link_child": 47,
+   "transform": {
+    "flags": 1,
+    "x": 366,
+    "y": -388
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 82,
+     "y": -1,
+     "sprite": 130
+    },
+    {
+     "x": 192,
+     "y": 1,
+     "sprite": 130
+    },
+    {
+     "x": 268,
+     "y": 3,
+     "sprite": 130
+    },
+    {
+     "x": 351,
+     "y": -1,
+     "sprite": 130
+    }
+   ],
+   "index": 48
+  },
+  {
+   "link_parent": 45,
+   "link_child": 48,
+   "transform": {
+    "flags": 1,
+    "x": 435,
+    "y": -53
+   },
+   "flags_m": 26,
+   "depth": 10,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": -9,
+     "sprite": 83
+    },
+    {
+     "x": 1,
+     "y": 19,
+     "sprite": 83
+    },
+    {
+     "x": 1,
+     "y": 47,
+     "sprite": 83
+    }
+   ],
+   "index": 49
+  },
+  {
+   "link_parent": 45,
+   "link_child": 49,
+   "transform": {
+    "flags": 1,
+    "x": 610,
+    "y": -90
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      74.0,
+      -231.0
+     ],
+     [
+      -175.0,
+      -231.0
+     ],
+     [
+      -175.0,
+      -50.0
+     ],
+     [
+      -326.0,
+      -50.0
+     ],
+     [
+      -326.0,
+      -25.0
+     ],
+     [
+      74.0,
+      -25.0
+     ],
+     [
+      74.0,
+      -231.0
+     ]
+    ],
+    "triangles": [
+     [
+      4,
+      3,
+      2
+     ],
+     [
+      2,
+      0,
+      5
+     ],
+     [
+      0,
+      2,
+      1
+     ],
+     [
+      2,
+      5,
+      4
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 50
+  },
+  {
+   "link_parent": 45,
+   "link_child": 50,
+   "transform": {
+    "flags": 1,
+    "x": 367,
+    "y": -368
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 385
+    }
+   ],
+   "index": 51
+  },
+  {
+   "link_parent": 45,
+   "link_child": 51,
+   "transform": {
+    "flags": 1,
+    "x": 320,
+    "y": -89
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -36,
+     "y": -25,
+     "sprite": 125
+    },
+    {
+     "x": -36,
+     "y": -25,
+     "sprite": 120
+    },
+    {
+     "x": 173,
+     "y": -25,
+     "sprite": 354
+    },
+    {
+     "x": 242,
+     "y": -25,
+     "sprite": 123
+    },
+    {
+     "x": 311,
+     "y": -25,
+     "sprite": 121
+    },
+    {
+     "x": 333,
+     "y": -25,
+     "sprite": 121
+    },
+    {
+     "x": 355,
+     "y": -25,
+     "sprite": 124
+    },
+    {
+     "x": 365,
+     "y": -25,
+     "sprite": 126
+    }
+   ],
+   "index": 52
+  },
+  {
+   "link_parent": 45,
+   "link_child": 52,
+   "transform": {
+    "flags": 1,
+    "x": 466,
+    "y": -145
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 198,
+     "y": -1,
+     "sprite": 131
+    },
+    {
+     "x": 300,
+     "y": -104,
+     "sprite": 131
+    }
+   ],
+   "index": 53
+  },
+  {
+   "link_parent": 45,
+   "link_child": 53,
+   "transform": {
+    "flags": 1,
+    "x": 360,
+    "y": -256
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -6,
+     "y": -114,
+     "sprite": 125
+    },
+    {
+     "x": -6,
+     "y": -114,
+     "sprite": 120
+    },
+    {
+     "x": 203,
+     "y": -114,
+     "sprite": 123
+    },
+    {
+     "x": 272,
+     "y": -114,
+     "sprite": 122
+    },
+    {
+     "x": 341,
+     "y": -114,
+     "sprite": 121
+    },
+    {
+     "x": 363,
+     "y": -114,
+     "sprite": 124
+    },
+    {
+     "x": 373,
+     "y": -114,
+     "sprite": 124
+    },
+    {
+     "x": 383,
+     "y": -114,
+     "sprite": 126
+    }
+   ],
+   "index": 54
+  },
+  {
+   "link_parent": 45,
+   "link_child": 54,
+   "transform": {
+    "flags": 1,
+    "x": 514,
+    "y": -135
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 58,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": -70,
+     "y": 0,
+     "sprite": 132
+    }
+   ],
+   "index": 55
+  },
+  {
+   "link_parent": 45,
+   "link_child": 55,
+   "transform": {
+    "flags": 1,
+    "x": 497,
+    "y": -138
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 101,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 129,
+     "y": 0,
+     "sprite": 130
+    }
+   ],
+   "index": 56
+  },
+  {
+   "link_parent": 0,
+   "link_child": 45,
+   "transform": {
+    "flags": 1,
+    "x": -689,
+    "y": -281
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -804.0,
+      -625.0
+     ],
+     [
+      -804.0,
+      -421.0
+     ],
+     [
+      354.0,
+      -421.0
+     ],
+     [
+      356.0,
+      -625.0
+     ],
+     [
+      -804.0,
+      -625.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      2
+     ],
+     [
+      3,
+      2,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 11,
+    "trigger_id": -1
+   },
+   "index": 57
+  },
+  {
+   "link_parent": 57,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -551,
+    "y": -420
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -245,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -217,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -189,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -161,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -133,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -105,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -77,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -49,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": -21,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 7,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 35,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 63,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 91,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 119,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 147,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 175,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 203,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 231,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 259,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 287,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 315,
+     "y": 0,
+     "sprite": 76
+    },
+    {
+     "x": 343,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 371,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 399,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 427,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 455,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 483,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 511,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 539,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 567,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 595,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 623,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 651,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 679,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 707,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 735,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 763,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 791,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 819,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 847,
+     "y": -1,
+     "sprite": 76
+    },
+    {
+     "x": 875,
+     "y": -1,
+     "sprite": 76
+    }
+   ],
+   "index": 58
+  },
+  {
+   "link_parent": 57,
+   "link_child": 58,
+   "transform": {
+    "flags": 1,
+    "x": -804,
+    "y": -420
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 1,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "sprite": 120
+    },
+    {
+     "x": 209,
+     "y": 1,
+     "sprite": 120
+    },
+    {
+     "x": 418,
+     "y": 1,
+     "sprite": 120
+    },
+    {
+     "x": 627,
+     "y": 1,
+     "sprite": 120
+    },
+    {
+     "x": 836,
+     "y": 1,
+     "sprite": 120
+    },
+    {
+     "x": 1045,
+     "y": 1,
+     "sprite": 354
+    },
+    {
+     "x": 1114,
+     "y": 1,
+     "sprite": 121
+    },
+    {
+     "x": 1136,
+     "y": 1,
+     "sprite": 121
+    },
+    {
+     "x": 1158,
+     "y": 1,
+     "sprite": 126
+    }
+   ],
+   "index": 59
+  },
+  {
+   "link_parent": 57,
+   "link_child": 59,
+   "transform": {
+    "flags": 1,
+    "x": -642,
+    "y": -120
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 60
+  },
+  {
+   "link_parent": 57,
+   "link_child": 60,
+   "transform": {
+    "flags": 1,
+    "x": -396,
+    "y": -136
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 61
+  },
+  {
+   "link_parent": 57,
+   "link_child": 61,
+   "transform": {
+    "flags": 1,
+    "x": -518,
+    "y": -211
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 133,
+     "y": 26,
+     "sprite": 130
+    },
+    {
+     "x": 628,
+     "y": -87,
+     "sprite": 130
+    }
+   ],
+   "index": 62
+  },
+  {
+   "link_parent": 57,
+   "link_child": 62,
+   "transform": {
+    "flags": 1,
+    "x": -445,
+    "y": -168
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 63
+  },
+  {
+   "link_parent": 63,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 27,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 27,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 49,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 71,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 64
+  },
+  {
+   "link_parent": 57,
+   "link_child": 63,
+   "transform": {
+    "flags": 1,
+    "x": -174,
+    "y": -239
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 65
+  },
+  {
+   "link_parent": 57,
+   "link_child": 65,
+   "transform": {
+    "flags": 1,
+    "x": -222,
+    "y": -269
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 66
+  },
+  {
+   "link_parent": 66,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 47,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 69,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 67
+  },
+  {
+   "link_parent": 57,
+   "link_child": 66,
+   "transform": {
+    "flags": 1,
+    "x": 205,
+    "y": -327
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      1.0,
+      -28.0
+     ],
+     [
+      1.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 7,
+    "trigger_id": -1
+   },
+   "index": 68
+  },
+  {
+   "link_parent": 68,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 354
+    },
+    {
+     "x": 69,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 69
+  },
+  {
+   "link_parent": 57,
+   "link_child": 68,
+   "transform": {
+    "flags": 1,
+    "x": -173,
+    "y": -283
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 142,
+     "y": 31,
+     "sprite": 131
+    }
+   ],
+   "index": 70
+  },
+  {
+   "link_parent": 57,
+   "link_child": 70,
+   "transform": {
+    "flags": 1,
+    "x": -340,
+    "y": -232
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 71
+  },
+  {
+   "link_parent": 71,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 26,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 26,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 48,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 70,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 72
+  },
+  {
+   "link_parent": 57,
+   "link_child": 71,
+   "transform": {
+    "flags": 1,
+    "x": -691,
+    "y": -148
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 73
+  },
+  {
+   "link_parent": 73,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 47,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 69,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 74
+  },
+  {
+   "link_parent": 57,
+   "link_child": 73,
+   "transform": {
+    "flags": 1,
+    "x": 242,
+    "y": -294
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 75
+  },
+  {
+   "link_parent": 57,
+   "link_child": 75,
+   "transform": {
+    "flags": 1,
+    "x": -518,
+    "y": -161
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 76
+  },
+  {
+   "link_parent": 57,
+   "link_child": 76,
+   "transform": {
+    "flags": 1,
+    "x": 51,
+    "y": -282
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      25.0,
+      -28.0
+     ],
+     [
+      25.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 77
+  },
+  {
+   "link_parent": 77,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 25,
+     "y": 1,
+     "sprite": 125
+    },
+    {
+     "x": 25,
+     "y": 1,
+     "sprite": 121
+    },
+    {
+     "x": 47,
+     "y": 1,
+     "sprite": 121
+    },
+    {
+     "x": 69,
+     "y": 1,
+     "sprite": 126
+    }
+   ],
+   "index": 78
+  },
+  {
+   "link_parent": 57,
+   "link_child": 77,
+   "transform": {
+    "flags": 1,
+    "x": -568,
+    "y": -194
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 79
+  },
+  {
+   "link_parent": 79,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 26,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 26,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 48,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 70,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 80
+  },
+  {
+   "link_parent": 57,
+   "link_child": 79,
+   "transform": {
+    "flags": 1,
+    "x": -79,
+    "y": -238
+   },
+   "flags_m": 22,
+   "depth": 6,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      69.0,
+      0.0
+     ],
+     [
+      69.0,
+      -28.0
+     ],
+     [
+      27.0,
+      -28.0
+     ],
+     [
+      27.0,
+      0.0
+     ],
+     [
+      69.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 6,
+    "trigger_id": -1
+   },
+   "index": 81
+  },
+  {
+   "link_parent": 81,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 25,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 47,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 69,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 82
+  },
+  {
+   "link_parent": 0,
+   "link_child": 57,
+   "transform": {
+    "flags": 1,
+    "x": -1567,
+    "y": -386
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      91.0,
+      16.0
+     ],
+     [
+      91.0,
+      -16.0
+     ],
+     [
+      -128.0,
+      -16.0
+     ],
+     [
+      -128.0,
+      16.0
+     ],
+     [
+      91.0,
+      16.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 83
+  },
+  {
+   "link_parent": 83,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -88,
+    "y": 2
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 28,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 58,
+     "y": 1,
+     "sprite": 132
+    },
+    {
+     "x": -32,
+     "y": 1,
+     "sprite": 132
+    },
+    {
+     "x": 92,
+     "y": -1,
+     "sprite": 132
+    },
+    {
+     "x": 107,
+     "y": 0,
+     "sprite": 132
+    },
+    {
+     "x": 152,
+     "y": -2,
+     "sprite": 132
+    },
+    {
+     "x": 167,
+     "y": -3,
+     "sprite": 132
+    }
+   ],
+   "index": 84
+  },
+  {
+   "link_parent": 83,
+   "link_child": 84,
+   "transform": {
+    "flags": 1,
+    "x": 40,
+    "y": 46
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 143
+    }
+   ],
+   "index": 85
+  },
+  {
+   "link_parent": 83,
+   "link_child": 85,
+   "transform": {
+    "flags": 1,
+    "x": -230,
+    "y": 71
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 86
+  },
+  {
+   "link_parent": 83,
+   "link_child": 86,
+   "transform": {
+    "flags": 1,
+    "x": -385,
+    "y": 106
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 87
+  },
+  {
+   "link_parent": 83,
+   "link_child": 87,
+   "transform": {
+    "flags": 1,
+    "x": -90,
+    "y": 17
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -37,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": -37,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 172,
+     "y": 0,
+     "sprite": 124
+    },
+    {
+     "x": 182,
+     "y": 0,
+     "sprite": 126
+    }
+   ],
+   "index": 88
+  },
+  {
+   "link_parent": 83,
+   "link_child": 88,
+   "transform": {
+    "flags": 1,
+    "x": -303,
+    "y": 40
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      146.0,
+      5.0
+     ],
+     [
+      146.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      5.0
+     ],
+     [
+      146.0,
+      5.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     153,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 89
+  },
+  {
+   "link_parent": 83,
+   "link_child": 89,
+   "transform": {
+    "flags": 1,
+    "x": -18,
+    "y": 41
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 90
+  },
+  {
+   "link_parent": 83,
+   "link_child": 90,
+   "transform": {
+    "flags": 1,
+    "x": -76,
+    "y": 41
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 91
+  },
+  {
+   "link_parent": 83,
+   "link_child": 91,
+   "transform": {
+    "flags": 1,
+    "x": -458,
+    "y": 73
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      146.0,
+      5.0
+     ],
+     [
+      146.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      5.0
+     ],
+     [
+      146.0,
+      5.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     153,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 92
+  },
+  {
+   "link_parent": 0,
+   "link_child": 83,
+   "transform": {
+    "flags": 1,
+    "x": -2380,
+    "y": -237
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -108.0,
+      0.0
+     ],
+     [
+      180.0,
+      0.0
+     ],
+     [
+      180.0,
+      -72.0
+     ],
+     [
+      -108.0,
+      -72.0
+     ],
+     [
+      -108.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 93
+  },
+  {
+   "link_parent": 93,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": -47,
+    "y": 502
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 94
+  },
+  {
+   "link_parent": 93,
+   "link_child": 94,
+   "transform": {
+    "flags": 1,
+    "x": -84,
+    "y": -27
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 26,
+     "y": -24,
+     "sprite": 131
+    },
+    {
+     "x": 217,
+     "y": -7,
+     "sprite": 131
+    }
+   ],
+   "index": 95
+  },
+  {
+   "link_parent": 93,
+   "link_child": 95,
+   "transform": {
+    "flags": 1,
+    "x": 867,
+    "y": 290
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -702,
+     "y": -289,
+     "sprite": 386
+    }
+   ],
+   "index": 96
+  },
+  {
+   "link_parent": 93,
+   "link_child": 96,
+   "transform": {
+    "flags": 1,
+    "x": 110,
+    "y": 45
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 97
+  },
+  {
+   "link_parent": 93,
+   "link_child": 97,
+   "transform": {
+    "flags": 1,
+    "x": -48,
+    "y": 457
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 98
+  },
+  {
+   "link_parent": 93,
+   "link_child": 98,
+   "transform": {
+    "flags": 1,
+    "x": 197,
+    "y": -44
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      146.0,
+      5.0
+     ],
+     [
+      146.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      -4.0
+     ],
+     [
+      -3.0,
+      5.0
+     ],
+     [
+      146.0,
+      5.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     153,
+     51,
+     0
+    ],
+    "vertex_bits": 8,
+    "trigger_id": -1
+   },
+   "index": 99
+  },
+  {
+   "link_parent": 93,
+   "link_child": 99,
+   "transform": {
+    "flags": 1,
+    "x": 267,
+    "y": -11
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 100
+  },
+  {
+   "link_parent": 93,
+   "link_child": 100,
+   "transform": {
+    "flags": 1,
+    "x": 112,
+    "y": 82
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 117
+    }
+   ],
+   "index": 101
+  },
+  {
+   "link_parent": 93,
+   "link_child": 101,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": -108,
+     "y": 2,
+     "sprite": 125
+    },
+    {
+     "x": -108,
+     "y": 2,
+     "sprite": 120
+    },
+    {
+     "x": 101,
+     "y": 2,
+     "sprite": 123
+    },
+    {
+     "x": 170,
+     "y": 2,
+     "sprite": 124
+    },
+    {
+     "x": 180,
+     "y": 2,
+     "sprite": 126
+    }
+   ],
+   "index": 102
+  },
+  {
+   "link_parent": 0,
+   "link_child": 93,
+   "transform": {
+    "flags": 1,
+    "x": -1889,
+    "y": 53
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      416.0,
+      0.0
+     ],
+     [
+      416.0,
+      -72.0
+     ],
+     [
+      0.0,
+      -72.0
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 103
+  },
+  {
+   "link_parent": 103,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 235,
+    "y": 5
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 386
+    }
+   ],
+   "index": 104
+  },
+  {
+   "link_parent": 103,
+   "link_child": 104,
+   "transform": {
+    "flags": 1,
+    "x": 117,
+    "y": -28
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 162,
+     "y": -16,
+     "sprite": 131
+    },
+    {
+     "x": 271,
+     "y": 0,
+     "sprite": 131
+    }
+   ],
+   "index": 105
+  },
+  {
+   "link_parent": 103,
+   "link_child": 105,
+   "transform": {
+    "flags": 1,
+    "x": -28,
+    "y": -40
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 106
+  },
+  {
+   "link_parent": 103,
+   "link_child": 106,
+   "transform": {
+    "flags": 1,
+    "x": 71,
+    "y": 231
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 107
+  },
+  {
+   "link_parent": 103,
+   "link_child": 107,
+   "transform": {
+    "flags": 1,
+    "x": 52,
+    "y": 37
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 108
+  },
+  {
+   "link_parent": 103,
+   "link_child": 108,
+   "transform": {
+    "flags": 1,
+    "x": 352,
+    "y": 435
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 109
+  },
+  {
+   "link_parent": 103,
+   "link_child": 109,
+   "transform": {
+    "flags": 1,
+    "x": 115,
+    "y": 107
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      1.0,
+      826.0
+     ],
+     [
+      25.0,
+      827.0
+     ],
+     [
+      24.0,
+      -3.0
+     ],
+     [
+      0.0,
+      -3.0
+     ],
+     [
+      1.0,
+      826.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      3,
+      2
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 110
+  },
+  {
+   "link_parent": 103,
+   "link_child": 110,
+   "transform": {
+    "flags": 1,
+    "x": 52,
+    "y": 29
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 143
+    }
+   ],
+   "index": 111
+  },
+  {
+   "link_parent": 103,
+   "link_child": 111,
+   "transform": {
+    "flags": 1,
+    "x": 0,
+    "y": 1
+   },
+   "flags_m": 20,
+   "depth": 4,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 125
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 120
+    },
+    {
+     "x": 209,
+     "y": 0,
+     "sprite": 354
+    },
+    {
+     "x": 278,
+     "y": 0,
+     "sprite": 123
+    },
+    {
+     "x": 347,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 369,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 391,
+     "y": 0,
+     "sprite": 121
+    },
+    {
+     "x": 413,
+     "y": -1,
+     "sprite": 126
+    }
+   ],
+   "index": 112
+  },
+  {
+   "link_parent": 103,
+   "link_child": 112,
+   "transform": {
+    "flags": 1,
+    "x": 353,
+    "y": 477
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 113
+  },
+  {
+   "link_parent": 103,
+   "link_child": 113,
+   "transform": {
+    "flags": 1,
+    "x": 19,
+    "y": -23
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 68,
+     "y": 1,
+     "sprite": 130
+    },
+    {
+     "x": 295,
+     "y": 0,
+     "sprite": 130
+    }
+   ],
+   "index": 114
+  },
+  {
+   "link_parent": 0,
+   "link_child": 103,
+   "transform": {
+    "flags": 1,
+    "x": -1013,
+    "y": 72
+   },
+   "flags_m": 24,
+   "depth": 8,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -166.0,
+      112.0
+     ],
+     [
+      166.0,
+      112.0
+     ],
+     [
+      166.0,
+      84.0
+     ],
+     [
+      166.0,
+      -111.0
+     ],
+     [
+      -166.0,
+      -111.0
+     ],
+     [
+      -166.0,
+      112.0
+     ]
+    ],
+    "triangles": [
+     [
+      0,
+      4,
+      2
+     ],
+     [
+      3,
+      2,
+      4
+     ],
+     [
+      2,
+      1,
+      0
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 9,
+    "trigger_id": -1
+   },
+   "index": 115
+  },
+  {
+   "link_parent": 115,
+   "link_child": -1,
+   "transform": {
+    "flags": 1,
+    "x": 158,
+    "y": -426
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      -5.0,
+      -8.0
+     ],
+     [
+      -5.0,
+      520.0
+     ],
+     [
+      8.0,
+      520.0
+     ],
+     [
+      8.0,
+      -8.0
+     ],
+     [
+      -5.0,
+      -8.0
+     ]
+    ],
+    "triangles": [
+     [
+      1,
+      0,
+      3
+     ],
+     [
+      3,
+      2,
+      1
+     ]
+    ],
+    "color_argb": [
+     255,
+     38,
+     106,
+     110
+    ],
+    "vertex_bits": 10,
+    "trigger_id": -1
+   },
+   "index": 116
+  },
+  {
+   "link_parent": 115,
+   "link_child": 116,
+   "transform": {
+    "flags": 1,
+    "x": -120,
+    "y": 91
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 51,
+     "y": 0,
+     "sprite": 130
+    },
+    {
+     "x": 141,
+     "y": 0,
+     "sprite": 130
+    }
+   ],
+   "index": 117
+  },
+  {
+   "link_parent": 115,
+   "link_child": 117,
+   "transform": {
+    "flags": 1,
+    "x": 66,
+    "y": 206
+   },
+   "flags_m": 17,
+   "depth": 1,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 112
+    }
+   ],
+   "index": 118
+  },
+  {
+   "link_parent": 115,
+   "link_child": 118,
+   "transform": {
+    "flags": 1,
+    "x": 149,
+    "y": 69
+   },
+   "flags_m": 23,
+   "depth": 7,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": -24,
+     "y": -49,
+     "sprite": 131
+    }
+   ],
+   "index": 119
+  },
+  {
+   "link_parent": 115,
+   "link_child": 119,
+   "transform": {
+    "flags": 1,
+    "x": -124,
+    "y": 193
+   },
+   "flags_m": 25,
+   "depth": 9,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 117
+    }
+   ],
+   "index": 120
+  },
+  {
+   "link_parent": 115,
+   "link_child": 120,
+   "transform": {
+    "flags": 1,
+    "x": 153,
+    "y": 19
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 75,
+     "sprite": 130
+    },
+    {
+     "x": -38,
+     "y": 76,
+     "sprite": 130
+    }
+   ],
+   "index": 121
+  },
+  {
+   "link_parent": 115,
+   "link_child": 121,
+   "transform": {
+    "flags": 1,
+    "x": -117,
+    "y": 142
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 122
+  },
+  {
+   "link_parent": 115,
+   "link_child": 122,
+   "transform": {
+    "flags": 1,
+    "x": -143,
+    "y": 81
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": 112,
+     "y": -15,
+     "sprite": 131
+    }
+   ],
+   "index": 123
+  },
+  {
+   "link_parent": 115,
+   "link_child": 123,
+   "transform": {
+    "flags": 1,
+    "x": 144,
+    "y": 66
+   },
+   "flags_m": 21,
+   "depth": 5,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 9,
+   "class": "s",
+   "kind": "decoration",
+   "sprites": [
+    {
+     "x": 0,
+     "y": 0,
+     "sprite": 131
+    },
+    {
+     "x": -44,
+     "y": -108,
+     "sprite": 131
+    },
+    {
+     "x": -3,
+     "y": -136,
+     "sprite": 131
+    }
+   ],
+   "index": 124
+  },
+  {
+   "link_parent": 0,
+   "link_child": 115,
+   "transform": {
+    "flags": 1,
+    "x": -757,
+    "y": -323
+   },
+   "flags_m": 19,
+   "depth": 3,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 13,
+   "class": "a",
+   "kind": "goal",
+   "index": 125
+  },
+  {
+   "link_parent": 0,
+   "link_child": 125,
+   "transform": {
+    "flags": 1,
+    "x": -1370,
+    "y": 1109
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 51,
+     "max_x": 48,
+     "min_y": 0
+    },
+    "state": 2,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      16,
+      0,
+      118,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      30,
+      0,
+      0,
+      3,
+      232,
+      0,
+      0,
+      3,
+      232
+     ],
+     [
+      16,
+      0,
+      118,
+      0,
+      0,
+      0,
+      0,
+      255,
+      255,
+      250,
+      226,
+      0,
+      0,
+      3,
+      232,
+      0,
+      0,
+      3,
+      232
+     ],
+     [
+      21,
+      0
+     ]
+    ]
+   },
+   "index": 126
+  },
+  {
+   "link_parent": 0,
+   "link_child": 126,
+   "transform": {
+    "flags": 1,
+    "x": 61,
+    "y": -312
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 47,
+     "max_x": 14,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": []
+   },
+   "index": 127
+  },
+  {
+   "link_parent": 0,
+   "link_child": 127,
+   "transform": {
+    "flags": 1,
+    "x": -32,
+    "y": -362
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -12,
+     "max_y": 156,
+     "max_x": 123,
+     "min_y": -38
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ]
+    ]
+   },
+   "index": 128
+  },
+  {
+   "link_parent": 0,
+   "link_child": 128,
+   "transform": {
+    "flags": 1,
+    "x": -937,
+    "y": 185
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 50,
+     "max_x": 33,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      2
+     ]
+    ]
+   },
+   "index": 129
+  },
+  {
+   "link_parent": 0,
+   "link_child": 129,
+   "transform": {
+    "flags": 1,
+    "x": -1673,
+    "y": 90
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -18,
+     "max_y": 180,
+     "max_x": 89,
+     "min_y": -47
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ],
+     [
+      30,
+      0,
+      131
+     ],
+     [
+      7,
+      2,
+      4,
+      32,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      3
+     ],
+     [
+      6,
+      7,
+      208,
+      7,
+      208
+     ],
+     [
+      30,
+      0,
+      156
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      32
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 130
+  },
+  {
+   "link_parent": 0,
+   "link_child": 130,
+   "transform": {
+    "flags": 1,
+    "x": -1135,
+    "y": 252
+   },
+   "flags_m": 181,
+   "depth": 5,
+   "solid": true,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      22.0,
+      4.0
+     ],
+     [
+      22.0,
+      -21.0
+     ],
+     [
+      0.0,
+      -21.0
+     ],
+     [
+      0.0,
+      0.0
+     ],
+     [
+      22.0,
+      4.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 5,
+    "trigger_id": -1
+   },
+   "index": 131
+  },
+  {
+   "link_parent": 0,
+   "link_child": 131,
+   "transform": {
+    "flags": 1,
+    "x": -1863,
+    "y": 115
+   },
+   "flags_m": 181,
+   "depth": 5,
+   "solid": true,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      22.0,
+      4.0
+     ],
+     [
+      22.0,
+      -21.0
+     ],
+     [
+      0.0,
+      -21.0
+     ],
+     [
+      0.0,
+      0.0
+     ],
+     [
+      22.0,
+      4.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 5,
+    "trigger_id": -1
+   },
+   "index": 132
+  },
+  {
+   "link_parent": 0,
+   "link_child": 132,
+   "transform": {
+    "flags": 1,
+    "x": -2272,
+    "y": -196
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -70,
+     "max_y": 216,
+     "max_x": -22,
+     "min_y": -50
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ],
+     [
+      31,
+      0,
+      0,
+      200,
+      1,
+      44
+     ],
+     [
+      30,
+      0,
+      132
+     ],
+     [
+      7,
+      2,
+      4,
+      32,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      3
+     ],
+     [
+      6,
+      7,
+      208,
+      7,
+      208
+     ],
+     [
+      30,
+      0,
+      156
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      32
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   "index": 133
+  },
+  {
+   "link_parent": 0,
+   "link_child": 133,
+   "transform": {
+    "flags": 1,
+    "x": -1527,
+    "y": -327
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -127,
+     "max_y": 232,
+     "max_x": 5,
+     "min_y": -53
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ]
+    ]
+   },
+   "index": 134
+  },
+  {
+   "link_parent": 0,
+   "link_child": 134,
+   "transform": {
+    "flags": 1,
+    "x": -2940,
+    "y": -834
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 380,
+     "max_x": 1290,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 135
+  },
+  {
+   "link_parent": 0,
+   "link_child": 135,
+   "transform": {
+    "flags": 1,
+    "x": -2185,
+    "y": -279
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 7,
+     "max_x": 138,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      99,
+      255,
+      254,
+      109,
+      225,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      99,
+      0,
+      1,
+      146,
+      31,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ]
+    ]
+   },
+   "index": 136
+  },
+  {
+   "link_parent": 0,
+   "link_child": 136,
+   "transform": {
+    "flags": 1,
+    "x": -2027,
+    "y": -311
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 6,
+     "max_x": 141,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      92,
+      255,
+      254,
+      109,
+      225,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      92,
+      0,
+      1,
+      146,
+      31,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ]
+    ]
+   },
+   "index": 137
+  },
+  {
+   "link_parent": 0,
+   "link_child": 137,
+   "transform": {
+    "flags": 1,
+    "x": -1872,
+    "y": -344
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 7,
+     "max_x": 140,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      89,
+      255,
+      254,
+      109,
+      225,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      17,
+      0,
+      89,
+      0,
+      1,
+      146,
+      31,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ]
+    ]
+   },
+   "index": 138
+  },
+  {
+   "link_parent": 0,
+   "link_child": 138,
+   "transform": {
+    "flags": 1,
+    "x": -1490,
+    "y": -1315
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 5,
+     "max_y": 658,
+     "max_x": 1148,
+     "min_y": 613
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 139
+  },
+  {
+   "link_parent": 0,
+   "link_child": 139,
+   "transform": {
+    "flags": 1,
+    "x": -3653,
+    "y": -1423
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -2212,
+     "max_y": 653,
+     "max_x": 2293,
+     "min_y": 65
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 140
+  },
+  {
+   "link_parent": 0,
+   "link_child": 140,
+   "transform": {
+    "flags": 1,
+    "x": -1082,
+    "y": 842
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 5,
+   "class": "k",
+   "kind": "object",
+   "index": 141
+  },
+  {
+   "link_parent": 0,
+   "link_child": 141,
+   "transform": {
+    "flags": 1,
+    "x": -148,
+    "y": -411
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 74,
+     "max_x": 16,
+     "min_y": 0
+    },
+    "state": 1,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 142
+  },
+  {
+   "link_parent": 0,
+   "link_child": 142,
+   "transform": {
+    "flags": 1,
+    "x": -654,
+    "y": -270
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 22,
+     "max_x": 25,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      16,
+      0,
+      6,
+      0,
+      0,
+      21,
+      241,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      27,
+      88,
+      0,
+      0,
+      27,
+      88
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ],
+     [
+      3,
+      13
+     ]
+    ]
+   },
+   "index": 143
+  },
+  {
+   "link_parent": 0,
+   "link_child": 143,
+   "transform": {
+    "flags": 1,
+    "x": -613,
+    "y": -268
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 22,
+     "max_x": 25,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      16,
+      0,
+      4,
+      0,
+      0,
+      21,
+      241,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      27,
+      88,
+      0,
+      0,
+      27,
+      88
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ],
+     [
+      16,
+      0,
+      4,
+      255,
+      255,
+      234,
+      15,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      54,
+      176,
+      0,
+      0,
+      54,
+      176
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ],
+     [
+      16,
+      0,
+      4,
+      0,
+      0,
+      21,
+      241,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      54,
+      176,
+      0,
+      0,
+      54,
+      176
+     ],
+     [
+      21,
+      2
+     ]
+    ]
+   },
+   "index": 144
+  },
+  {
+   "link_parent": 0,
+   "link_child": 144,
+   "transform": {
+    "flags": 1,
+    "x": -291,
+    "y": -332
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -9,
+     "max_y": 75,
+     "max_x": 45,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 145
+  },
+  {
+   "link_parent": 0,
+   "link_child": 145,
+   "transform": {
+    "flags": 1,
+    "x": -722,
+    "y": -335
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -127,
+     "max_y": 6,
+     "max_x": 54,
+     "min_y": -52
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ],
+     [
+      6,
+      3,
+      232,
+      3,
+      232
+     ],
+     [
+      4,
+      15
+     ],
+     [
+      4,
+      14
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      20,
+      0,
+      118
+     ]
+    ]
+   },
+   "index": 146
+  },
+  {
+   "link_parent": 0,
+   "link_child": 146,
+   "transform": {
+    "flags": 1,
+    "x": 469,
+    "y": 677
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 84,
+     "max_x": 100,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      6,
+      0,
+      200,
+      0,
+      200
+     ],
+     [
+      2,
+      25
+     ]
+    ]
+   },
+   "index": 147
+  },
+  {
+   "link_parent": 0,
+   "link_child": 147,
+   "transform": {
+    "flags": 1,
+    "x": -842,
+    "y": 182
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 269,
+     "max_x": 62,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      16,
+      0,
+      116,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      15,
+      92,
+      0,
+      0,
+      1,
+      244,
+      0,
+      0,
+      1,
+      244
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      16,
+      0,
+      34,
+      0,
+      0,
+      0,
+      0,
+      255,
+      255,
+      115,
+      52,
+      0,
+      0,
+      3,
+      232,
+      0,
+      0,
+      3,
+      232
+     ],
+     [
+      6,
+      0,
+      100,
+      0,
+      100
+     ],
+     [
+      20,
+      0,
+      34
+     ]
+    ]
+   },
+   "index": 148
+  },
+  {
+   "link_parent": 0,
+   "link_child": 148,
+   "transform": {
+    "flags": 1,
+    "x": -60,
+    "y": 161
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": -49,
+     "max_y": 204,
+     "max_x": -41,
+     "min_y": 20
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      25
+     ],
+     [
+      16,
+      0,
+      31,
+      255,
+      255,
+      153,
+      154,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      7,
+      208,
+      0,
+      0,
+      7,
+      208
+     ],
+     [
+      31,
+      0,
+      0,
+      90,
+      0,
+      140
+     ]
+    ]
+   },
+   "index": 149
+  },
+  {
+   "link_parent": 0,
+   "link_child": 149,
+   "transform": {
+    "flags": 1,
+    "x": -62,
+    "y": 82
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 20,
+     "max_x": 137,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      7,
+      2,
+      0,
+      32,
+      0,
+      0,
+      0,
+      1
+     ]
+    ]
+   },
+   "index": 150
+  },
+  {
+   "link_parent": 0,
+   "link_child": 150,
+   "transform": {
+    "flags": 1,
+    "x": 65,
+    "y": 103
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 271,
+     "max_x": 37,
+     "min_y": 0
+    },
+    "state": 1,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      29,
+      0,
+      23,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      128
+     ],
+     [
+      29,
+      0,
+      13,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      16,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      255,
+      255,
+      85,
+      86,
+      0,
+      0,
+      1,
+      44,
+      0,
+      0,
+      1,
+      44
+     ],
+     [
+      3,
+      23
+     ]
+    ]
+   },
+   "index": 151
+  },
+  {
+   "link_parent": 0,
+   "link_child": 151,
+   "transform": {
+    "flags": 1,
+    "x": -1,
+    "y": 214
+   },
+   "flags_m": 181,
+   "depth": 5,
+   "solid": true,
+   "skip_branch": true,
+   "flag256": false,
+   "tag": 4,
+   "class": "q",
+   "kind": "polygon",
+   "polygon": {
+    "vertices": [
+     [
+      15.0,
+      6.0
+     ],
+     [
+      14.0,
+      -16.0
+     ],
+     [
+      0.0,
+      -16.0
+     ],
+     [
+      0.0,
+      0.0
+     ],
+     [
+      15.0,
+      6.0
+     ]
+    ],
+    "triangles": [
+     [
+      3,
+      2,
+      1
+     ],
+     [
+      1,
+      0,
+      3
+     ]
+    ],
+    "color_argb": [
+     255,
+     0,
+     0,
+     0
+    ],
+    "vertex_bits": 5,
+    "trigger_id": -1
+   },
+   "index": 152
+  },
+  {
+   "link_parent": 0,
+   "link_child": 152,
+   "transform": {
+    "flags": 1,
+    "x": 303,
+    "y": 102
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 62,
+     "max_x": 57,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      29,
+      0,
+      23,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      29,
+      0,
+      13,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      128
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      3
+     ],
+     [
+      7,
+      2,
+      4,
+      32,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      30,
+      0,
+      152
+     ],
+     [
+      6,
+      0,
+      200,
+      0,
+      200
+     ],
+     [
+      16,
+      0,
+      17,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      51,
+      51,
+      0,
+      0,
+      3,
+      232,
+      0,
+      0,
+      3,
+      232
+     ],
+     [
+      6,
+      0,
+      200,
+      0,
+      200
+     ],
+     [
+      30,
+      0,
+      156
+     ],
+     [
+      6,
+      1,
+      244,
+      1,
+      244
+     ],
+     [
+      32
+     ],
+     [
+      7,
+      2,
+      1,
+      32,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      3,
+      22
+     ]
+    ]
+   },
+   "index": 153
+  },
+  {
+   "link_parent": 0,
+   "link_child": 153,
+   "transform": {
+    "flags": 1,
+    "x": 319,
+    "y": 694
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 84,
+     "max_x": 100,
+     "min_y": 0
+    },
+    "state": 2,
+    "mode_a": 0,
+    "mode_b": 0,
+    "filter_object": 156,
+    "programs": [
+     [
+      29,
+      0,
+      23,
+      0,
+      0,
+      0,
+      128,
+      0,
+      0,
+      0,
+      128
+     ],
+     [
+      31,
+      0,
+      0,
+      200,
+      1,
+      244
+     ]
+    ]
+   },
+   "index": 154
+  },
+  {
+   "link_parent": 0,
+   "link_child": 154,
+   "transform": {
+    "flags": 1,
+    "x": 625,
+    "y": 119
+   },
+   "flags_m": 0,
+   "depth": -16,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 6,
+   "class": "g",
+   "kind": "trigger",
+   "trigger": {
+    "box": {
+     "min_x": 0,
+     "max_y": 148,
+     "max_x": 40,
+     "min_y": 0
+    },
+    "state": 0,
+    "mode_a": 0,
+    "mode_b": 1,
+    "filter_object": 156,
+    "programs": [
+     [
+      12,
+      2,
+      3,
+      32,
+      0,
+      0,
+      0,
+      1,
+      7
+     ],
+     [
+      15,
+      2,
+      5,
+      32,
+      0,
+      0,
+      0,
+      50,
+      7
+     ],
+     [
+      1,
+      0,
+      10
+     ],
+     [
+      6,
+      0,
+      100,
+      0,
+      100
+     ],
+     [
+      29,
+      0,
+      11,
+      0,
+      0,
+      0,
+      32,
+      0,
+      0,
+      0,
+      32
+     ],
+     [
+      4,
+      18
+     ],
+     [
+      23
+     ]
+    ]
+   },
+   "index": 155
+  },
+  {
+   "link_parent": 0,
+   "link_child": 155,
+   "transform": {
+    "flags": 1,
+    "x": 53,
+    "y": 137
+   },
+   "flags_m": 16,
+   "depth": 0,
+   "solid": false,
+   "skip_branch": false,
+   "flag256": false,
+   "tag": 8,
+   "class": "c",
+   "kind": "ball",
+   "index": 156
+  }
+ ],
+ "errors": [],
+ "trailing_bytes": 0
+}
