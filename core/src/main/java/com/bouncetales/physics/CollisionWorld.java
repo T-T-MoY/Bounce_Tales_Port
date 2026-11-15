@@ -1,6 +1,7 @@
 package com.bouncetales.physics;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.bouncetales.render.ScreenTransform;
 import com.bouncetales.world.Entity;
@@ -71,6 +72,16 @@ public final class CollisionWorld {
     private final SegmentCollider.Hit hit = new SegmentCollider.Hit();
     private boolean found;
     private float bestDistance;
+
+    /**
+     * Contactos resueltos en el paso anterior, con el punto tocado en espacio local de la
+     * entidad. En el paso siguiente se compara con el transform actual para saber cuanto se
+     * ha movido la plataforma y arrastrar la bola ({@code f31n/f31o} + {@code c.o()}).
+     */
+    private final Array<Contact> carry = new Array<>();
+    private final Array<Contact> nextCarry = new Array<>();
+    private final Vector2 scratch = new Vector2();
+    private final Vector2 localScratch = new Vector2();
 
     public CollisionWorld(Level level) {
         this.level = level;
@@ -148,15 +159,148 @@ public final class CollisionWorld {
             rebuild();
             level.geometryDirty = false;
         }
+        nextCarry.clear();
         int contacts = 0;
         for (int pass = 0; pass < MAX_PASSES; pass++) {
             if (!findContact(ball)) {
                 break;
             }
             SegmentSolver.resolve(ball, best, dt);
+            rememberContact(best);
             contacts++;
         }
+        carry.clear();
+        carry.addAll(nextCarry);
+        nextCarry.clear();
         return contacts;
+    }
+
+    /** Copia un contacto resuelto para medir el movimiento de la plataforma al frame siguiente. */
+    private void rememberContact(Contact c) {
+        if (c.entity == null) {
+            return;
+        }
+        for (Contact other : nextCarry) {
+            if (other.entity == c.entity) {
+                return;
+            }
+        }
+        Contact copy = new Contact();
+        copy.set(c.pointX, c.pointY, c.normalX, c.normalY, c.distance, c.deep);
+        copy.setEntity(c.entity, c.localX, c.localY);
+        nextCarry.add(copy);
+    }
+
+    /**
+     * Arrastra la bola con las plataformas que tocaba en el paso anterior.
+     *
+     * <p>Reproduce {@code c.o()} (lineas 692-758): si el punto de contacto se ha movido
+     * {@code (dx,dy)} porque la entidad se ha desplazado, se aplica ese desplazamiento a la
+     * posicion (y a la posicion anterior, para que el barrido siga siendo coherente) y se
+     * sustituye la componente normal de la velocidad por la velocidad normal de la
+     * plataforma. Debe llamarse despues de ejecutar los triggers y antes de resolver las
+     * colisiones del paso.
+     */
+    public void applyPlatformCarry(BallBody ball, float dt) {
+        if (carry.size == 0) {
+            return;
+        }
+        Vector2 now = scratch;
+        for (Contact c : carry) {
+            Entity e = c.entity;
+            if (e == null || e.detached) {
+                continue;
+            }
+            e.localToWorld(c.localX, c.localY, now);
+            float dx = now.x - c.pointX;
+            float dy = now.y - c.pointY;
+            if (dx == 0f && dy == 0f) {
+                continue;
+            }
+            ball.prevX += dx;
+            ball.prevY += dy;
+            ball.x += dx;
+            ball.y += dy;
+            if (dt > 1e-6f) {
+                float platformNormalSpeed = (dx * c.normalX + dy * c.normalY) / dt;
+                float ballNormalSpeed = ball.vx * c.normalX + ball.vy * c.normalY;
+                float add = platformNormalSpeed - ballNormalSpeed;
+                ball.vx += add * c.normalX;
+                ball.vy += add * c.normalY;
+            }
+        }
+        carry.clear();
+    }
+
+    /** Descarta los contactos pendientes (p. ej. si el tubo sujeta la bola). */
+    public void clearCarry() {
+        carry.clear();
+    }
+
+    /**
+     * Corrige una posicion inicial que nace dentro del terreno.
+     *
+     * <p>El nivel {@code bj} (6) coloca la bola a 1 px por debajo de la frontera de contacto
+     * de la superficie del estanque. El barrido solo detecta aristas cuando el centro esta
+     * <em>fuera</em> y se mueve contra ellas, asi que sin esta correccion la bola atraviesa
+     * el suelo y cae al vacio. Se busca la arista superior mas alta bajo la bola y, si el
+     * centro ya esta por debajo de {@code y + radio}, se sube justo encima.
+     *
+     * @return {@code true} si se ha corregido la posicion
+     */
+    public boolean snapUpToGround(BallBody ball) {
+        float bestY = -Float.MAX_VALUE;
+        float bestScale = 1f;
+        for (Collider c : colliders) {
+            int n = c.xs.length;
+            for (int i = 0; i + 1 < n; i++) {
+                float ax = c.xs[i];
+                float ay = c.ys[i];
+                float bx = c.xs[i + 1];
+                float by = c.ys[i + 1];
+                float ex = bx - ax;
+                float ey = by - ay;
+                float len = (float) Math.sqrt(ex * ex + ey * ey);
+                if (len < 1e-6f) {
+                    continue;
+                }
+                // Normal exterior (winding horario): (-ey, ex).
+                if (ex / len < 0.5f) {
+                    continue;
+                }
+                if (ball.x < Math.min(ax, bx) - 1f || ball.x > Math.max(ax, bx) + 1f) {
+                    continue;
+                }
+                float t = Math.abs(bx - ax) < 1e-6f ? 0f : (ball.x - ax) / (bx - ax);
+                if (t < 0f) {
+                    t = 0f;
+                } else if (t > 1f) {
+                    t = 1f;
+                }
+                float edgeY = ay + (by - ay) * t;
+                if (edgeY > ball.y + ball.radius()) {
+                    // Superficie por encima de la bola: no es el suelo sobre el que nace.
+                    continue;
+                }
+                if (edgeY > bestY) {
+                    bestY = edgeY;
+                    bestScale = c.radiusScale;
+                }
+            }
+        }
+        if (bestY == -Float.MAX_VALUE) {
+            return false;
+        }
+        float radius = ball.radius() * bestScale;
+        if (ball.y >= bestY + radius) {
+            return false;
+        }
+        ball.y = bestY + radius + 0.5f;
+        ball.prevY = ball.y;
+        if (ball.vy < 0f) {
+            ball.vy = 0f;
+        }
+        return true;
     }
 
     /**
@@ -244,7 +388,7 @@ public final class CollisionWorld {
                         tax, tay, tbx, tby, radius2, hit)) {
                     float px = prevX + deltaX * hit.t;
                     float py = prevY + deltaY * hit.t;
-                    consider(px, py, nx, ny, distance2(px, py, prevX, prevY), hit.deep);
+                    consider(c.entity, px, py, nx, ny, distance2(px, py, prevX, prevY), hit.deep);
                 }
 
                 // Extremos como circulos de radio r (c.c(...)).
@@ -253,14 +397,14 @@ public final class CollisionWorld {
                             ax, ay, radius, hit)) {
                         float vnx = hit.x - ax;
                         float vny = hit.y - ay;
-                        normalizeAndConsider(hit.x, hit.y, vnx, vny,
+                        normalizeAndConsider(c.entity, hit.x, hit.y, vnx, vny,
                                 prevX, prevY, hit.deep);
                     }
                     if (SegmentCollider.rayCircle(prevX, prevY, dirX, dirY, len,
                             bx, by, radius, hit)) {
                         float vnx = hit.x - bx;
                         float vny = hit.y - by;
-                        normalizeAndConsider(hit.x, hit.y, vnx, vny,
+                        normalizeAndConsider(c.entity, hit.x, hit.y, vnx, vny,
                                 prevX, prevY, hit.deep);
                     }
                 }
@@ -270,22 +414,29 @@ public final class CollisionWorld {
         return found;
     }
 
-    private void normalizeAndConsider(float px, float py, float nx, float ny,
+    private void normalizeAndConsider(Entity entity, float px, float py, float nx, float ny,
                                       float prevX, float prevY, boolean deep) {
         float len = (float) Math.sqrt(nx * nx + ny * ny);
         if (len < 1e-6f) {
             return;
         }
-        consider(px, py, nx / len, ny / len, distance2(px, py, prevX, prevY), deep);
+        consider(entity, px, py, nx / len, ny / len, distance2(px, py, prevX, prevY), deep);
     }
 
-    private void consider(float px, float py, float nx, float ny, float d2, boolean deep) {
+    private void consider(Entity entity, float px, float py, float nx, float ny,
+                          float d2, boolean deep) {
         // En c.o() los contactos profundos tienen prioridad: su distancia se niega.
         float key = deep ? -d2 : d2;
         if (!found || key < bestDistance) {
             found = true;
             bestDistance = key;
             best.set(px, py, nx, ny, d2, deep);
+            if (entity != null) {
+                entity.worldToLocal(px, py, localScratch);
+                best.setEntity(entity, localScratch.x, localScratch.y);
+            } else {
+                best.setEntity(null, 0f, 0f);
+            }
         }
     }
 

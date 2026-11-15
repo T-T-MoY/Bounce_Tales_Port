@@ -14,6 +14,7 @@ import com.bouncetales.world.Level;
 import com.bouncetales.world.PolygonShape;
 import com.bouncetales.world.WaterData;
 import com.bouncetales.world.entity.Enemy;
+import com.bouncetales.world.entity.Tube;
 
 import java.util.Comparator;
 
@@ -36,6 +37,10 @@ public final class LevelRenderer implements Disposable {
     private static final int BLINK_ENEMY_SPRITE = 504;
     private static final float PATROL_FRAME_RATE = 20f;
     private static final float BLINK_FRAME_INTERVAL = 0.15f;
+
+    /** Tubo lanzador: sprite y duraciones de las tres etapas ({@code l.f113a}). */
+    private static final int TUBE_SPRITE = 48;
+    private static final float[] TUBE_STAGE_MS = {500f, 100f, 300f};
     /** {@code c.f9a}: 32 rotaciones del sprite de piedra (marble), de 11,25 grados cada una. */
     private static final int[] STONE_FRAMES = {
             211, 212, 223, 234, 237, 238, 239, 240, 241, 242, 213, 214,
@@ -72,6 +77,17 @@ public final class LevelRenderer implements Disposable {
     private int mode = MODE_NONE;
     private boolean drawBall = true;
     private float time;
+
+    /** Tiempo jugado del nivel ({@code n.f127a}), en segundos; se detiene al morir. */
+    private float levelTime;
+
+    /**
+     * Mallas del tubo ({@code n.f198a}): 12 poligonos del banco {@code bu.json} en orden de
+     * fichero. Los grupos A/B/C son fotogramas clave y el ultimo grupo D se usa como copia de
+     * trabajo al principio (su geometria coincide con A).
+     */
+    private final Array<PolygonShape> tubeMeshes = new Array<>();
+    private final float[][] tubeVertices = new float[3][];
 
     /** Cuando la fisica esta activa, la bola se dibuja en la posicion simulada. */
     private boolean ballOverride;
@@ -133,6 +149,17 @@ public final class LevelRenderer implements Disposable {
 
     public void addTime(float dt) {
         time += dt;
+    }
+
+    /** Tiempo jugado del nivel en segundos ({@code n.f127a / 1000}). */
+    public void setLevelTime(float seconds) {
+        this.levelTime = seconds;
+    }
+
+    /** Banco de mallas del tubo ({@code n.f198a}); se carga de {@code bu.json}. */
+    public void setTubeMeshes(Array<PolygonShape> meshes) {
+        tubeMeshes.clear();
+        tubeMeshes.addAll(meshes);
     }
 
     public void render(Level level) {
@@ -268,56 +295,75 @@ public final class LevelRenderer implements Disposable {
         sprites.drawFrame(batch, e.padSprite, frame, sx, sy);
     }
 
+    /**
+     * Tubo lanzador ({@code l.a(Graphics, ...)}): tres mallas poligonales (negra, gris y
+     * amarilla) que se interpolan entre los fotogramas clave A -&gt; B -&gt; C -&gt; A segun el
+     * tiempo de carga ({@code l.f113a = {500, 100, 300}} ms) y, encima, el sprite 48.
+     */
     private void drawTube(Entity e) {
+        float elapsed = e.tube != null && e.tube.isCharging()
+                ? e.tube.chargeProgress() * Tube.HOLD_TIME * 1000f : 0f;
+        int stage = 0;
+        float stageStart = 0f;
+        if (elapsed >= TUBE_STAGE_MS[0]) {
+            stage = 1;
+            stageStart = TUBE_STAGE_MS[0];
+        }
+        if (elapsed >= TUBE_STAGE_MS[0] + TUBE_STAGE_MS[1]) {
+            stage = 2;
+            stageStart = TUBE_STAGE_MS[0] + TUBE_STAGE_MS[1];
+        }
+        float f = MathUtils.clamp((elapsed - stageStart) / TUBE_STAGE_MS[stage], 0f, 1f);
+        int from = stage * 3;
+        int to = ((stage + 1) % 3) * 3;
+
         useShapes();
-        float x0 = -40f;
-        float x1 = 120f;
-        float halfWidth = 12f;
-        float lengthX = x1 - x0;
-        float dx = e.world.m00 * lengthX;
-        float dy = e.world.m10 * lengthX;
-        float length = (float) Math.sqrt(dx * dx + dy * dy);
-        if (length < 1e-4f) {
-            return;
+        for (int part = 0; part < 3; part++) {
+            drawTubePart(e, part, from + part, to + part, f);
         }
 
-        float nx = -dy / length * halfWidth;
-        float ny = dx / length * halfWidth;
-        tubePoint(e, x0, 0f, tri, 0);
-        tubePoint(e, x1, 0f, tri, 2);
-        float sx0 = tri[0];
-        float sy0 = tri[1];
-        float sx1 = tri[2];
-        float sy1 = tri[3];
-        float snx = nx * transform.scale;
-        float sny = -ny * transform.scale;
-
-        boolean charging = e.tube != null && e.tube.isCharging();
-        shapes.setColor(charging ? 0.34f : 0.22f, charging ? 0.7f : 0.25f,
-                charging ? 1f : 0.32f, 1f);
-        shapes.triangle(sx0 + snx, sy0 + sny, sx0 - snx, sy0 - sny,
-                sx1 + snx, sy1 + sny);
-        shapes.triangle(sx0 - snx, sy0 - sny, sx1 - snx, sy1 - sny,
-                sx1 + snx, sy1 + sny);
-
-        shapes.setColor(0.65f, 0.72f, 0.8f, 1f);
-        shapes.circle(sx1, sy1, 8f, 12);
-        shapes.setColor(0.08f, 0.12f, 0.18f, 1f);
-        shapes.circle(sx1, sy1, 4f, 12);
-
-        if (charging && e.tube.isHoldingBall()) {
-            float pulse = 3f + 4f * e.tube.chargeProgress();
-            tubePoint(e, 40f, 0f, tri, 0);
-            shapes.setColor(0.4f, 0.82f, 1f, 0.9f);
-            shapes.circle(tri[0], tri[1], pulse * transform.scale, 12);
-        }
+        useSprites();
+        sprites.draw(batch, TUBE_SPRITE,
+                transform.screenX(e.worldX()), transform.screenY(e.worldY()));
     }
 
-    private void tubePoint(Entity e, float localX, float localY, float[] points, int offset) {
-        float wx = e.world.m00 * localX + e.world.m01 * localY + e.world.m02;
-        float wy = e.world.m10 * localX + e.world.m11 * localY + e.world.m12;
-        points[offset] = transform.screenX(wx);
-        points[offset + 1] = transform.glY(transform.screenY(wy));
+    /** Interpola un poligono del tubo entre dos fotogramas clave y lo dibuja. */
+    private void drawTubePart(Entity e, int part, int fromIndex, int toIndex, float f) {
+        if (fromIndex >= tubeMeshes.size || toIndex >= tubeMeshes.size) {
+            return;
+        }
+        PolygonShape a = tubeMeshes.get(fromIndex);
+        PolygonShape b = tubeMeshes.get(toIndex);
+        int vertexCount = Math.min(a.vertices.length, b.vertices.length) / 2;
+        float[] scratch = tubeVertices[part];
+        if (scratch == null || scratch.length < vertexCount * 2) {
+            scratch = new float[vertexCount * 2];
+            tubeVertices[part] = scratch;
+        }
+        for (int i = 0; i < vertexCount * 2; i++) {
+            scratch[i] = a.vertices[i] * (1f - f) + b.vertices[i] * f;
+        }
+
+        shapes.setColor(argbToFloat(a.color));
+        for (int i = 0; i + 2 < a.triangles.length; i += 3) {
+            boolean ok = true;
+            for (int k = 0; k < 3; k++) {
+                int index = a.triangles[i + k];
+                if (index < 0 || index >= vertexCount) {
+                    ok = false;
+                    break;
+                }
+                float lx = scratch[index * 2];
+                float ly = scratch[index * 2 + 1];
+                float wx = e.world.m00 * lx + e.world.m01 * ly + e.world.m02;
+                float wy = e.world.m10 * lx + e.world.m11 * ly + e.world.m12;
+                tri[k * 2] = transform.screenX(wx);
+                tri[k * 2 + 1] = transform.glY(transform.screenY(wy));
+            }
+            if (ok) {
+                shapes.triangle(tri[0], tri[1], tri[2], tri[3], tri[4], tri[5]);
+            }
+        }
     }
 
     private void drawWater(Entity e) {
@@ -416,7 +462,8 @@ public final class LevelRenderer implements Disposable {
     private void drawBlinkEnemy(Enemy enemy, float sx, float sy) {
         boolean transitioning = enemy.isTransitioning();
         int frame = !transitioning
-                ? MathUtils.floor(time / BLINK_FRAME_INTERVAL) % sprites.frameCount(BLINK_ENEMY_SPRITE)
+                ? MathUtils.floor(levelTime / BLINK_FRAME_INTERVAL)
+                        % sprites.frameCount(BLINK_ENEMY_SPRITE)
                 : 0;
         sprites.drawFrame(batch, BLINK_ENEMY_SPRITE, frame, sx, sy);
 

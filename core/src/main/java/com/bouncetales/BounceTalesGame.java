@@ -2,6 +2,8 @@ package com.bouncetales;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.bouncetales.asset.LevelCatalog;
 
@@ -42,6 +44,31 @@ public final class BounceTalesGame extends Game {
             openMenu();
         } else {
             openLevel(levelName);
+        }
+    }
+
+    /**
+     * Alterna ventana 1280x720 y pantalla completa. Se comprueba en cada frame para que
+     * funcione igual en el menu y dentro de un nivel.
+     */
+    @Override
+    public void render() {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.F11)) {
+            toggleFullscreen();
+        }
+        super.render();
+    }
+
+    /** {@code F11}: alterna pantalla completa usando el modo actual del monitor. */
+    public void toggleFullscreen() {
+        if (Gdx.graphics.isFullscreen()) {
+            Gdx.graphics.setWindowedMode(1280, 720);
+            Gdx.app.log("Bounce", "modo ventana 1280x720");
+        } else {
+            Graphics.DisplayMode mode = Gdx.graphics.getDisplayMode();
+            Gdx.graphics.setFullscreenMode(mode);
+            Gdx.app.log("Bounce", "pantalla completa " + mode.width + "x" + mode.height
+                    + " @" + mode.refreshRate + " Hz");
         }
     }
 

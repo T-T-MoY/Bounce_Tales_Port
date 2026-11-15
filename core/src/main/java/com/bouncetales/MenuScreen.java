@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.bouncetales.asset.LevelCatalog;
 import com.bouncetales.audio.SoundBank;
@@ -64,6 +64,8 @@ public final class MenuScreen implements Screen {
 
     private Viewport viewport;
     private OrthographicCamera camera;
+    private float worldWidth = SCREEN_WIDTH;
+    private float worldHeight = SCREEN_HEIGHT;
     private SpriteBatch batch;
     private ShapeRenderer shapes;
     private BitmapFont font;
@@ -86,7 +88,8 @@ public final class MenuScreen implements Screen {
     @Override
     public void show() {
         camera = new OrthographicCamera();
-        viewport = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
+        // Igual que el juego: alto logico 320 y ancho extendido en ventanas 16:9.
+        viewport = new ExtendViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
         batch = new SpriteBatch();
         shapes = new ShapeRenderer();
         font = new BitmapFont();
@@ -95,6 +98,7 @@ public final class MenuScreen implements Screen {
         soundBank = new SoundBank();
         soundBank.playMusic(LevelCatalog.menuMusicId());
         viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+        syncWorldSize();
         Gdx.app.log("Menu", "niveles: " + levels.size() + ", seleccionado: "
                 + (selected + 1) + " (" + levels.get(selected) + ")");
     }
@@ -122,13 +126,13 @@ public final class MenuScreen implements Screen {
         shapes.setProjectionMatrix(camera.combined);
 
         shapes.begin(ShapeRenderer.ShapeType.Filled);
-        background.draw(shapes, SCREEN_WIDTH, SCREEN_HEIGHT);
+        background.draw(shapes, (int) worldWidth, (int) worldHeight);
         // Banda superior e inferior para separar el menu del fondo.
         shapes.setColor(0f, 0f, 0f, 0.28f);
-        shapes.rect(0, SCREEN_HEIGHT - 72, SCREEN_WIDTH, 72);
-        shapes.rect(0, 0, SCREEN_WIDTH, 54);
+        shapes.rect(0, worldHeight - 72, worldWidth, 72);
+        shapes.rect(0, 0, worldWidth, 54);
         shapes.setColor(1f, 0.83f, 0.25f, 0.85f);
-        shapes.rect(20, SCREEN_HEIGHT - 73, SCREEN_WIDTH - 40, 1);
+        shapes.rect(20, worldHeight - 73, worldWidth - 40, 1);
         shapes.end();
 
         batch.begin();
@@ -141,6 +145,8 @@ public final class MenuScreen implements Screen {
         drawCentered("Selecciona un nivel  (" + (firstVisible + 1) + "-"
                 + lastVisible + " de " + levels.size() + ")", SUBTITLE_Y);
 
+        // La lista conserva su columna de 240 px centrada en el lienzo extendido.
+        float contentX = (worldWidth - SCREEN_WIDTH) * 0.5f;
         font.getData().setScale(0.5f);
         for (int row = 0; row < VISIBLE_ROWS; row++) {
             int index = firstVisible + row;
@@ -148,17 +154,17 @@ public final class MenuScreen implements Screen {
                 break;
             }
             float baseline = LIST_TOP + row * ROW_HEIGHT + 12f;
-            float glY = SCREEN_HEIGHT - baseline;
+            float glY = worldHeight - baseline;
             String name = levels.get(index);
             String label = String.format("%02d  %s", index + 1, name.toUpperCase());
             boolean isSelected = index == selected;
             if (isSelected) {
                 font.setColor(1f, 0.86f, 0.25f, 1f);
-                font.draw(batch, "> " + label, 28f, glY);
-                font.draw(batch, "<", 200f, glY);
+                font.draw(batch, "> " + label, contentX + 28f, glY);
+                font.draw(batch, "<", contentX + 200f, glY);
             } else {
                 font.setColor(0.78f, 0.88f, 0.95f, 1f);
-                font.draw(batch, "  " + label, 28f, glY);
+                font.draw(batch, "  " + label, contentX + 28f, glY);
             }
         }
 
@@ -167,7 +173,7 @@ public final class MenuScreen implements Screen {
         font.setColor(0.75f, 0.85f, 0.9f, 1f);
         drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 270f);
         drawAudioOptions(286f);
-        drawCentered("ESC: salir", 302f);
+        drawCentered("F11: pantalla completa    ESC: salir", 302f);
         batch.end();
 
         frame++;
@@ -188,7 +194,7 @@ public final class MenuScreen implements Screen {
         if (Gdx.input.justTouched() && viewport != null) {
             pointer.set(Gdx.input.getX(), Gdx.input.getY());
             viewport.unproject(pointer);
-            float topY = SCREEN_HEIGHT - pointer.y;
+            float topY = worldHeight - pointer.y;
             int row = (int) ((topY - LIST_TOP) / ROW_HEIGHT);
             if (row >= 0 && row < VISIBLE_ROWS) {
                 int index = firstVisible + row;
@@ -300,8 +306,8 @@ public final class MenuScreen implements Screen {
 
     private void drawCentered(String text, float topY) {
         layout.setText(font, text);
-        font.draw(batch, layout, (SCREEN_WIDTH - layout.width) * 0.5f,
-                SCREEN_HEIGHT - topY);
+        font.draw(batch, layout, (worldWidth - layout.width) * 0.5f,
+                worldHeight - topY);
     }
 
     /** Linea de opciones de audio; en rojo si alguna esta silenciada. */
@@ -315,10 +321,20 @@ public final class MenuScreen implements Screen {
         drawCentered("M: musica " + music + "    F: efectos " + fx, topY);
     }
 
+    /** Lee el tamano del mundo logico que ha calculado el {@link ExtendViewport}. */
+    private void syncWorldSize() {
+        if (viewport == null) {
+            return;
+        }
+        worldWidth = viewport.getWorldWidth();
+        worldHeight = viewport.getWorldHeight();
+    }
+
     @Override
     public void resize(int width, int height) {
         if (viewport != null) {
             viewport.update(width, height, true);
+            syncWorldSize();
         }
     }
 

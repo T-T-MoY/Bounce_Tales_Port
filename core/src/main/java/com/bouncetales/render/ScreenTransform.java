@@ -28,8 +28,8 @@ public final class ScreenTransform {
     /** {@code k.f103g.a} para pantallas estrechas. */
     public static final float SCALE_SMALL_SCREEN = 22306f / 65536f;
 
-    public final int width;
-    public final int height;
+    public float width;
+    public float height;
 
     public float scale;
     public float cameraX;
@@ -39,6 +39,16 @@ public final class ScreenTransform {
         this.width = width;
         this.height = height;
         this.scale = width >= 200 ? SCALE_LARGE_SCREEN : SCALE_SMALL_SCREEN;
+    }
+
+    /**
+     * Ajusta el lienzo logico al tamano del mundo del viewport. Con {@code ExtendViewport} el
+     * alto sigue siendo 320 y el ancho crece en ventanas 16:9, asi que se ve mas escenario
+     * horizontal sin deformar nada. La escala (0.66) no cambia: el zoom es el del original.
+     */
+    public void resize(float width, float height) {
+        this.width = width;
+        this.height = height;
     }
 
     public float screenX(float worldX) {

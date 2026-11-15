@@ -121,6 +121,7 @@ public final class Level {
             e.local.set(e.initialLocal);
             e.parent = e.initialParent;
             e.depth = e.initialDepth;
+            e.solid = e.initialSolid;
             e.skipBranch = e.initialSkipBranch;
             e.flag256 = e.initialFlag256;
             e.detached = false;

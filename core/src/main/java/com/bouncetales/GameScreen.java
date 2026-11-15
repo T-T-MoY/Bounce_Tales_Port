@@ -7,7 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.bouncetales.asset.LevelCatalog;
 import com.bouncetales.asset.LevelLoader;
@@ -25,6 +26,7 @@ import com.bouncetales.ui.Hud;
 import com.bouncetales.util.ScreenshotCapture;
 import com.bouncetales.world.Entity;
 import com.bouncetales.world.Level;
+import com.bouncetales.world.PolygonShape;
 import com.bouncetales.world.entity.Collectible;
 import com.bouncetales.world.entity.LevelEntities;
 import com.bouncetales.world.entity.Pad;
@@ -83,7 +85,6 @@ public final class GameScreen implements Screen {
     private final BounceTalesGame game;
     private final String levelName;
     private final int levelIndex;
-    private final String levelLabel;
 
     private Viewport viewport;
     private OrthographicCamera camera;
@@ -109,6 +110,8 @@ public final class GameScreen implements Screen {
     private float accumulator;
     private int physicsSteps;
     private int lastContacts;
+    /** Tiempo jugado del nivel en segundos ({@code n.f127a}); se reinicia al morir. */
+    private float levelTime;
     private boolean victory;
     private float victoryTimer;
     private boolean advanceRequested;
@@ -138,15 +141,13 @@ public final class GameScreen implements Screen {
         this.game = game;
         this.levelName = levelName;
         this.levelIndex = LevelCatalog.indexOf(levelName);
-        this.levelLabel = levelIndex < 0
-                ? "NIVEL " + levelName.toUpperCase()
-                : "NIVEL " + (levelIndex + 1) + "  " + levelName.toUpperCase();
     }
 
     @Override
     public void show() {
         camera = new OrthographicCamera();
-        viewport = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
+        // Mundo logico 240x320 de alto; en 16:9 el viewport amplia el ancho (mas escenario).
+        viewport = new ExtendViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
 
         batch = new SpriteBatch();
         shapes = new ShapeRenderer();
@@ -179,6 +180,7 @@ public final class GameScreen implements Screen {
         background = Background.forLevel(levelName);
         spriteDrawer = new SpriteDrawer(spriteBank, transform);
         levelRenderer = new LevelRenderer(batch, shapes, spriteDrawer, transform);
+        loadTubeMeshes();
 
         // --- Fase 2: fisica ---
         if (level.ball != null) {
@@ -190,6 +192,11 @@ public final class GameScreen implements Screen {
             levelRenderer.setBallPosition(ball.x, ball.y);
         }
         collisionWorld = new CollisionWorld(level);
+        if (ball != null && System.getProperty("bounce.teleport") == null
+                && collisionWorld.snapUpToGround(ball)) {
+            Gdx.app.log("Bounce", "spawn corregido: la bola nacia dentro del terreno -> y="
+                    + String.format("%.2f", ball.y));
+        }
         cameraSpring = new CameraSpring(transform);
         triggerVM = new TriggerVM(level, levelEntities, ball, vars, soundBank);
         hud = new Hud(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -216,6 +223,7 @@ public final class GameScreen implements Screen {
         }
 
         viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+        syncWorldSize();
 
         if (Boolean.getBoolean("bounce.die") && ball != null) {
             beginDeath();
@@ -232,6 +240,26 @@ public final class GameScreen implements Screen {
         String levelFile = index.levelFileName(0);
         Gdx.app.log("Bounce", "indice: " + index.files.size() + " ficheros, "
                 + index.objects.size() + " objetos, nivel 0 -> " + levelFile);
+    }
+
+    /**
+     * Carga el banco de mallas del tubo ({@code n.f198a}) desde {@code bu.json}. Son los doce
+     * poligonos tag 4 en orden de fichero: tres grupos de fotogramas clave (A, B, C) y un
+     * cuarto grupo D que solo sirve de copia de trabajo (su geometria coincide con A).
+     */
+    private void loadTubeMeshes() {
+        Array<PolygonShape> meshes = new Array<>();
+        String path = "levels/bu.json";
+        if (Gdx.files.internal(path).exists()) {
+            Level bank = LevelLoader.load(Gdx.files.internal(path).readString("UTF-8"));
+            for (Entity entity : bank.entities) {
+                if (entity.tag == Entity.TAG_POLYGON && entity.polygon != null) {
+                    meshes.add(entity.polygon);
+                }
+            }
+        }
+        levelRenderer.setTubeMeshes(meshes);
+        Gdx.app.log("Bounce", "mallas de tubo: " + meshes.size);
     }
 
     @Override
@@ -283,16 +311,17 @@ public final class GameScreen implements Screen {
 
         // Fondo: degradado de cielo del original (n.a, rama j == 4).
         shapes.begin(ShapeRenderer.ShapeType.Filled);
-        background.draw(shapes, SCREEN_WIDTH, SCREEN_HEIGHT);
+        background.draw(shapes, (int) transform.width, (int) transform.height);
         shapes.end();
 
+        levelRenderer.setLevelTime(levelTime);
         levelRenderer.render(level);
 
         if (debug) {
             drawDebug();
         }
-        hud.render(batch, spriteDrawer, levelLabel,
-                levelEntities.collected(), levelEntities.total(), victory);
+        hud.render(batch, spriteDrawer,
+                levelEntities.collected(), levelEntities.total(), levelTime, victory);
 
         frame++;
         if (screenshotFrame > 0 && frame >= screenshotFrame) {
@@ -323,6 +352,7 @@ public final class GameScreen implements Screen {
         accumulator += frameDelta;
         int steps = 0;
         while (accumulator >= FIXED_STEP && steps < MAX_STEPS_PER_FRAME) {
+            levelTime += FIXED_STEP;
             boolean wasInWater = ball.inWater;
             boolean wasTouchedWater = ball.touchedWater;
             boolean stepLeft = left;
@@ -363,6 +393,11 @@ public final class GameScreen implements Screen {
 
             triggerVM.detect();
             triggerVM.run(FIXED_STEP);
+            if (ballHeld) {
+                collisionWorld.clearCarry();
+            } else {
+                collisionWorld.applyPlatformCarry(ball, FIXED_STEP);
+            }
             lastContacts = ballHeld ? 0 : collisionWorld.resolve(ball, FIXED_STEP);
             ball.inWater = false;
             ball.touchedWater = false;
@@ -641,7 +676,11 @@ public final class GameScreen implements Screen {
         ball.faceTimer = 0f;
         ball.idleTimer = BallBody.FACE_IDLE_DELAY;
         collisionWorld.rebuild();
+        collisionWorld.clearCarry();
         level.geometryDirty = false;
+        if (System.getProperty("bounce.teleport") == null) {
+            collisionWorld.snapUpToGround(ball);
+        }
         cameraSpring.snap(ball);
         levelRenderer.setBallPosition(ball.x, ball.y);
         accumulator = 0f;
@@ -652,7 +691,25 @@ public final class GameScreen implements Screen {
         deathTimer = 0f;
         deathBaseY = 0f;
         lastFaceState = 0;
+        levelTime = 0f;
         Gdx.app.log("Bounce", "nivel reiniciado");
+    }
+
+    /**
+     * Sincroniza el lienzo logico con el mundo que calcula el {@link ExtendViewport}.
+     * En 16:9 el ancho crece (p. ej. 568.9 unidades) y el alto sigue en 320, de modo que
+     * aparecen mas columnas de escenario a los lados sin deformar ni recortar la accion.
+     */
+    private void syncWorldSize() {
+        if (viewport == null || transform == null) {
+            return;
+        }
+        float w = viewport.getWorldWidth();
+        float h = viewport.getWorldHeight();
+        transform.resize(w, h);
+        if (hud != null) {
+            hud.resize(Math.round(w), Math.round(h));
+        }
     }
 
     /** Aristas de colision en rojo, circulo de la bola en verde y normal en amarillo. */
@@ -679,7 +736,10 @@ public final class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-        viewport.update(width, height, true);
+        if (viewport != null) {
+            viewport.update(width, height, true);
+            syncWorldSize();
+        }
     }
 
     @Override

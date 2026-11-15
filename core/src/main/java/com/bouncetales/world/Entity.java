@@ -60,6 +60,8 @@ public final class Entity {
     public final Affine2 initialLocal = new Affine2();
     public Entity initialParent;
     public int initialDepth;
+    /** Estado inicial de colision; los muros rompibles lo cambian con el opcode 29. */
+    public boolean initialSolid;
     public boolean initialSkipBranch;
     public boolean initialFlag256;
 

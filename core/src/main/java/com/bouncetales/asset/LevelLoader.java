@@ -52,6 +52,7 @@ public final class LevelLoader {
             }
             e.initialParent = e.parent;
             e.initialLocal.set(e.local);
+            e.initialSolid = e.solid;
             e.initialDepth = e.depth;
             e.initialSkipBranch = e.skipBranch;
             e.initialFlag256 = e.flag256;

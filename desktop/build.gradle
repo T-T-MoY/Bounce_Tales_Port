@@ -35,6 +35,9 @@ tasks.named('run') {
     if (System.getProperty('bounce.frames') != null) {
         systemProperty 'bounce.frames', System.getProperty('bounce.frames')
     }
+    if (System.getProperty('bounce.fullscreen') != null) {
+        systemProperty 'bounce.fullscreen', System.getProperty('bounce.fullscreen')
+    }
     if (System.getProperty('bounce.debug') != null) {
         systemProperty 'bounce.debug', System.getProperty('bounce.debug')
     }

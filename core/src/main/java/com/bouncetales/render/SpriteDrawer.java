@@ -90,6 +90,39 @@ public final class SpriteDrawer implements Disposable {
         draw(batch, frameSprite(spriteId, frame), screenX, screenY, 0);
     }
 
+    /**
+     * Equivale a {@code p.a(x, y, id, flags)}: coloca la <b>caja</b> del sprite en
+     * {@code (x, y)} (sin aplicar el pivote) y la desplaza segun los flags de alineacion:
+     * {@code 1} = centrar en X, {@code 8} = alinear a la derecha, {@code 2} = centrar en Y,
+     * {@code 32} = alinear abajo.
+     */
+    public void drawBox(SpriteBatch batch, int spriteId, float x, float y, int flags) {
+        if (spriteId < 0) {
+            return;
+        }
+        if (spriteId >= SpriteBank.FIRST_PREFAB_ID) {
+            draw(batch, spriteId, x, y);
+            return;
+        }
+        SpriteDescriptor d = bank.descriptor(spriteId);
+        if (d == null) {
+            return;
+        }
+        float left = x;
+        float top = y;
+        if ((flags & 8) != 0) {
+            left -= d.width;
+        } else if ((flags & 1) != 0) {
+            left -= d.width * 0.5f;
+        }
+        if ((flags & 32) != 0) {
+            top -= d.height;
+        } else if ((flags & 2) != 0) {
+            top -= d.height * 0.5f;
+        }
+        drawRegion(batch, d.imageId, d.srcX, d.srcY, d.width, d.height, left, top);
+    }
+
     /** Dibuja solo las primeras filas de un sprite de descriptor, manteniendo su pivote. */
     public void drawTopPart(SpriteBatch batch, int spriteId, float screenX, float anchorY,
                             int visibleHeight) {
