@@ -194,12 +194,20 @@ public final class CollisionWorld {
     /**
      * Arrastra la bola con las plataformas que tocaba en el paso anterior.
      *
-     * <p>Reproduce {@code c.o()} (lineas 692-758): si el punto de contacto se ha movido
-     * {@code (dx,dy)} porque la entidad se ha desplazado, se aplica ese desplazamiento a la
-     * posicion (y a la posicion anterior, para que el barrido siga siendo coherente) y se
-     * sustituye la componente normal de la velocidad por la velocidad normal de la
-     * plataforma. Debe llamarse despues de ejecutar los triggers y antes de resolver las
-     * colisiones del paso.
+     * <p>Reproduce {@code c.o()} (lineas 692-758). Si el punto de contacto se ha movido
+     * {@code (dx,dy)} porque la entidad se ha desplazado:
+     * <ul>
+     *   <li>La <b>posicion anterior</b> del barrido se desplaza con la plataforma completa,
+     *       de modo que la resolucion mide el movimiento relativo y puede sacar a la bola
+     *       cuando la plataforma se le mete debajo (ascensor subiendo).</li>
+     *   <li>La <b>posicion actual</b> solo se desplaza en la componente tangencial: las
+     *       plataformas horizontales siguen llevando la bola, pero la componente normal la
+     *       corrige el contacto con la geometria actual (evita contar dos veces el ascensor).</li>
+     *   <li>La <b>velocidad normal</b> se sustituye por la de la plataforma, como en
+     *       {@code c.o()}, para que la bola suba/baje pegada a ella sin rebotar. No se aplica
+     *       si la bola acaba de saltar ({@code onGround == false}).</li>
+     * </ul>
+     * Debe llamarse despues de ejecutar los triggers y antes de resolver las colisiones.
      */
     public void applyPlatformCarry(BallBody ball, float dt) {
         if (carry.size == 0) {
@@ -217,14 +225,25 @@ public final class CollisionWorld {
             if (dx == 0f && dy == 0f) {
                 continue;
             }
+
+            // El punto de partida del barrido se desplaza con la plataforma: asi la
+            // resolucion mide el movimiento relativo y puede expulsar a la bola si la
+            // plataforma se le mete debajo (ascensor subiendo).
             ball.prevX += dx;
             ball.prevY += dy;
-            ball.x += dx;
-            ball.y += dy;
-            if (dt > 1e-6f) {
-                float platformNormalSpeed = (dx * c.normalX + dy * c.normalY) / dt;
-                float ballNormalSpeed = ball.vx * c.normalX + ball.vy * c.normalY;
-                float add = platformNormalSpeed - ballNormalSpeed;
+
+            // La componente tangencial si traslada la bola (plataformas horizontales);
+            // la normal la resuelve el contacto, que conoce la geometria actual.
+            float normal = dx * c.normalX + dy * c.normalY;
+            ball.x += dx - normal * c.normalX;
+            ball.y += dy - normal * c.normalY;
+
+            // c.o() sustituye la velocidad normal por la de la plataforma. No se aplica
+            // si la bola acaba de saltar (onGround=false), para no cancelar el salto.
+            if (ball.onGround && dt > 1e-6f) {
+                float platformSpeed = normal / dt;
+                float ballSpeed = ball.vx * c.normalX + ball.vy * c.normalY;
+                float add = platformSpeed - ballSpeed;
                 ball.vx += add * c.normalX;
                 ball.vy += add * c.normalY;
             }

@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.bouncetales.asset.LevelCatalog;
 import com.bouncetales.audio.SoundBank;
 import com.bouncetales.render.Background;
+import com.bouncetales.render.GraphicsSettings;
 import com.bouncetales.util.ScreenshotCapture;
 
 import java.util.List;
@@ -42,7 +43,7 @@ public final class MenuScreen implements Screen {
             Input.Keys.UP, Input.Keys.W, Input.Keys.DOWN, Input.Keys.S,
             Input.Keys.PAGE_UP, Input.Keys.PAGE_DOWN,
             Input.Keys.ENTER, Input.Keys.SPACE, Input.Keys.NUMPAD_ENTER,
-            Input.Keys.ESCAPE, Input.Keys.M, Input.Keys.F
+            Input.Keys.ESCAPE, Input.Keys.M, Input.Keys.F, Input.Keys.G
     };
 
     private final BounceTalesGame game;
@@ -97,6 +98,11 @@ public final class MenuScreen implements Screen {
         background = new Background(2);
         soundBank = new SoundBank();
         soundBank.playMusic(LevelCatalog.menuMusicId());
+        if (GraphicsSettings.isHd() && !GraphicsSettings.isHdAvailable()) {
+            Gdx.app.error("Menu", "sprites HD no disponibles en assets/"
+                    + GraphicsSettings.HD_FOLDER + "; se usaran los originales");
+            GraphicsSettings.setHd(false);
+        }
         viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
         syncWorldSize();
         Gdx.app.log("Menu", "niveles: " + levels.size() + ", seleccionado: "
@@ -171,9 +177,10 @@ public final class MenuScreen implements Screen {
         // Ayuda y opciones de audio.
         font.getData().setScale(0.4f);
         font.setColor(0.75f, 0.85f, 0.9f, 1f);
-        drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 270f);
-        drawAudioOptions(286f);
-        drawCentered("F11: pantalla completa    ESC: salir", 302f);
+        drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 266f);
+        drawSpriteOption(279f);
+        drawAudioOptions(292f);
+        drawCentered("F11: pantalla completa    ESC: salir", 305f);
         batch.end();
 
         frame++;
@@ -195,6 +202,10 @@ public final class MenuScreen implements Screen {
             pointer.set(Gdx.input.getX(), Gdx.input.getY());
             viewport.unproject(pointer);
             float topY = worldHeight - pointer.y;
+            if (topY >= 268f && topY <= 284f) {
+                toggleSprites();
+                return;
+            }
             int row = (int) ((topY - LIST_TOP) / ROW_HEIGHT);
             if (row >= 0 && row < VISIBLE_ROWS) {
                 int index = firstVisible + row;
@@ -240,6 +251,9 @@ public final class MenuScreen implements Screen {
                 break;
             case Input.Keys.F:
                 soundBank.toggleFxMuted();
+                break;
+            case Input.Keys.G:
+                toggleSprites();
                 break;
             default:
                 break;
@@ -319,6 +333,36 @@ public final class MenuScreen implements Screen {
                 muted ? 0.55f : 0.92f,
                 muted ? 0.45f : 0.65f, 1f);
         drawCentered("M: musica " + music + "    F: efectos " + fx, topY);
+    }
+
+    /** Opcion de calidad de sprites; en verde cuando estan activos los HD. */
+    private void drawSpriteOption(float topY) {
+        boolean hd = GraphicsSettings.isHd();
+        String label = hd ? "HD x" + GraphicsSettings.HD_SCALE : "ORIGINALES";
+        if (!hd && !GraphicsSettings.isHdAvailable()) {
+            label += "  (HD no disponible)";
+        }
+        font.setColor(hd ? 0.55f : 0.8f,
+                hd ? 0.95f : 0.88f,
+                hd ? 0.6f : 1f, 1f);
+        drawCentered("G: sprites " + label, topY);
+    }
+
+    /**
+     * Alterna originales/HD. Si se pide HD y no esta la carpeta {@code images_hd}, avisa por
+     * consola y deja los originales (el juego no se rompe).
+     */
+    private void toggleSprites() {
+        if (!GraphicsSettings.isHd()) {
+            if (!GraphicsSettings.isHdAvailable()) {
+                Gdx.app.error("Menu", "no se puede activar HD: falta assets/"
+                        + GraphicsSettings.HD_FOLDER + "; se mantienen los originales");
+                return;
+            }
+            GraphicsSettings.setHd(true);
+        } else {
+            GraphicsSettings.setHd(false);
+        }
     }
 
     /** Lee el tamano del mundo logico que ha calculado el {@link ExtendViewport}. */

@@ -1,11 +1,13 @@
 package com.bouncetales.render;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.IntMap;
+import com.badlogic.gdx.utils.IntSet;
 import com.badlogic.gdx.utils.LongMap;
 import com.bouncetales.asset.Prefab;
 import com.bouncetales.asset.SpriteBank;
@@ -17,6 +19,11 @@ import com.bouncetales.asset.SpriteDescriptor;
  *
  * <p>Las coordenadas de entrada son pixeles de pantalla J2ME (Y hacia abajo), que es lo que
  * usa todo el codigo original. La conversion a la Y de OpenGL la hace el propio dibujante.
+ *
+ * <p>Con sprites HD ({@code images_hd/}, factor {@link GraphicsSettings#HD_SCALE}) se
+ * muestrea una region {@code scale} veces mayor del atlas, pero se sigue dibujando al mismo
+ * tamano logico: el encuadre, la fisica y las colisiones no cambian. Si falta la carpeta HD
+ * o algun PNG, se cae automaticamente a los originales.
  */
 public final class SpriteDrawer implements Disposable {
 
@@ -25,12 +32,45 @@ public final class SpriteDrawer implements Disposable {
     private final SpriteBank bank;
     private final ScreenTransform transform;
 
+    /** Factor de ampliacion del atlas que se esta usando (1 = originales). */
+    private final int imageScale;
+    /** Carpeta de imagenes que se esta usando ({@code images} o {@code images_hd}). */
+    private final String imageFolder;
+
     private final IntMap<Texture> textures = new IntMap<>();
     private final LongMap<TextureRegion> regions = new LongMap<>();
+    /** Evita repetir el aviso de fallback para la misma imagen. */
+    private final IntSet warnedImages = new IntSet();
 
     public SpriteDrawer(SpriteBank bank, ScreenTransform transform) {
+        this(bank, transform, bank.imageScale(), bank.imageFolder());
+    }
+
+    /**
+     * @param imageScale factor de ampliacion del atlas (1 = originales, 8 = HD)
+     * @param imageFolder carpeta relativa a {@code assets/} con los PNG
+     */
+    public SpriteDrawer(SpriteBank bank, ScreenTransform transform,
+                        int imageScale, String imageFolder) {
         this.bank = bank;
         this.transform = transform;
+
+        int scale = Math.max(1, imageScale);
+        String folder = imageFolder == null || imageFolder.isEmpty()
+                ? GraphicsSettings.ORIGINAL_FOLDER : imageFolder;
+        if (scale > 1 && !bank.hasAllImages(folder)) {
+            log("faltan imagenes en assets/" + folder
+                    + "; se usaran los sprites originales");
+            scale = 1;
+            folder = GraphicsSettings.ORIGINAL_FOLDER;
+        }
+        this.imageScale = scale;
+        this.imageFolder = folder;
+        if (Gdx.app != null) {
+            Gdx.app.log("Sprites", scale > 1
+                    ? "HD x" + scale + " desde assets/" + folder
+                    : "originales desde assets/" + folder);
+        }
     }
 
     /**
@@ -182,19 +222,41 @@ public final class SpriteDrawer implements Disposable {
     }
 
     private TextureRegion region(int imageId, int srcX, int srcY, int w, int h) {
-        long key = ((long) imageId << 40) | ((long) (srcX & 0xFFF) << 28)
-                | ((long) (srcY & 0xFFF) << 16) | ((w & 0xFF) << 8) | (h & 0xFF);
-        TextureRegion cached = regions.get(key);
-        if (cached != null) {
-            return cached;
-        }
         Texture texture = texture(imageId);
         if (texture == null) {
             return null;
         }
-        TextureRegion region = new TextureRegion(texture, srcX, srcY, w, h);
+        int scale = imageScale;
+        if (scale > 1 && (srcX * scale + w * scale > texture.getWidth()
+                || srcY * scale + h * scale > texture.getHeight())) {
+            // El atlas no esta realmente ampliado (o le faltan trozos): ese sprite se
+            // muestrea 1:1 en vez de romper el dibujo.
+            warnOnce(imageId, "la imagen " + imageId + " no esta a x" + imageScale
+                    + "; se dibuja a escala original");
+            scale = 1;
+        }
+        long key = regionKey(imageId, srcX, srcY, w, h, scale);
+        TextureRegion cached = regions.get(key);
+        if (cached != null) {
+            return cached;
+        }
+        TextureRegion region = new TextureRegion(texture,
+                srcX * scale, srcY * scale, w * scale, h * scale);
         regions.put(key, region);
         return region;
+    }
+
+    /**
+     * Clave de cache de regiones: 6 bits de imagen, 13 de {@code srcX/srcY}, 11 de
+     * ancho/alto y un bit para la escala efectiva (1x u 8x).
+     */
+    private static long regionKey(int imageId, int srcX, int srcY, int w, int h, int scale) {
+        return ((long) (imageId & 0x3F) << 49)
+                | ((long) (srcX & 0x1FFF) << 36)
+                | ((long) (srcY & 0x1FFF) << 23)
+                | ((long) (w & 0x7FF) << 12)
+                | ((long) (h & 0x7FF) << 1)
+                | (scale > 1 ? 1L : 0L);
     }
 
     private Texture texture(int imageId) {
@@ -206,10 +268,52 @@ public final class SpriteDrawer implements Disposable {
         if (name == null) {
             return null;
         }
-        Texture texture = new Texture(Gdx.files.internal("images/" + name));
-        texture.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+        String path = imageFolder + "/" + name;
+        FileHandle file = Gdx.files.internal(path);
+        if (!file.exists() && imageScale > 1) {
+            warnOnce(imageId, "falta " + path + "; se usa la version original");
+            file = Gdx.files.internal(GraphicsSettings.ORIGINAL_FOLDER + "/" + name);
+        }
+        if (!file.exists()) {
+            log("no existe la imagen " + path);
+            return null;
+        }
+        Texture texture = imageScale > 1
+                ? new Texture(file, true)
+                : new Texture(file);
+        if (imageScale > 1) {
+            // HD: el atlas se reduce (8x -> tamano logico) al dibujar, asi que conviene
+            // filtrar linealmente y usar mipmaps para evitar aliasing.
+            texture.setFilter(Texture.TextureFilter.MipMapLinearNearest,
+                    Texture.TextureFilter.Linear);
+        } else {
+            texture.setFilter(Texture.TextureFilter.Nearest,
+                    Texture.TextureFilter.Nearest);
+        }
         textures.put(imageId, texture);
         return texture;
+    }
+
+    /** Factor de ampliacion efectivo (1 si se cayo a los originales). */
+    public int imageScale() {
+        return imageScale;
+    }
+
+    /** Carpeta de imagenes efectiva ({@code images} o {@code images_hd}). */
+    public String imageFolder() {
+        return imageFolder;
+    }
+
+    private void warnOnce(int imageId, String message) {
+        if (warnedImages.add(imageId)) {
+            log(message);
+        }
+    }
+
+    private static void log(String message) {
+        if (Gdx.app != null) {
+            Gdx.app.error("Sprites", message);
+        }
     }
 
     @Override

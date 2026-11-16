@@ -19,9 +19,11 @@ import com.bouncetales.world.Level;
  *   <li>3 {@link #KIND_CHASE}: persigue a la bola y mata.</li>
  * </ul>
  *
- * <p>Caja de colision local: {@code x in [-f120c[kind], f120c[kind]]},
- * {@code y in [0, f119b[kind]]}. El topo tipo 2 no mata: al tocarlo desde arriba rebota la
- * bola, y al tocar su zona revelada la empuja o hace que emerja.
+ * <p>Caja de colision local ({@code m.mo24a()}): {@code x in [-f120c[kind]/2, f120c[kind]/2]}
+ * (el original usa {@code (-f120c) << 15}, es decir, media anchura en 16.16) e
+ * {@code y in [0, f119b[kind]]}. Al igual que {@code c.java} (caso 10), el test bola-caja
+ * incluye el radio de la bola. El topo tipo 2 muere al ser pisado igual que el tipo 0
+ * ({@code m.e()}); de lado empuja sin matar, y enterrado solo se despierta.
  */
 public final class Enemy {
 
@@ -37,8 +39,12 @@ public final class Enemy {
             4000f / 65536f * 1000f,
             10000f / 65536f * 1000f};
 
-    /** {@code m.f120c}: semiancho de la caja local. */
-    public static final int[] HALF_WIDTH = {50, 100, 100, 150};
+    /**
+     * {@code m.f120c}: <b>anchura completa</b> de la caja local. La mitad se obtiene con
+     * {@code f120c << 15} en 16.16 ({@code m.mo24a()}), por eso aqui se guarda ya la
+     * semianchura ({@code f120c / 2}).
+     */
+    public static final int[] HALF_WIDTH = {25, 50, 50, 75};
 
     /** {@code m.f119b}: altura de la caja local. */
     public static final int[] HEIGHT = {100, 50, 80, 150};
@@ -236,7 +242,19 @@ public final class Enemy {
     }
 
     /**
-     * Interaccion con la bola ({@code c.a(k)} caso 10).
+     * Interaccion con la bola, traduccion de {@code c.a(k)} caso 10.
+     *
+     * <pre>
+     *   // Tercio superior (cabeza): solo tipos 0 y 2, y el topo solo si esta arriba o hundiendose
+     *   if (kind==0 || (kind==2 &amp;&amp; (visible || blinking)))
+     *       if (segmento toca [-hw, 2h/3]..[hw, h]) -&gt; m.e() = rebote + desaparecer
+     *   else
+     *       if (segmento toca [-hw,0]..[hw,h])           -&gt; m.c() = empuje / despertar / daño
+     *       if (kind==2 &amp;&amp; toca [-hw,0]..[hw,h*f114a/f115b]) -&gt; m.b() = empuje del topo
+     * </pre>
+     *
+     * <p>El test original ({@code c.a(int,int,int,int,int,int,int,int,int)}) incluye el radio
+     * de la bola; aqui se aproxima inflando la caja por {@code ball.radius()}.
      *
      * @return {@link #HIT_STOMP}, {@link #HIT_DAMAGE}, {@link #HIT_PUSH}, {@link #HIT_WAKE}
      *         o {@link #HIT_NONE}
@@ -248,24 +266,29 @@ public final class Enemy {
         }
         float hw = halfWidth();
         float h = height();
+        float r = ball.radius();
 
+        // Pisotón: la bola entra en el tercio superior (la cabeza). Igual que el original,
+        // solo los tipos 0 y 2 son pisables, y el topo solo cuando esta arriba o hundiendose
+        // (m.f117d == 1 || m.f116a).
         boolean canStomp = kind == KIND_PATROL
                 || (kind == KIND_BLINK && (visible || blinking));
-        if (canStomp && Geom.segmentHitsRect(prevLocalX, prevLocalY, localX, localY,
-                -hw, h * 2f / 3f, hw, h)) {
+        if (canStomp && hitsBox(prevLocalX, prevLocalY, localX, localY,
+                -hw, h * 2f / 3f, hw, h, r)) {
             bounce(ball);
-            if (kind == KIND_PATROL) {
-                kill();
-            }
+            // m.e(): tanto el tipo 0 como el topo tipo 2 desaparecen al ser pisados.
+            kill();
             return HIT_STOMP;
         }
 
-        if (Geom.segmentHitsRect(prevLocalX, prevLocalY, localX, localY, -hw, 0f, hw, h)) {
+        // Caja completa (m.c()).
+        if (hitsBox(prevLocalX, prevLocalY, localX, localY, -hw, 0f, hw, h, r)) {
             switch (kind) {
                 case KIND_LETHAL:
                 case KIND_CHASE:
                     return HIT_DAMAGE;
                 case KIND_BLINK:
+                    // m.c() tipo 2: enterrado y quieto -> amago de salida (no empuja).
                     if (!visible && fadePhase == 0 && pushCooldownMs <= 0f) {
                         emerge();
                         return HIT_WAKE;
@@ -278,16 +301,25 @@ public final class Enemy {
             }
         }
 
-        // El contacto solo alcanza la zona revelada del topo.
+        // Zona revelada del topo (m.b()): solo la parte que ha salido del suelo.
         if (kind == KIND_BLINK && fadeMax > 0f) {
-            int revealPercent = (int) (fade * 100f / fadeMax);
-            float top = h * revealPercent / 100f;
-            if (Geom.segmentHitsRect(prevLocalX, prevLocalY, localX, localY, -hw, 0f, hw, top)) {
-                pushBlink(ball);
-                return visible ? HIT_PUSH : HIT_WAKE;
+            float top = h * MathUtils.clamp(fade / fadeMax, 0f, 1f);
+            if (hitsBox(prevLocalX, prevLocalY, localX, localY, -hw, 0f, hw, top, r)) {
+                return pushBlink(ball) ? HIT_PUSH : HIT_NONE;
             }
         }
         return HIT_NONE;
+    }
+
+    /**
+     * Segmento de la bola contra una caja local, inflada por el radio de la bola para
+     * aproximar el test de capsula de {@code c.a(...)}.
+     */
+    private static boolean hitsBox(float px, float py, float cx, float cy,
+                                   float minX, float minY, float maxX, float maxY,
+                                   float radius) {
+        return Geom.segmentHitsRect(px, py, cx, cy,
+                minX - radius, minY - radius, maxX + radius, maxY + radius);
     }
 
     /** {@code m.g()}: rebote al pisar al enemigo. */
@@ -301,7 +333,7 @@ public final class Enemy {
         }
     }
 
-    /** {@code m.f()}: el enemigo desaparece al ser pisado. */
+    /** {@code m.f()}: el enemigo desaparece al ser pisado (tipos 0 y 2). */
     private void kill() {
         alive = false;
         level.detach(entity);
@@ -325,23 +357,42 @@ public final class Enemy {
         fadeMax = 200f;
     }
 
-    /** {@code m.b()} tipo 2: empuja; el primer contacto al emerger tambien lanza hacia arriba. */
-    private void pushBlink(BallBody ball) {
+    /**
+     * {@code m.b()} tipo 2: empuje del topo.
+     *
+     * <ul>
+     *   <li>Arriba ({@code f117d == 1}): empuje horizontal continuo de 100. Se fija la
+     *       velocidad horizontal (solo si la bola no se aleja ya mas rapido) en vez de sumar
+     *       impulso cada frame, que era lo que la aceleraba sin control.</li>
+     *   <li>Emergiendo ({@code f == 1}) y sin cooldown: patada lateral de 200 y salto de 400
+     *       una vez cada 500 ms ({@code m.v}).</li>
+     *   <li>Hundiendose o enterrado: no empuja.</li>
+     * </ul>
+     *
+     * <p>No se anula {@code vx}/{@code vy}: el original los pone a cero y suma el impulso,
+     * pero eso dejaba la bola "pegada" al topo. Aqui se conserva la velocidad y solo se
+     * aplica el empuje, de modo que la bola nunca se congela.
+     *
+     * @return {@code true} si aplico algun empuje
+     */
+    private boolean pushBlink(BallBody ball) {
         boolean pushRight = entity.worldX() < ball.x;
-        if (pushCooldownMs > 0f || visible || fadePhase != 1) {
-            if (visible) {
-                ball.kickX += (pushRight ? 100f : -100f) * ball.mass();
-                ball.forceX = 0f;
-                ball.forceY = 0f;
-            }
-            return;
-        }
+        float dir = pushRight ? 1f : -1f;
 
+        if (visible) {
+            float shove = 100f / ball.mass();
+            if (dir * ball.vx < shove) {
+                ball.vx = dir * shove;
+            }
+            return true;
+        }
+        if (fadePhase != 1 || pushCooldownMs > 0f) {
+            return false;
+        }
         pushCooldownMs = 500f;
-        ball.kickX += (pushRight ? 200f : -200f) * ball.mass();
+        ball.kickX += dir * 200f * ball.mass();
         ball.kickY += 400f * ball.mass();
-        ball.forceX = 0f;
-        ball.forceY = 0f;
+        return true;
     }
 
     public void reset() {

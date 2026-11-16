@@ -71,4 +71,7 @@ tasks.named('run') {
     if (System.getProperty('bounce.menuKeys') != null) {
         systemProperty 'bounce.menuKeys', System.getProperty('bounce.menuKeys')
     }
+    if (System.getProperty('bounce.hd') != null) {
+        systemProperty 'bounce.hd', System.getProperty('bounce.hd')
+    }
 }

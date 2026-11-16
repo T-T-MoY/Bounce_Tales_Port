@@ -19,6 +19,7 @@ import com.bouncetales.physics.BallBody;
 import com.bouncetales.physics.CollisionWorld;
 import com.bouncetales.render.Background;
 import com.bouncetales.render.CameraSpring;
+import com.bouncetales.render.GraphicsSettings;
 import com.bouncetales.render.LevelRenderer;
 import com.bouncetales.render.ScreenTransform;
 import com.bouncetales.render.SpriteDrawer;
@@ -152,10 +153,13 @@ public final class GameScreen implements Screen {
         batch = new SpriteBatch();
         shapes = new ShapeRenderer();
 
-        spriteBank = SpriteBank.parse(Gdx.files.internal(SPRITE_BANK).readString("UTF-8"));
+        spriteBank = SpriteBank.parse(
+                Gdx.files.internal(SPRITE_BANK).readString("UTF-8"),
+                GraphicsSettings.scale(), GraphicsSettings.imageFolder());
         Gdx.app.log("Bounce", "sprites: " + spriteBank.imageCount() + " imagenes, "
                 + spriteBank.descriptorCount() + " descriptores, "
-                + spriteBank.prefabCount() + " prefabs");
+                + spriteBank.prefabCount() + " prefabs"
+                + (GraphicsSettings.isHd() ? " [HD x" + GraphicsSettings.HD_SCALE + "]" : ""));
 
         level = LevelLoader.load(
                 Gdx.files.internal("levels/" + levelName + ".json").readString("UTF-8"));
@@ -177,8 +181,9 @@ public final class GameScreen implements Screen {
             transform.cameraY = level.root.worldY();
         }
 
-        background = Background.forLevel(levelName);
-        spriteDrawer = new SpriteDrawer(spriteBank, transform);
+        spriteDrawer = new SpriteDrawer(spriteBank, transform,
+                GraphicsSettings.scale(), GraphicsSettings.imageFolder());
+        background = Background.forLevel(levelName, spriteDrawer);
         levelRenderer = new LevelRenderer(batch, shapes, spriteDrawer, transform);
         loadTubeMeshes();
 
@@ -309,10 +314,11 @@ public final class GameScreen implements Screen {
         batch.setProjectionMatrix(camera.combined);
         shapes.setProjectionMatrix(camera.combined);
 
-        // Fondo: degradado de cielo del original (n.a, rama j == 4).
+        // Fondo: degradado de cielo + capas de paralaje (n.a, rama j == 4).
         shapes.begin(ShapeRenderer.ShapeType.Filled);
-        background.draw(shapes, (int) transform.width, (int) transform.height);
+        background.drawGradient(shapes, (int) transform.width, (int) transform.height);
         shapes.end();
+        background.drawLayers(batch, shapes, transform);
 
         levelRenderer.setLevelTime(levelTime);
         levelRenderer.render(level);

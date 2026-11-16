@@ -1,5 +1,6 @@
 package com.bouncetales.asset;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
@@ -14,6 +15,10 @@ import com.badlogic.gdx.utils.JsonValue;
  *   <li>{@code f262a} (214 prefabs) -&gt; {@link #prefab(int)}</li>
  *   <li>{@code f263a} (46 imagenes) -&gt; {@link #imageName(int)}</li>
  * </ul>
+ *
+ * <p>Los atlas pueden venir ampliados ({@code images_hd/}, factor 8): el banco guarda el
+ * factor y la carpeta para que {@link com.bouncetales.render.SpriteDrawer} muestree la
+ * region correcta sin tocar los tamanos logicos de los sprites.
  */
 public final class SpriteBank {
 
@@ -23,11 +28,27 @@ public final class SpriteBank {
     private final IntMap<Prefab> prefabs = new IntMap<>();
     private final IntMap<String> imageNames = new IntMap<>();
 
-    private SpriteBank() {
+    /** Factor de ampliacion de los atlas (1 = originales, 8 = HD). */
+    private final int imageScale;
+    /** Carpeta de imagenes relativa a {@code assets/} (por ejemplo {@code images_hd}). */
+    private final String imageFolder;
+
+    private SpriteBank(int imageScale, String imageFolder) {
+        this.imageScale = Math.max(1, imageScale);
+        this.imageFolder = imageFolder == null || imageFolder.isEmpty()
+                ? "images" : imageFolder;
     }
 
     public static SpriteBank parse(String json) {
-        SpriteBank bank = new SpriteBank();
+        return parse(json, 1, "images");
+    }
+
+    /**
+     * @param imageScale factor de ampliacion de los atlas (1 = originales, 8 = HD)
+     * @param imageFolder carpeta relativa a {@code assets/} donde estan los PNG
+     */
+    public static SpriteBank parse(String json, int imageScale, String imageFolder) {
+        SpriteBank bank = new SpriteBank(imageScale, imageFolder);
         JsonValue root = new JsonReader().parse(json);
 
         JsonValue images = root.get("images");
@@ -126,6 +147,43 @@ public final class SpriteBank {
 
     public String imageName(int imageId) {
         return imageNames.get(imageId);
+    }
+
+    /** Ruta completa ({@code carpeta/fichero.png}) de la imagen {@code imageId}. */
+    public String imagePath(int imageId) {
+        String name = imageNames.get(imageId);
+        return name == null ? null : imageFolder + "/" + name;
+    }
+
+    /** Factor de ampliacion de los atlas (1 = originales, 8 = HD). */
+    public int imageScale() {
+        return imageScale;
+    }
+
+    /** Carpeta de imagenes relativa a {@code assets/}. */
+    public String imageFolder() {
+        return imageFolder;
+    }
+
+    /** {@code true} si existen todos los PNG del banco en {@link #imageFolder()}. */
+    public boolean hasAllImages() {
+        return hasAllImages(imageFolder);
+    }
+
+    /**
+     * Comprueba que existen todos los PNG del banco en {@code folder}. No carga ninguna
+     * textura, solo consulta el sistema de ficheros.
+     */
+    public boolean hasAllImages(String folder) {
+        if (imageNames.size == 0 || Gdx.files == null) {
+            return false;
+        }
+        for (String name : imageNames.values()) {
+            if (!Gdx.files.internal(folder + "/" + name).exists()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public int descriptorCount() {
