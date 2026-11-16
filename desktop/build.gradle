@@ -10,6 +10,8 @@ dependencies {
     implementation project(':core')
     implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    // Nativos de FreeType para generar la fuente TrueType en escritorio.
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 }
 
 // libGDX resuelve Gdx.files.internal(...) contra el directorio de trabajo.
@@ -70,6 +72,15 @@ tasks.named('run') {
     }
     if (System.getProperty('bounce.menuKeys') != null) {
         systemProperty 'bounce.menuKeys', System.getProperty('bounce.menuKeys')
+    }
+    if (System.getProperty('bounce.viewerKeys') != null) {
+        systemProperty 'bounce.viewerKeys', System.getProperty('bounce.viewerKeys')
+    }
+    if (System.getProperty('bounce.sprite') != null) {
+        systemProperty 'bounce.sprite', System.getProperty('bounce.sprite')
+    }
+    if (System.getProperty('bounce.viewer') != null) {
+        systemProperty 'bounce.viewer', System.getProperty('bounce.viewer')
     }
     if (System.getProperty('bounce.hd') != null) {
         systemProperty 'bounce.hd', System.getProperty('bounce.hd')

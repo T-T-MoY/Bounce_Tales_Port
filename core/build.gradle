@@ -4,4 +4,6 @@ plugins {
 
 dependencies {
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    // Fuente TrueType para la interfaz (FreeTypeFontGenerator).
+    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 }

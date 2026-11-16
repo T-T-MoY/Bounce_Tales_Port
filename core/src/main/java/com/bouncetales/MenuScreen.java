@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.bouncetales.asset.LevelCatalog;
 import com.bouncetales.audio.SoundBank;
 import com.bouncetales.render.Background;
+import com.bouncetales.render.FontManager;
 import com.bouncetales.render.GraphicsSettings;
 import com.bouncetales.util.ScreenshotCapture;
 
@@ -43,7 +44,7 @@ public final class MenuScreen implements Screen {
             Input.Keys.UP, Input.Keys.W, Input.Keys.DOWN, Input.Keys.S,
             Input.Keys.PAGE_UP, Input.Keys.PAGE_DOWN,
             Input.Keys.ENTER, Input.Keys.SPACE, Input.Keys.NUMPAD_ENTER,
-            Input.Keys.ESCAPE, Input.Keys.M, Input.Keys.F, Input.Keys.G
+            Input.Keys.ESCAPE, Input.Keys.M, Input.Keys.F, Input.Keys.G, Input.Keys.V
     };
 
     private final BounceTalesGame game;
@@ -70,6 +71,8 @@ public final class MenuScreen implements Screen {
     private SpriteBatch batch;
     private ShapeRenderer shapes;
     private BitmapFont font;
+    /** Convierte las escalas de diseno (arial-15) a la fuente TrueType de 48 px. */
+    private float textScale = 1f;
     private GlyphLayout layout;
     private Background background;
     private SoundBank soundBank;
@@ -93,7 +96,9 @@ public final class MenuScreen implements Screen {
         viewport = new ExtendViewport(SCREEN_WIDTH, SCREEN_HEIGHT, camera);
         batch = new SpriteBatch();
         shapes = new ShapeRenderer();
-        font = new BitmapFont();
+        FontManager.UiFont uiFont = FontManager.createUiFont();
+        font = uiFont.font;
+        textScale = uiFont.baseScale;
         layout = new GlyphLayout();
         background = new Background(2);
         soundBank = new SoundBank();
@@ -123,6 +128,9 @@ public final class MenuScreen implements Screen {
         }
         if (!scriptedDone && scriptedKeys != null && inputArmDelay <= 0f) {
             dispatchScriptedKeys();
+            if (starting) {
+                return;
+            }
         }
 
         ScreenUtils.clear(0f, 0f, 0f, 1f);
@@ -142,10 +150,10 @@ public final class MenuScreen implements Screen {
         shapes.end();
 
         batch.begin();
-        font.getData().setScale(1.2f);
+        font.getData().setScale(1.2f * textScale);
         font.setColor(1f, 0.83f, 0.25f, 1f);
         drawCentered("BOUNCE TALES", TITLE_Y);
-        font.getData().setScale(0.55f);
+        font.getData().setScale(0.55f * textScale);
         font.setColor(0.85f, 0.95f, 1f, 1f);
         int lastVisible = Math.min(firstVisible + VISIBLE_ROWS, levels.size());
         drawCentered("Selecciona un nivel  (" + (firstVisible + 1) + "-"
@@ -153,7 +161,7 @@ public final class MenuScreen implements Screen {
 
         // La lista conserva su columna de 240 px centrada en el lienzo extendido.
         float contentX = (worldWidth - SCREEN_WIDTH) * 0.5f;
-        font.getData().setScale(0.5f);
+        font.getData().setScale(0.5f * textScale);
         for (int row = 0; row < VISIBLE_ROWS; row++) {
             int index = firstVisible + row;
             if (index >= levels.size()) {
@@ -175,12 +183,12 @@ public final class MenuScreen implements Screen {
         }
 
         // Ayuda y opciones de audio.
-        font.getData().setScale(0.4f);
+        font.getData().setScale(0.4f * textScale);
         font.setColor(0.75f, 0.85f, 0.9f, 1f);
         drawCentered("FLECHAS / W S: elegir    ENTER: jugar", 266f);
         drawSpriteOption(279f);
         drawAudioOptions(292f);
-        drawCentered("F11: pantalla completa    ESC: salir", 305f);
+        drawCentered("V: visor de sprites    F11: pantalla completa    ESC: salir", 305f);
         batch.end();
 
         frame++;
@@ -255,6 +263,9 @@ public final class MenuScreen implements Screen {
             case Input.Keys.G:
                 toggleSprites();
                 break;
+            case Input.Keys.V:
+                openSpriteViewer();
+                break;
             default:
                 break;
         }
@@ -316,6 +327,16 @@ public final class MenuScreen implements Screen {
         Gdx.app.log("Menu", "iniciando nivel " + (selected + 1) + ": " + level
                 + " (" + source + ")");
         game.openLevel(level);
+    }
+
+    /** Abre el visor de sprites; al salir con ESC se vuelve a este menu. */
+    private void openSpriteViewer() {
+        if (starting) {
+            return;
+        }
+        starting = true;
+        Gdx.app.log("Menu", "abriendo visor de sprites");
+        game.openSpriteViewer();
     }
 
     private void drawCentered(String text, float topY) {

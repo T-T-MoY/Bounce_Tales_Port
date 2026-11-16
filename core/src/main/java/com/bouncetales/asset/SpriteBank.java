@@ -5,6 +5,8 @@ import com.badlogic.gdx.utils.IntMap;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 
+import java.util.Arrays;
+
 /**
  * Banco de sprites del juego, cargado desde {@code sprites.json} (lo genera
  * {@code tools/export_sprites.py}).
@@ -184,6 +186,23 @@ public final class SpriteBank {
             }
         }
         return true;
+    }
+
+    /**
+     * Ids de sprite presentes en el banco (descriptores y prefabs), ordenados de menor a
+     * mayor. Lo usa el visor de sprites para recorrer la galeria completa.
+     */
+    public int[] spriteIds() {
+        int[] ids = new int[descriptors.size + prefabs.size];
+        int n = 0;
+        for (IntMap.Keys it = descriptors.keys(); it.hasNext; ) {
+            ids[n++] = it.next();
+        }
+        for (IntMap.Keys it = prefabs.keys(); it.hasNext; ) {
+            ids[n++] = it.next();
+        }
+        Arrays.sort(ids);
+        return ids;
     }
 
     public int descriptorCount() {

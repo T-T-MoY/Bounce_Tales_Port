@@ -294,6 +294,14 @@ public final class SpriteDrawer implements Disposable {
         return texture;
     }
 
+    /**
+     * Textura completa del atlas {@code imageId} (se carga si hace falta). Pensado para
+     * herramientas de desarrollo como el visor de sprites; el juego no la usa.
+     */
+    public Texture atlasTexture(int imageId) {
+        return texture(imageId);
+    }
+
     /** Factor de ampliacion efectivo (1 si se cayo a los originales). */
     public int imageScale() {
         return imageScale;

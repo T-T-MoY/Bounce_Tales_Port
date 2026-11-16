@@ -14,6 +14,7 @@ import com.bouncetales.asset.LevelCatalog;
  * <ul>
  *   <li>{@code -Dbounce.level=bg}: arranca directamente en ese nivel (modo de pruebas).</li>
  *   <li>{@code -Dbounce.menu=true|false}: fuerza menu o juego directo.</li>
+ *   <li>{@code -Dbounce.viewer=true}: arranca en el visor de sprites (herramienta).</li>
  *   <li>{@code -Dbounce.screenshot=... -Dbounce.frames=N}: captura y sale.</li>
  * </ul>
  */
@@ -40,7 +41,9 @@ public final class BounceTalesGame extends Game {
                 || System.getProperty("bounce.frames") != null;
         // Las capturas automatizadas siguen siendo directas salvo que se pida el menu.
         boolean menu = menuRequested && !(screenshot && !menuRequestedExplicitly());
-        if (menu) {
+        if (Boolean.parseBoolean(System.getProperty("bounce.viewer", "false"))) {
+            openSpriteViewer();
+        } else if (menu) {
             openMenu();
         } else {
             openLevel(levelName);
@@ -85,6 +88,11 @@ public final class BounceTalesGame extends Game {
     /** Carga un nivel concreto y libera la pantalla anterior. */
     public void openLevel(String name) {
         swapScreen(new GameScreen(this, name));
+    }
+
+    /** Abre el visor de sprites (herramienta de desarrollo para el artista). */
+    public void openSpriteViewer() {
+        swapScreen(new SpriteViewerScreen(this));
     }
 
     /** Llamado por {@link GameScreen} al recoger todos los coleccionables. */
